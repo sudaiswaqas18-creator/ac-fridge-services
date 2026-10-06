@@ -1,0 +1,1176 @@
+import { BRAND, waLink } from '../translations.js';
+import { GALLERY_ITEMS, VIDEO_ITEMS, POSTER_ITEMS } from '../data.js';
+
+export { BRAND, waLink, GALLERY_ITEMS, VIDEO_ITEMS, POSTER_ITEMS };
+
+// Dropdown Navigation Structure
+export const NAV_STRUCTURE = {
+  ar: [
+    {
+      id: 'services',
+      label: 'الخدمات',
+      path: '/services',
+      isDropdown: true,
+      items: [
+        {
+          id: 'ac-repair',
+          title: 'صيانة وتصليح المكيفات',
+          desc: 'سبليت، شباك، مخفي، معالجة التسريبات وضعف التبريد',
+          path: '/services/ac-repair',
+          icon: 'ac',
+          badge: 'شائع',
+        },
+        {
+          id: 'ac-cleaning',
+          title: 'غسيل وتنظيف المكيفات',
+          desc: 'تنظيف عميق بضغط الماء ومواد التعقيم الآمنة',
+          path: '/services/ac-cleaning',
+          icon: 'snow',
+          badge: 'موصى به',
+        },
+        {
+          id: 'central-hvac',
+          title: 'المكيفات المركزية والكونسيلد',
+          desc: 'صيانة الدكت، البكج، والوحدات المركزية للمباني',
+          path: '/services/central-hvac',
+          icon: 'tools',
+        },
+        {
+          id: 'refrigerator-repair',
+          title: 'تصليح الثلاجات والفريزرات',
+          desc: 'إصلاح الكمبروسر، نقص الفريون، ومشاكل النوفروست',
+          path: '/services/refrigerator-repair',
+          icon: 'fridge',
+        },
+        {
+          id: 'washing-machine-repair',
+          title: 'صيانة الغسالات والنشافات',
+          desc: 'غسالات أوتوماتيكية، طلمبات التصريف، وتغيير البلي',
+          path: '/services/washing-machine-repair',
+          icon: 'washer',
+        },
+        {
+          id: 'motor-rewinding',
+          title: 'لف وإصلاح الموتورات (المركات)',
+          desc: 'إعادة لف بالنحاس النقي 100% وعوازل حرارية فائقة',
+          path: '/services/motor-rewinding',
+          icon: 'motor',
+          badge: 'ورشة متخصصة',
+        },
+        {
+          id: 'fault-diagnostics',
+          title: 'الفحص والتشخيص الإلكتروني',
+          desc: 'كشف تسريبات الفريون وقياس كفاءة الدوائر بدقة',
+          path: '/services/fault-diagnostics',
+          icon: 'diagnosis',
+        },
+        {
+          id: 'maintenance-contracts',
+          title: 'عقود الصيانة الدورية والسنوية',
+          desc: 'باقات وقائية للفلل والمجمعات والمطاعم والشركات',
+          path: '/services/maintenance-contracts',
+          icon: 'contract',
+        },
+      ],
+    },
+    {
+      id: 'portfolio',
+      label: 'أعمالنا',
+      path: '/portfolio',
+      isDropdown: true,
+      items: [
+        {
+          id: 'showcase',
+          title: 'معرض الصور الميدانية',
+          desc: 'أكثر من 50 صورة حقيقية من ورشتنا ومواقع الصيانة',
+          path: '/work/gallery',
+          icon: 'zoom',
+        },
+        {
+          id: 'case-studies',
+          title: 'دراسات الحالة والمشاريع',
+          desc: 'مشاريع حقيقية ونتائج موثقة بالأرقام والتفاصيل',
+          path: '/portfolio#cases',
+          icon: 'check',
+        },
+        {
+          id: 'videos-vault',
+          title: 'فيديوهات الصيانة الحية',
+          desc: 'شاهد فنيينا أثناء فحص الكمبروسرات ولف المحركات',
+          path: '/work/videos',
+          icon: 'play',
+        },
+        {
+          id: 'before-after',
+          title: 'مقارنات قبل وبعد الإصلاح',
+          desc: 'شاهد المحركات والأجهزة التالفة بعد إعادة بنائها',
+          path: '/work/transformations',
+          icon: 'sparkle',
+        },
+      ],
+      footerLink: { label: 'تصفح أرشيف الأعمال بالكامل ←', path: '/portfolio' },
+    },
+    {
+      id: 'company',
+      label: 'عن جوزاء',
+      path: '/about',
+      isDropdown: true,
+      items: [
+        {
+          id: 'about',
+          title: 'من نحن وقصة المؤسسة',
+          desc: 'أكثر من عقد من التميز في خدمات التبريد بالرياض',
+          path: '/about',
+          icon: 'shield',
+        },
+        {
+          id: 'reviews',
+          title: 'آراء وتقييمات العملاء',
+          desc: 'تجارب واقعية وتقييمات 5 نجوم من أهالي الرياض',
+          path: '/reviews',
+          icon: 'star',
+        },
+        {
+          id: 'blog',
+          title: 'دليل الصيانة والمقالات',
+          desc: 'نصائح مهنية لإطالة عمر أجهزتك وتوفير الكهرباء',
+          path: '/blog',
+          icon: 'snow',
+        },
+        {
+          id: 'faq',
+          title: 'الأسئلة الشائعة',
+          desc: 'إجابات على الأسئلة المتعلقة بالأسعار والضمان',
+          path: '/faq',
+          icon: 'diagnosis',
+        },
+        {
+          id: 'careers',
+          title: 'الوظائف والانضمام للفريق',
+          desc: 'فرص عمل لفنيي التكييف والتبريد والكهرباء',
+          path: '/careers',
+          icon: 'userCheck',
+        },
+      ],
+      footerLink: { label: 'تعرف أكثر على رؤيتنا وفريقنا ←', path: '/about' },
+    },
+    {
+      id: 'contact',
+      label: 'اتصل بنا',
+      isDropdown: false,
+      path: '/contact',
+    },
+  ],
+  en: [
+    {
+      id: 'services',
+      label: 'Services',
+      path: '/services',
+      isDropdown: true,
+      items: [
+        {
+          id: 'ac-repair',
+          title: 'AC Repair & Maintenance',
+          desc: 'Split, window & ducted AC troubleshooting & repair',
+          path: '/services/ac-repair',
+          icon: 'ac',
+          badge: 'Popular',
+        },
+        {
+          id: 'ac-cleaning',
+          title: 'Deep AC Pressure Cleaning',
+          desc: 'High-pressure sanitization for indoor & outdoor coils',
+          path: '/services/ac-cleaning',
+          icon: 'snow',
+          badge: 'Recommended',
+        },
+        {
+          id: 'central-hvac',
+          title: 'Central & Package HVAC',
+          desc: 'Complete commercial duct & package AC maintenance',
+          path: '/services/central-hvac',
+          icon: 'tools',
+        },
+        {
+          id: 'refrigerator-repair',
+          title: 'Refrigerator & Freezer Repair',
+          desc: 'Compressor rebuilds, freon leaks & defrost faults',
+          path: '/services/refrigerator-repair',
+          icon: 'fridge',
+        },
+        {
+          id: 'washing-machine-repair',
+          title: 'Washer & Dryer Service',
+          desc: 'Automatic washer repairs, drain pumps & bearings',
+          path: '/services/washing-machine-repair',
+          icon: 'washer',
+        },
+        {
+          id: 'motor-rewinding',
+          title: 'Electric Motor Rewinding',
+          desc: '100% pure copper rewinding with Class H insulation',
+          path: '/services/motor-rewinding',
+          icon: 'motor',
+          badge: 'Specialized Bay',
+        },
+        {
+          id: 'fault-diagnostics',
+          title: 'Electronic Diagnostics',
+          desc: 'Digital refrigerant leak check and amp load testing',
+          path: '/services/fault-diagnostics',
+          icon: 'diagnosis',
+        },
+        {
+          id: 'maintenance-contracts',
+          title: 'Annual Maintenance Contracts',
+          desc: 'Preventative HVAC plans for villas and businesses',
+          path: '/services/maintenance-contracts',
+          icon: 'contract',
+        },
+      ],
+    },
+    {
+      id: 'portfolio',
+      label: 'Our Work',
+      path: '/portfolio',
+      isDropdown: true,
+      items: [
+        {
+          id: 'showcase',
+          title: 'Field Photo Gallery',
+          desc: 'Real photos from our workshop and on-site projects',
+          path: '/work/gallery',
+          icon: 'zoom',
+        },
+        {
+          id: 'case-studies',
+          title: 'Case Studies & Projects',
+          desc: 'Documented client projects with measurable outcomes',
+          path: '/portfolio#cases',
+          icon: 'check',
+        },
+        {
+          id: 'videos-vault',
+          title: 'Live Service Videos',
+          desc: 'Watch technician diagnostics and motor rewinding',
+          path: '/work/videos',
+          icon: 'play',
+        },
+        {
+          id: 'before-after',
+          title: 'Before & After Transformations',
+          desc: 'Inspect burned motors restored to factory specs',
+          path: '/work/transformations',
+          icon: 'sparkle',
+        },
+      ],
+      footerLink: { label: 'Browse Full Work Portfolio ←', path: '/portfolio' },
+    },
+    {
+      id: 'company',
+      label: 'Company',
+      path: '/about',
+      isDropdown: true,
+      items: [
+        {
+          id: 'about',
+          title: 'About Us & Company Story',
+          desc: 'Over a decade of HVAC leadership in Riyadh',
+          path: '/about',
+          icon: 'shield',
+        },
+        {
+          id: 'reviews',
+          title: 'Customer Testimonials',
+          desc: 'Verified 5-star reviews from Riyadh homeowners',
+          path: '/reviews',
+          icon: 'star',
+        },
+        {
+          id: 'blog',
+          title: 'HVAC Guides & Articles',
+          desc: 'Expert maintenance advice to save electricity',
+          path: '/blog',
+          icon: 'snow',
+        },
+        {
+          id: 'faq',
+          title: 'Frequently Asked Questions',
+          desc: 'Answers about pricing, warranty and booking',
+          path: '/faq',
+          icon: 'diagnosis',
+        },
+        {
+          id: 'careers',
+          title: 'Careers & Team Openings',
+          desc: 'Join our certified technical and engineering team',
+          path: '/careers',
+          icon: 'userCheck',
+        },
+      ],
+      footerLink: { label: 'Learn More About Our Team ←', path: '/about' },
+    },
+    {
+      id: 'contact',
+      label: 'Contact Us',
+      isDropdown: false,
+      path: '/contact',
+    },
+  ],
+};
+
+// Detailed Dedicated Service Pages Data (500+ words unique content per service)
+export const DETAILED_SERVICES = {
+  'ac-repair': {
+    slug: 'ac-repair',
+    icon: 'ac',
+    heroImage: 'poster-ac-repair-riyadh',
+    titleAr: 'صيانة وتصليح المكيفات بالرياض (سبليت وشباك ومخفي)',
+    titleEn: 'Split, Window & Concealed AC Repair in Riyadh',
+    subtitleAr: 'فحص إلكتروني دقيق للأعطال، شحن فريون أصلي، إصلاح الكمبروسر، وحل مشاكل تسريب المياه وضعف التبريد مع ضمان خطي معتمد.',
+    subtitleEn: 'Digital diagnostic troubleshooting, genuine freon recharge, compressor repair, and leak elimination with official warranty.',
+    wordCountNote: 'صفحة متخصصة شاملة لكافة أعطال التكييف المنزلي والتجاري بالرياض',
+    overviewAr: `تعتبر صيانة المكيفات في مدينة الرياض ضرورة ملحة وليست مجرد رفاهية، خاصة مع وصول درجات الحرارة في فصل الصيف إلى ما يزيد عن 50 درجة مئوية. في مؤسسة جوزاء للتبريد والتكييف، نوفر حلولاً هندسية متقدمة لصيانة كافة أنواع المكيفات (سبليت، شباك، دولابي، كاسيت، ومخفي كونسيلد) على أيدي فنيين محترفين معتمدين.
+
+نحن لا نكتفي بإصلاح العطل الظاهري، بل نستخدم أحدث أجهزة الفحص الرقمية للكشف عن الأسباب الجذرية وراء ضعف التبريد، أو ارتفاع صوت الوحدة الخارجية، أو تساقط المياه داخل الغرف. يتم شحن غاز الفريون المعتمد (R410A و R22) وفقاً لمعايير الضغط الموصى بها من الشركات المصنعة، مع فحص كامل للصمامات، ومكثفات التشغيل (الكابستور)، والمراوح لضمان أقصى كفاءة بأقل استهلاك للطاقة الكهربائية.`,
+    overviewEn: `Air conditioning maintenance in Riyadh is an absolute necessity, especially during scorching summer heatwaves exceeding 50°C. At Jawzaa HVAC, we deliver specialized engineering repair solutions for all air conditioning configurations including wall-mounted split units, window units, floor-standing package ACs, and concealed ducted systems.
+
+Our certified technicians do not just treat superficial symptoms; we deploy digital manifold gauges and acoustic ultrasonic leak detectors to uncover root causes behind cooling drop, compressor overheating, or interior condensate water leaks. We recharge genuine R410A and R22 refrigerants precisely matched to factory pressure specs while thoroughly inspecting run capacitors, expansion valves, and blower fan bearings to maximize cooling output and reduce power consumption.`,
+    stats: [
+      { labelAr: 'مكيف تم إصلاحه', labelEn: 'ACs Serviced', value: '3,800+' },
+      { labelAr: 'نسبة النجاح من أول زيارة', labelEn: 'First-Visit Resolution', value: '96%' },
+      { labelAr: 'مدة الضمان المعتمد', labelEn: 'Certified Warranty', value: '3 - 6 أشهر' },
+      { labelAr: 'متوسط وقت الوصول بالرياض', labelEn: 'Avg. Arrival Time', value: '45 دقيقة' },
+    ],
+    symptomsAddressedAr: [
+      'ضعف خروج الهواء البارد أو خروج هواء دافئ من المكيف',
+      'تساقط المياه من الوحدة الداخلية على الجدران والأثاث',
+      'ظهور أصوات صرير أو طحن أو اهتزاز عنيف في المروحة والكمبروسر',
+      'انبعاث روائح رطوبة أو غبار غير مستحبة عند تشغيل المكيف',
+      'تكرار فصل قاطع الكهرباء (البريكر) فور تشغيل الوحدة الخارجية',
+      'تكون طبقة من الثلج الكثيف على أنابيب النحاس والمبخر',
+    ],
+    symptomsAddressedEn: [
+      'AC blowing warm or room-temperature air despite low thermostat setting',
+      'Interior water dripping onto floors, curtains, or wallpaper',
+      'Loud grinding, rattling, or squealing noises from fan or compressor',
+      'Musty odors or dust blowing into the room during operation',
+      'Circuit breaker tripping immediately when outdoor condenser kicks on',
+      'Heavy ice frost formation on copper line suction pipes and coils',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'الفحص والتشخيص الرقمي', desc: 'قياس ضغط الفريون، سحب الأمبير، واختبار كفاءة الكابستور ولوحة التحكم' },
+      { num: '02', title: 'كشف ومعالجة التسريبات', desc: 'فحص صواميل الربط وأنابيب النحاس ولحام الفتحات بغاز الفضة المضغوط' },
+      { num: '03', title: 'شحن الفريون وضبط الميزان', desc: 'تفريغ الهواء (فاكيوم) وإعادة شحن الفريون الأصلي بالوزن الدقيق' },
+      { num: '04', title: 'اختبار التبريد وتسليم الضمان', desc: 'تشغيل المكيف ومراقبة درجة برودة الهواء وتسليم العميل سند الضمان الخطي' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Digital Diagnostic', desc: 'Testing freon pressures, running amps, and capacitor/control board health' },
+      { num: '02', title: 'Leak Detection & Braze', desc: 'Inspecting flare nuts, copper joints and silver-brazing micro-fissures' },
+      { num: '03', title: 'Vacuum & Gas Recharge', desc: 'Deep system evacuation and weighed recharge of factory-spec refrigerant' },
+      { num: '04', title: 'Load Test & Warranty', desc: 'Measuring supply delta-T air temp and issuing official written warranty' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'فحص وتعبئة فريون سريع',
+        nameEn: 'Quick Check & Freon Top-Up',
+        priceAr: 'يبدأ من 150 ريال',
+        priceEn: 'From 150 SAR',
+        descAr: 'فحص شامل للدورة وشحن الفريون الناقص',
+        descEn: 'Full system check & refrigerant top-up',
+        featuresAr: ['فحص ضغط الفريون والكمبروسر', 'شحن فريون أصلي R410/R22', 'تنظيف الفلاتر الأساسية', 'ضمان على الشحن'],
+        featuresEn: ['Freon & compressor pressure test', 'Genuine R410/R22 gas charge', 'Basic filter cleaning', 'Recharge warranty'],
+      },
+      {
+        nameAr: 'صيانة وإصلاح أعطال شامل',
+        nameEn: 'Comprehensive Repair Package',
+        priceAr: 'يبدأ من 250 ريال',
+        priceEn: 'From 250 SAR',
+        descAr: 'إصلاح التنسيم، تغيير الكابستور، وحل مشكلة التنقيط',
+        descEn: 'Leak repair, capacitor replacement & drain fix',
+        isPopular: true,
+        featuresAr: ['معالجة تسريب المياه وتسليك المجرى', 'تغيير كابستور أو مفتاح تشغيل أصلي', 'لحام مواسير النحاس والتنسيم', 'ضمان معتمد حتى 6 أشهر'],
+        featuresEn: ['Drain line unclogging & leveling', 'Genuine capacitor/relay swap', 'Copper leak brazing & testing', 'Up to 6-month written warranty'],
+      },
+      {
+        nameAr: 'صيانة مكيفات متعددة (فلل ومباني)',
+        nameEn: 'Multi-Unit Villa Package',
+        priceAr: 'خصم خاص 25%',
+        priceEn: 'Special 25% Off',
+        descAr: 'صيانة 4 مكيفات فأكثر في نفس الموقع',
+        descEn: 'Service for 4+ units at single location',
+        featuresAr: ['فحص وصيانة كافة مكيفات الفيلا', 'شحن الفريون وتنظيف مجاري الصرف', 'تقرير فني شامل بحالة الأجهزة', 'أولوية خدمة ودعم فني فوري'],
+        featuresEn: ['Full check for all villa ACs', 'Freon refills & drain flushes', 'Detailed diagnostic health report', 'Top-priority emergency support'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'ما هو السبب الأكثر شيوعاً لخروج هواء دافئ من المكيف؟',
+        qEn: 'What is the most common reason an AC blows warm air?',
+        aAr: 'في 80% من الحالات يكون السبب إما نقص غاز الفريون بسبب تسريب غير معالج، أو تلف في كابستور تشغيل الكمبروسر، أو انسداد تام في فلاتر ومبخر الوحدة الخارجية بالأتربة والغبار.',
+        aEn: 'In 80% of cases, the culprit is either freon loss from an untreated leak, a blown compressor run capacitor, or severe dirt accumulation choking the outdoor condenser coils.',
+      },
+      {
+        qAr: 'هل تغطون كافة أحياء الرياض وما سرعة وصول الفني؟',
+        qEn: 'Do you cover all Riyadh neighborhoods and how fast is dispatch?',
+        aAr: 'نعم، فنيونا مجهزون بسيارات صيانة متنقلة تغطي شمال، شرق، غرب، وجنوب الرياض، ونصل إلى موقعك غالباً خلال 45 إلى 90 دقيقة من تأكيد الحجز.',
+        aEn: 'Yes, our technicians operate mobile service vans covering North, East, West, and South Riyadh, typically arriving at your location within 45 to 90 minutes of booking confirmation.',
+      },
+    ],
+  },
+
+  'ac-cleaning': {
+    slug: 'ac-cleaning',
+    icon: 'snow',
+    heroImage: 'poster-ac-jet-cleaning',
+    titleAr: 'غسيل وتنظيف المكيفات العميق بضغط الماء بالرياض',
+    titleEn: 'Deep Pressure AC Cleaning & Coil Sanitization in Riyadh',
+    subtitleAr: 'تنظيف شامل للوحدة الداخلية والخارجية بأحدث مضخات الضغط وأكياس العزل، مع تطهير المبخر وإزالة الفطريات لتحسين تدفق الهواء وبرودته.',
+    subtitleEn: 'Complete indoor & outdoor coil power-washing using protective bibs, eliminating molds, dust and restoring maximum airflow.',
+    overviewAr: `تراكم الغبار والأتربة والشوائب داخل زعانف مكيفات الهواء في بيئة الرياض الصحراوية يقلل من كفاءة التبريد بنسبة تصل إلى 40% ويرفع استهلاك فاتورة الكهرباء بشكل مضاعف. يوفر فريق جوزاء خدمة غسيل مكيفات احترافية باستخدام أحدث مضخات ضغط المياه الإيطالية وأكياس حماية مخصصة تحافظ على نظافة الجدران والأثاث بنسبة 100%.
+
+تشمل عملية الغسيل إزالة الأغطية الأمامية، تنظيف الفلاتر، غسيل حوض التكثيف لمنع الانسداد والروائح، وتطهير ملفات المبخر بمواد مانعة لنمو البكتيريا والفطريات، بالإضافة إلى غسيل مروحة ومكثف الوحدة الخارجية لتحسين تبادل الحرارة وزيادة عمر الكمبروسر.`,
+    overviewEn: `Dust, desert sand, and biological mold accumulation inside AC evaporator fins can degrade cooling efficiency by up to 40% while dramatically inflating electric bills. Jawzaa offers professional deep-clean pressure washing using specialized Italian water pumps and heavy-duty waterproof catchment bibs that guarantee 100% protection for your walls, curtains, and carpets.
+
+Our multi-stage cleaning protocol includes cover dismantling, chemical coil foam treatment, condensate pan sterilization, pressure washing the blower wheel, and deep cleaning the outdoor condenser to ensure unrestricted heat rejection and prolonged compressor lifespan.`,
+    stats: [
+      { labelAr: 'مكيف تم تنظيفه', labelEn: 'ACs Deep Cleaned', value: '6,200+' },
+      { labelAr: 'تحسن في قوة دفع الهواء', labelEn: 'Airflow Boost', value: '45%' },
+      { labelAr: 'توفير في استهلاك الكهرباء', labelEn: 'Power Bill Savings', value: 'Up to 25%' },
+      { labelAr: 'حماية الجدران والأثاث', labelEn: 'Furniture Protection', value: '100%' },
+    ],
+    symptomsAddressedAr: [
+      'ضعف دفع الهواء من فتحات المكيف رغم تشغيل المروحة بأعلى سرعة',
+      'انبعاث روائح عفن أو رطوبة أو غبار عند بدء تشغيل التكييف',
+      'ظهور نقاط سوداء وفطريات داخل مروحة توزيع الهواء (البلور)',
+      'سخونة مفرطة في الوحدة الخارجية بسبب انسداد المكثف بالأتربة',
+      'تنقيط مياه مستمر ناتج عن انسداد حوض ومجرى التصريف بالأوساخ',
+    ],
+    symptomsAddressedEn: [
+      'Weak blower airflow even on maximum fan speed settings',
+      'Musty, mildew, or dusty smells blowing into the room on startup',
+      'Black mold spots visible on interior blower barrel wheel',
+      'Outdoor condenser overheating due to suffocating dust coats',
+      'Repeated water overflow caused by sludge in the condensate tray',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'عزل وحماية الأثاث', desc: 'تركيب أكياس الغسيل المقاومة للماء أسفل المكيف وحماية المفروشات' },
+      { num: '02', title: 'تفكيك الأغطية والفلاتر', desc: 'فك الغطاء الأمامي ومروحة التوجيه وغسيلها بمواد مطهرة' },
+      { num: '03', title: 'الغسيل بضغط الماء والمواد المطهرة', desc: 'ضخ الماء عبر الزعانف والبلور لإزالة كافة الأتربة والعوالق العميقة' },
+      { num: '04', title: 'التعقيم والتجفيف والاختبار', desc: 'تعقيم المبخر بمادة مضادة للبكتيريا وتجفيف الوحدة وتشغيلها للتأكد' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Wall & Floor Protection', desc: 'Mounting waterproof catchment jackets and floor drop-cloths' },
+      { num: '02', title: 'Dismantling & Pre-Rinse', desc: 'Removing front fascia, filters, and louvers for individual washing' },
+      { num: '03', title: 'Pressure Washing Coils', desc: 'Flushing deep coil fins and blower fan with pressurized detergent' },
+      { num: '04', title: 'Sanitization & Test', desc: 'Applying anti-microbial spray, drying unit and measuring air velocity' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'غسيل مكيف سبليت مفرد',
+        nameEn: 'Single Split AC Deep Clean',
+        priceAr: '100 ريال للمكيف',
+        priceEn: '100 SAR per unit',
+        descAr: 'غسيل كامل للوحدة الداخلية والخارجية',
+        descEn: 'Complete indoor & outdoor deep wash',
+        featuresAr: ['غسيل بضغط الماء العالي', 'تنظيف الفلاتر وحوض الصرف', 'كيس حماية كامل للجدران', 'فحص مجاني لمستوى الفريون'],
+        featuresEn: ['High-pressure water flush', 'Coil & drain tray deep scrub', 'Full wall protection jacket', 'Complimentary freon check'],
+      },
+      {
+        nameAr: 'باقة تنظيف الفلل (3 إلى 6 مكيفات)',
+        nameEn: 'Villa Cleaning Bundle (3-6 ACs)',
+        priceAr: '80 ريال للمكيف',
+        priceEn: '80 SAR per unit',
+        descAr: 'العرض الأفضل للمنازل والفلل السكنية',
+        descEn: 'Best value package for family homes',
+        isPopular: true,
+        featuresAr: ['غسيل شامل للوحدات الداخلية والخارجية', 'تعقيم كيميائي ضد البكتيريا والروائح', 'تسليك مجاري تصريف المياه', 'فحص ضغط وتبريد لجميع المكيفات'],
+        featuresEn: ['Full indoor & outdoor deep wash', 'Anti-bacterial coil sanitization', 'Drain line pressure flush', 'Freon level diagnostic for all units'],
+      },
+      {
+        nameAr: 'باقة المباني والشركات (7 مكيفات فأكثر)',
+        nameEn: 'Commercial & Multi-Unit (7+ ACs)',
+        priceAr: '65 ريال للمكيف',
+        priceEn: '65 SAR per unit',
+        descAr: 'خصم خاص للمجمعات والعمائر والشركات',
+        descEn: 'Corporate rates for buildings & offices',
+        featuresAr: ['طاقم فني متعدد لإنجاز سريع', 'غسيل احترافي منظم وفق جدول زمني', 'تقرير شامل بحالة جميع الوحدات', 'ضمان نظافة الموقع التامة بعد العمل'],
+        featuresEn: ['Multi-technician rapid team', 'Scheduled organized workflow', 'Comprehensive unit health log', 'Complete post-service site cleanup'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'كم مرة ينصح بغسيل وتنظيف المكيف في الرياض؟',
+        qEn: 'How often should ACs be deep cleaned in Riyadh?',
+        aAr: 'نظراً للطبيعة الصحراوية والغبار في الرياض، ينصح بشدة بغسيل المكيفات مرتين سنوياً (قبل بداية فصل الصيف، وفي منتصف الموسم) للحفاظ على كفاءة التبريد وتوفير استهلاك الكهرباء.',
+        aEn: 'Given Riyadh dry and dusty climate, we strongly recommend deep cleaning twice a year (before summer begins and mid-season) to maintain peak cooling and prevent compressor failure.',
+      },
+    ],
+  },
+
+  'refrigerator-repair': {
+    slug: 'refrigerator-repair',
+    icon: 'fridge',
+    heroImage: 'fridge-repair-bay',
+    titleAr: 'تصليح وصيانة الثلاجات والفريزرات المنزلية والتجارية بالرياض',
+    titleEn: 'Home & Commercial Refrigerator & Freezer Repair in Riyadh',
+    subtitleAr: 'صيانة فورية لأعطال الكمبروسر، تسريب الفريون، تراكم الثلج (نوفروست)، وتغيير الترموستات لجميع الماركات العالمية.',
+    subtitleEn: 'Fast repair for refrigerator compressors, freon leaks, defrost failures, and thermostat replacements across all major brands.',
+    overviewAr: `عطل الثلاجة هو حالة طارئة تهدد بفساد الأطعمة والمخزون الغذائي للعائلة أو المطاعم. في جوزاء للتبريد والتكييف، نقدم خدمة صيانة منزلية فورية تصل إليك في غضون ساعات قليلة لفحص وإصلاح ثلاجات وفريزرات سامسونج، إل جي، بوش، توشيبا، هيتاشي، دايو، وكافة الماركات المعتمدة.
+
+يمتلك فنيونا خبرة واسعة في تشخيص وحل أعطال دورة التبريد: من استبدال كمبروسر الثلاجة، وشحن فريون R134a و R600a الآمن، إلى إصلاح سخانات إذابة الثلج، وحساسات الحرارة، ومراوح توزيع الهواء، واستبدال الحشوات المطاطية للأبواب لضمان الإغلاق المحكم.`,
+    overviewEn: `A refrigerator breakdown is an urgent emergency that risks immediate food spoilage for families and businesses. At Jawzaa, we provide fast same-day on-site repair for Samsung, LG, Bosch, Toshiba, Hitachi, Daewoo, and all leading refrigerator and deep freezer brands.
+
+Our technicians excel at diagnosing the entire refrigeration cycle: from compressor replacements and environmentally safe R134a / R600a freon gas recharges, to repairing no-frost defrost heaters, bi-metal thermostats, evaporator circulation fans, and magnetic door gaskets to restore airtight sealing.`,
+    stats: [
+      { labelAr: 'ثلاجة وفريزر تم إصلاحه', labelEn: 'Fridges Repaired', value: '2,400+' },
+      { labelAr: 'متوسط وقت الإصلاح المنزلي', labelEn: 'Avg. On-Site Repair', value: '60 دقيقة' },
+      { labelAr: 'ماركة عالمية ندعمها', labelEn: 'Brands Supported', value: '25+' },
+      { labelAr: 'ضمان قطع الغيار الأصلية', labelEn: 'OEM Parts Warranty', value: 'حقيقي 100%' },
+    ],
+    symptomsAddressedAr: [
+      'الثلاجة لا تبرد في الجزء السفلي بينما الفريزر يعمل ويتراكم به الثلج',
+      'توقف كامل للكمبروسر وسماع صوت تكتكة متكررة كل بضع دقائق',
+      'تسريب مياه مستمر أسفل أدراج الخضروات أو على أرضية المطبخ',
+      'تصلب حشوة الباب المطاطية وعدم إحكام الإغلاق مما يسبب هروب البرودة',
+      'صدور صوت ضجيج أو احتكاك عالي من مروحة الفريزر الداخلية',
+    ],
+    symptomsAddressedEn: [
+      'Fresh food compartment warm while freezer continues freezing (frost buildup)',
+      'Compressor clicking on and immediately tripping off without running',
+      'Water pooling beneath vegetable crisper drawers or on kitchen floor',
+      'Door seal hardened or torn, allowing ambient hot air to enter',
+      'Loud rattling or whirring noise from the internal evaporator fan',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'الفحص والتشخيص المنزلي', desc: 'فحص الكمبروسر، والتايمر، وحساسات النوفروست بدقة إلكترونية' },
+      { num: '02', title: 'تحديد القطعة التالفة والتسعير', desc: 'شرح سبب العطل للعميل وتقديم التكلفة والضمان قبل البدء' },
+      { num: '03', title: 'الإصلاح وتركيب القطع الأصلية', desc: 'استبدال القطع المعطوبة وشحن الفريون ولحام التسريبات أمام العميل' },
+      { num: '04', title: 'الاختبار وتسليم سند الضمان', desc: 'متابعة نزول درجة الحرارة والتأكد من استقرار عمل دورة التبريد' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Diagnostic Inspection', desc: 'Electronic analysis of compressor, defrost timer, and sensors' },
+      { num: '02', title: 'Upfront Scope & Quote', desc: 'Explaining root cause and providing fixed price before work' },
+      { num: '03', title: 'Original Part Replacement', desc: 'Installing OEM parts, gas recharging, and brazing leak points' },
+      { num: '04', title: 'Temperature Test & Warranty', desc: 'Monitoring cooling pull-down and issuing official warranty card' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'فحص وإصلاح دائرة النوفروست',
+        nameEn: 'Defrost Circuit Repair',
+        priceAr: 'يبدأ من 180 ريال',
+        priceEn: 'From 180 SAR',
+        descAr: 'حل مشكلة تراكم الثلج وضعف برودة الثلاجة',
+        descEn: 'Fixing ice accumulation & warm fridge',
+        featuresAr: ['فحص السخان والثيرموديسك', 'تسليك مجرى مياه التصريف', 'استبدال الحساس بقطعة أصلية', 'ضمان على عمل دائرة إذابة الثلج'],
+        featuresEn: ['Defrost heater & bi-metal check', 'Clearing frozen drain tubes', 'Genuine sensor replacement', 'Warranty on defrost operation'],
+      },
+      {
+        nameAr: 'كشف تسريب وشحن فريون الثلاجة',
+        nameEn: 'Leak Repair & Freon Recharge',
+        priceAr: 'يبدأ من 220 ريال',
+        priceEn: 'From 220 SAR',
+        descAr: 'شحن فريون أصلي R134a/R600a مع الفلتر',
+        descEn: 'Genuine gas refill + filter drier replacement',
+        isPopular: true,
+        featuresAr: ['كشف ولحام تسريب شبكة التبريد', 'استبدال فلتر الشوائب (الدرير)', 'تفريغ الهواء وشحن الغاز المعتمد', 'ضمان معتمد على التبريد'],
+        featuresEn: ['Detecting and brazing micro-leaks', 'Replacing inline filter drier', 'Vacuum pump cycle & gas charge', 'Written refrigeration warranty'],
+      },
+      {
+        nameAr: 'تغيير أو صيانة كمبروسر الثلاجة',
+        nameEn: 'Compressor Replacement',
+        priceAr: 'حسب حجم وموديل الثلاجة',
+        priceEn: 'Varies by Brand & Capacity',
+        descAr: 'تركيب كمبروسر أصلي جديد مع الضمان',
+        descEn: 'Installing brand-new OEM compressor',
+        featuresAr: ['كمبروسر أصلي مطابق لمواصفات الوكالة', 'استبدال ريليه وكابستور التشغيل', 'شحن فريون وضبط ضغوط الغاز', 'ضمان شامل وممدد على الكمبروسر'],
+        featuresEn: ['Brand-new OEM compressor install', 'New starter relay & capacitor', 'Complete freon charge & tune-up', 'Extended compressor warranty'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'هل تتم صيانة الثلاجة في المنزل أم يتم نقلها؟',
+        qEn: 'Is refrigerator repair done at home or moved to workshop?',
+        aAr: 'في 95% من الحالات تتم الصيانة بالكامل داخل منزلك خلال زيارة واحدة، ولا يتم نقل الجهاز للورشة إلا في حالات خاصة جداً تستلزم أعمال لحام هيكلي معقدة.',
+        aEn: 'In over 95% of cases, repairs are completed 100% inside your home during a single visit. We only transport appliances for complex structural rebuilds.',
+      },
+    ],
+  },
+
+  'motor-rewinding': {
+    slug: 'motor-rewinding',
+    icon: 'motor',
+    heroImage: 'poster-motor-rewinding',
+    titleAr: 'لف وإصلاح الموتورات والمضخات الكهربائية بالرياض (المركات)',
+    titleEn: 'Electric Motor & Pump Rewinding Workshop in Riyadh',
+    subtitleAr: 'ورشة هندسية متخصصة في إعادة لف محركات التكييف، مضخات المياه، ومراوح التهوية بأسلاك نحاس نقي 100% وعوازل حرارية من الفئة H.',
+    subtitleEn: 'Specialized engineering bay for rewinding HVAC fan motors, water pumps, and industrial blowers with pure copper and Class H insulation.',
+    overviewAr: `احتراق محرك التكييف أو مضخة المياه لا يعني إتلاف الجهاز وشراء بديل بتكلفة باهظة. في ورشة جوزاء المتخصصة بالرياض، نمتلك قسماً هندسياً متكاملاً لإعادة لف وإصلاح كافة الموتورات الكهربائية (أحادية وثلاثية الطور) بمواصفات مطابقة لمعايير المصنع الأصلية.
+
+نستخدم فقط أسلاك النحاس الكهرومغناطيسي النقي 100% مع عوازل ورنيش حرارية تتحمل حتى 180 درجة مئوية، ونقوم باستبدال رولمان البلي (المحامل اليابانية والأوروبية)، وضبط الاتزان الميكانيكي الديناميكي للروتر لمنع الاهتزاز، متبوعاً باختبار دقيق للأمبير والعزل الكهربائي قبل تسليمه للعميل.`,
+    overviewEn: `A burned blower motor or water pump does not mean spending huge sums on a replacement. At Jawzaa specialized rewind facility in Riyadh, we operate an advanced electromechanical workshop dedicated to rewinding single-phase and three-phase electric motors to factory engineering specifications.
+
+We exclusively utilize 100% pure electrolytic copper magnet wire combined with Class H insulation varnishes rated to withstand 180°C operating temperatures. Every motor undergoes precision bearing replacement with premium Japanese/European bearings, dynamic rotor balancing to eliminate vibration, and full load ampere testing before certified delivery.`,
+    stats: [
+      { labelAr: 'موتور ومحرك تم إعادة لفه', labelEn: 'Motors Rewound', value: '4,500+' },
+      { labelAr: 'نقاء أسلاك النحاس المستخدمة', labelEn: 'Pure Copper Grade', value: '100% نقي' },
+      { labelAr: 'مقاومة العزل الحراري', labelEn: 'Insulation Class', value: 'Class H (180°C)' },
+      { labelAr: 'ضمان معتمد على عملية اللف', labelEn: 'Rewinding Warranty', value: 'سند رسمي' },
+    ],
+    symptomsAddressedAr: [
+      'انبعاث رائحة شياط أو احتراق قوية من محرك التكييف أو المضخة',
+      'ارتفاع حرارة الموتور بشدة وتوقفه عن الدوران بعد دقائق معدودة',
+      'صدور صوت أزيز كهربائي قوي دون دوران محور المحرك (الروتر)',
+      'سحب أمبير كهربائي عالي جداً يؤدي لفصل القاطع الكهربائي فوراً',
+      'تلف أو خشونة في البيرنجات تسبب أصوات طحن عنيفة واهتزاز',
+    ],
+    symptomsAddressedEn: [
+      'Strong acrid burning enamel odor coming from motor housing',
+      'Motor frame overheating rapidly and thermal-tripping within minutes',
+      'Loud electrical humming with shaft locked and unable to spin',
+      'Excessive running ampere draw that trips the electrical panel breaker',
+      'Worn or seized bearings causing loud grinding noises and heavy vibration',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'الفك وحساب بيانات الملفات', desc: 'قياس قطر السلك وعدد اللفات وخطوة اللف ومطابقتها لمواصفات المصنع' },
+      { num: '02', title: 'تنظيف الشاسيه والعزل', desc: 'إزالة الملفات التالفة وتنظيف مجاري العضو الثابت وتبطينها بعوازل حرارية' },
+      { num: '03', title: 'اللف بالنحاس النقي والورنيش', desc: 'لف السلك النحاسي وربطه وتشبيكه وغمسه في ورنيش العزل الحراري وتجفيفه' },
+      { num: '04', title: 'تغيير البيرنج واختبار الحمل', desc: 'تركيب رولمان بلي جديد واختبار توازن الروتر وسحب الأمبير تحت الحمل' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Disassembly & Winding Data', desc: 'Recording precise wire gauge, turn counts, and slot pitch specs' },
+      { num: '02', title: 'Stator Stripping & Slot Insulation', desc: 'Removing burned coils, sandblasting slots, and inserting Nomex liners' },
+      { num: '03', title: 'Precision Rewind & Varnish Bake', desc: 'Winding pure copper coils, lacing end-turns, and vacuum varnish baking' },
+      { num: '04', title: 'Bearing Swap & Amp Testing', desc: 'Installing fresh Japanese bearings, dynamic balancing, and full load test' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'لف موتور مروحة مكيف سبليت/شباك',
+        nameEn: 'Split/Window Fan Motor Rewind',
+        priceAr: 'يبدأ من 130 ريال',
+        priceEn: 'From 130 SAR',
+        descAr: 'إعادة لف وتغيير البوشات/البيرنج',
+        descEn: 'Complete rewind + bearing replacement',
+        featuresAr: ['سلك نحاس نقي مطابق للمواصفات', 'عزل حراري مقاوم للحرارة', 'تغيير البيرنج أو البوشات', 'ضمان معتمد على اللف'],
+        featuresEn: ['Factory-spec pure copper wire', 'High-temp thermal insulation', 'Bearing/bushing replacement', 'Certified rewind warranty'],
+      },
+      {
+        nameAr: 'لف موتور مكيف مركزي / كونسيلد',
+        nameEn: 'Central AC Blower Motor Rewind',
+        priceAr: 'يبدأ من 250 ريال',
+        priceEn: 'From 250 SAR',
+        descAr: 'محركات البلاور عالية القدرة',
+        descEn: 'Heavy-duty high-CFM blower motors',
+        isPopular: true,
+        featuresAr: ['نحاس كهرومغناطيسي عالي التحمل', 'ورنيش عزل حراري فائق', 'ضبط اتزان الروتر ميكانيكياً', 'اختبار أمبير وتحمل حراري'],
+        featuresEn: ['Heavy-gauge electrolytic copper', 'Class H high-temperature varnish', 'Precision dynamic rotor balance', 'Comprehensive load amp verification'],
+      },
+      {
+        nameAr: 'لف مضخات المياه والمحركات الصناعية',
+        nameEn: 'Water Pump & Industrial Motors',
+        priceAr: 'حسب القدرة بالحصان (HP)',
+        priceEn: 'Based on Horsepower (HP)',
+        descAr: 'محركات 1 إلى 20 حصان سينجل و3 فاز',
+        descEn: '1 to 20 HP single & 3-phase motors',
+        featuresAr: ['دعم محركات 1 فاز و 3 فاز', 'سيلات ميكانيكية مانعة لتسريب الماء', 'بيرنجات يابانية أصلية معتمدة', 'ضمان شامل على كفاءة الضخ والعزل'],
+        featuresEn: ['Single and 3-phase motor support', 'Mechanical water seal replacement', 'Genuine Japanese precision bearings', 'Comprehensive pumping performance guarantee'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'هل الموتور المعاد لفه يعمل بنفس كفاءة الموتور الجديد؟',
+        qEn: 'Does a rewound motor perform as well as a brand-new one?',
+        aAr: 'نعم تماماً، عندما تتم عملية اللف باستخدام سلك نحاس نقي 100% وبنفس عدد اللفات والقطر الموصى به من المصنع، يعود المحرك ليعمل بنفس العزم والأمبير والكفاءة الأصلية ويدوم لسنوات طويلة.',
+        aEn: 'Yes, absolutely. When rewound with 100% pure electromagnetic copper, correct wire gauge, and precise turn counts, the motor delivers factory torque, low running amps, and years of durable service.',
+      },
+    ],
+  },
+
+  'washing-machine-repair': {
+    slug: 'washing-machine-repair',
+    icon: 'washer',
+    heroImage: 'poster-before-after-washer',
+    titleAr: 'صيانة وتصليح الغسالات والنشافات الأوتوماتيكية بالرياض',
+    titleEn: 'Automatic Washing Machine & Dryer Repair in Riyadh',
+    subtitleAr: 'إصلاح أعطال عدم التصريف، مشاكل الدوران والعصر، الاهتزاز والصوت المزعج، وتصليح كروت التحكم الإلكترونية.',
+    subtitleEn: 'Fixing drain failures, spinning issues, excessive vibration, and electronic control board malfunctions with original parts.',
+    overviewAr: `الغسالة الأوتوماتيكية والنشافة من الأجهزة المنزلية الحيوية التي لا غنى عنها في أي منزل بالرياض. في مؤسسة جوزاء، نقدم صيانة فورية متخصصة لجميع ماركات الغسالات (إل جي، سامسونج، دايو، بوش، ويرلبول، ميديا، كاندي، وغيرها) ذات التعبئة الأمامية والعلوية.
+
+يعالج خبراؤنا مشكلات عدم تصريف المياه، تلف طلمبة الطرد، احتراق صمام سحب المياه، تلف مساعدات امتصاص الاهتزاز، تآكل رولمان بلي الحلة الداخلية، بالإضافة إلى تشخيص وبرمجة كروت التحكم الإلكترونية التالفة لتوفير تكلفة استبدالها الباهظة.`,
+    overviewEn: `Automatic washing machines and tumble dryers are essential household appliances. At Jawzaa, we provide swift on-site maintenance across Riyadh for front-load and top-load washers from LG, Samsung, Daewoo, Bosch, Whirlpool, Midea, Candy, and other leading brands.
+
+Our specialists troubleshoot drainage pump failures, burned inlet water valves, worn suspension shock absorbers, noisy drum bearings, and electronic PCB inverter control boards, restoring your machine to smooth, quiet operation without requiring costly replacements.`,
+    stats: [
+      { labelAr: 'غسالة تم إصلاحها', labelEn: 'Washers Serviced', value: '1,900+' },
+      { labelAr: 'إصلاح منزلي فوري', labelEn: 'On-Site Fix Rate', value: '92%' },
+      { labelAr: 'قطع غيار أصلية', labelEn: 'OEM Spare Parts', value: '100% معتمدة' },
+      { labelAr: 'ضمان على الإصلاح', labelEn: 'Service Warranty', value: 'معتمد' },
+    ],
+    symptomsAddressedAr: [
+      'الغسالة لا تصرف المياه وتتوقف فجأة أثناء دورة الغسيل',
+      'الحلة لا تدور إطلاقاً أو لا تقوم بمرحلة العصر السريع والتجفيف',
+      'اهتزاز عنيف وخبط قوي وصوت طحن أثناء سرعات الدوران العالية',
+      'تسريب مياه من أسفل الغسالة أو من إطار الباب المطاطي',
+      'ظهور رموز أعطال على الشاشة الرقمية وعدم استجابة أزرار اللمس',
+    ],
+    symptomsAddressedEn: [
+      'Washer not draining water and stalling mid-cycle with error code',
+      'Drum not spinning or failing to reach high-speed extraction spin',
+      'Violent shaking, thumping, and metal grinding during spin cycles',
+      'Water leaking from underneath machine or front door rubber gasket',
+      'Digital error codes displayed on panel with buttons unresponsive',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'الفحص وقراءة أكواد الأعطال', desc: 'اختبار دورة التشغيل وقراءة الحساسات والطلمبة والكرت' },
+      { num: '02', title: 'الفك واستبدال القطع المعطوبة', desc: 'تغيير طلمبة التصريف أو المساعدات أو رولمان البلي بقطع أصلية' },
+      { num: '03', title: 'اختبار التوازن والاتزان', desc: 'معايرة مساعدات الحلة والتأكد من هدوء الدوران وانعدام الصوت' },
+      { num: '04', title: 'دورة غسيل تجريبية والضمان', desc: 'تشغيل دورة كاملة للتأكد من تصريف المياه والعصر وتسليم الضمان' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Diagnostic & Error Code Scan', desc: 'Testing pump, motor tachometer, pressure sensor, and PCB' },
+      { num: '02', title: 'Part Replacement', desc: 'Swapping defective drain pumps, shocks, or drum bearings with OEM parts' },
+      { num: '03', title: 'Dynamic Balance Tuning', desc: 'Calibrating suspension dampers to ensure quiet vibration-free spinning' },
+      { num: '04', title: 'Full Test Cycle & Warranty', desc: 'Running test wash and spin cycle before handing over warranty' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'صيانة طلمبة التصريف والفلتر',
+        nameEn: 'Drain Pump & Filter Service',
+        priceAr: 'يبدأ من 140 ريال',
+        priceEn: 'From 140 SAR',
+        descAr: 'حل مشاكل عدم صرف المياه والانسداد',
+        descEn: 'Fixing water drainage and pump blockages',
+        featuresAr: ['تنظيف مجرى الصرف والفلتر', 'استبدال طلمبة الطرد بقطعة أصلية', 'اختبار حساس منسوب المياه', 'ضمان على عملية التصريف'],
+        featuresEn: ['Clearing drain path & lint filter', 'Installing genuine drain pump', 'Testing water level pressure switch', 'Drainage operation warranty'],
+      },
+      {
+        nameAr: 'تغيير مساعدات امتصاص الاهتزاز',
+        nameEn: 'Shock Absorber & Damper Swap',
+        priceAr: 'يبدأ من 180 ريال',
+        priceEn: 'From 180 SAR',
+        descAr: 'القضاء على الخبط والاهتزاز العنيف',
+        descEn: 'Eliminating violent banging & drum shaking',
+        isPopular: true,
+        featuresAr: ['طقم مساعدات هيدروليكية أصلية', 'ضبط اتزان حلة الغسيل', 'فحص سير المحرك والكلتش', 'ضمان على هدوء واستقرار الجهاز'],
+        featuresEn: ['Set of OEM hydraulic shock absorbers', 'Re-centering and balancing wash tub', 'Drive belt and motor check', 'Vibration-free stability guarantee'],
+      },
+      {
+        nameAr: 'تغيير رولمان البلي والكرت الإلكتروني',
+        nameEn: 'Bearing & PCB Board Overhaul',
+        priceAr: 'حسب نوع وموديل الغسالة',
+        priceEn: 'Varies by Brand & Model',
+        descAr: 'إصلاح مشاكل الصوت العالي واللوحة',
+        descEn: 'Bearing rebuild & control board repair',
+        featuresAr: ['رولمان بلي وأولسيه مائي ياباني أصلي', 'إصلاح أو استبدال لوحة التحكم الإلكترونية', 'تشحيم وتجميع الحلة بالكامل', 'ضمان معتمد وشامل'],
+        featuresEn: ['OEM water seal & Japanese bearings', 'PCB inverter control board repair', 'Complete drum sealing and lube', 'Comprehensive parts warranty'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'ما سبب صدور صوت طحن قوي يشبه الطائرة عند عصر الغسالة؟',
+        qEn: 'Why does my washer make a loud jet-engine sound during spin?',
+        aAr: 'هذا العرض دليل قاطع على تآكل رولمان البلي (المحامل) وتلف الأولسيه العازل للماء، مما يسمح بتسرب الماء لكرات البلي وصدئها. يتم حلها بتغيير طقم البلي والأولسيه الأصلي.',
+        aEn: 'This symptom indicates worn drum bearings and a failed water seal, allowing water into the ball races causing rust and noise. It is resolved by replacing the bearings and seal.',
+      },
+    ],
+  },
+
+  'central-hvac': {
+    slug: 'central-hvac',
+    icon: 'tools',
+    heroImage: 'poster-commercial-hvac-maintenance',
+    titleAr: 'صيانة المكيفات المركزية والكونسيلد والمباني بالرياض',
+    titleEn: 'Commercial & Central HVAC Maintenance in Riyadh',
+    subtitleAr: 'حلول متقدمة لصيانة وحدات البكج، الدكت المخفي، وغسيل مجاري الهواء وتوازن التبريد للمجمعات والفلل والمشاريع التجارية.',
+    subtitleEn: 'Advanced commercial rooftop package units, ducted split maintenance, duct cleaning, and airflow balancing for buildings.',
+    overviewAr: `تتطلب أنظمة التكييف المركزي والمخفي (Concealed Ducted) عناية فنية فائقة وخبرة هندسية دقيقة للحفاظ على توازن ضغط الهواء وتوزيع البرودة بشكل متساوٍ في كافة غرف المبنى. توفر جوزاء للتبريد والتكييف فرقاً فنية متخصصة ومجهزة بالسلالم وأجهزة القياس المتقدمة لصيانة وحدات البكج والدكت المخفي للفلل السكنية، المطاعم، المقرات الإدارية، والمحلات التجارية بالرياض.`,
+    overviewEn: `Central ducted and rooftop package HVAC systems demand rigorous engineering expertise to balance airflow distribution, static duct pressure, and consistent cooling throughout commercial and residential buildings in Riyadh. Jawzaa deploys specialized technicians equipped with digital airflow hoods and leak sniffers to optimize central systems for villas, corporate headquarters, and commercial facilities.`,
+    stats: [
+      { labelAr: 'مشروع ومبنى تم خدمته', labelEn: 'HVAC Projects Completed', value: '450+' },
+      { labelAr: 'توفير في طاقة التبريد', labelEn: 'Efficiency Optimization', value: '30%' },
+      { labelAr: 'استجابة طارئة للمشاريع', labelEn: 'Emergency Response', value: '24/7' },
+      { labelAr: 'ضمان الصيانة المركزية', labelEn: 'Central System Warranty', value: 'شامل' },
+    ],
+    symptomsAddressedAr: [
+      'تفاوت درجات الحرارة بين الغرف وعدم وصول الهواء البارد لبعض الفتحات',
+      'تراكم الأتربة والغبار داخل الدكت ومخارج الهواء (السبلاي والريتيرن)',
+      'سماع أصوات هواء مزعجة واهتزاز في مجاري الصاج ومراوح البلاور',
+      'تسريب مياه فوق الأسقف المستعارة (الجبس) بسبب خلل في العزل أو المجرى',
+    ],
+    symptomsAddressedEn: [
+      'Uneven room temperatures with weak airflow reaching distant diffusers',
+      'Excessive dust blow-out from supply and return air registers',
+      'Excessive duct rattle, vibration, and high-velocity blower whine',
+      'Condensate leaks dripping on gypsum false ceilings from poor insulation',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'فحص موازنة الهواء والدكت', desc: 'قياس سرعة وضغط الهواء CFM في مخارج التوزيع' },
+      { num: '02', title: 'صيانة الكمبروسرات والمكثف', desc: 'غسيل زعانف المكثف وفحص استهلاك الكهرباء وشحن الغاز' },
+      { num: '03', title: 'صيانة وتزييت البلاور والموتور', desc: 'فحص سيور الحركة وضبط الشد واستبدال كراسي المحركات' },
+      { num: '04', title: 'معايرة الترموستات الذكي', desc: 'ضبط لوحات التحكم وبرمجة درجات الحرارة للراحة القصوى' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Airflow & Static Pressure Test', desc: 'Measuring CFM velocity and air balancing across all registers' },
+      { num: '02', title: 'Condenser & Compressor Service', desc: 'Coil pressure wash, amp draw verification, and freon charge' },
+      { num: '03', title: 'Blower & Belt Calibration', desc: 'Tensioning drive belts, lubricating shafts, and motor mounts' },
+      { num: '04', title: 'Thermostat Calibration', desc: 'Configuring smart digital thermostats for peak zone control' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'صيانة مكيف كونسيلد مخفي',
+        nameEn: 'Concealed Ducted AC Service',
+        priceAr: 'يبدأ من 250 ريال للوحدة',
+        priceEn: 'From 250 SAR / unit',
+        descAr: 'فحص شامل للدكت، الفريون، والتصريف',
+        descEn: 'Full ducted unit & freon service',
+        featuresAr: ['غسيل الفلاتر الداخلية والمكثف', 'تسليك وصيانة طلمبة الرفع والتصريف', 'فحص وضبط شحن الفريون', 'ضمان معتمد على كفاءة التبريد'],
+        featuresEn: ['Filter & outdoor condenser wash', 'Condensate lift pump service', 'Freon pressure check & tune', 'Certified cooling warranty'],
+      },
+      {
+        nameAr: 'عقد صيانة للفلل والمباني الكاملة',
+        nameEn: 'Full Villa / Building HVAC Contract',
+        priceAr: 'تسعير مخصص للمبنى',
+        priceEn: 'Custom Tailored Quote',
+        descAr: 'زيارات دورية وفحص وقائي شامل طوال العام',
+        descEn: 'Year-round scheduled preventative visits',
+        isPopular: true,
+        featuresAr: ['4 زيارات دورية مجدولة سنوياً', 'أولوية قصوى في الصيانة الطارئة', 'خصم 30% على قطع الغيار', 'تقارير فنية دورية لكفاءة الأجهزة'],
+        featuresEn: ['4 scheduled annual service visits', 'Top priority for emergency calls', '30% discount on replacement parts', 'Comprehensive performance reports'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'كيف نتجنب تساقط المياه فوق الأسقف الجبسية من المكيف المخفي؟',
+        qEn: 'How to prevent ceiling water leaks from ducted split units?',
+        aAr: 'يتم ذلك عبر تنظيف حوض التكثيف بانتظام، التأكد من سلامة عزل مواسير النحاس ومجاري الهواء لمنع التكثيف الخارجي، واختبار طلمبة رفع المياه الآلية (Drain Pump).',
+        aEn: 'This is prevented by regularly flushing the drain tray, verifying pipe insulation integrity to stop condensation sweating, and servicing the automatic drain lift pump.',
+      },
+    ],
+  },
+
+  'fault-diagnostics': {
+    slug: 'fault-diagnostics',
+    icon: 'diagnosis',
+    heroImage: 'poster-correct-diagnosis',
+    titleAr: 'الفحص والتشخيص الإلكتروني الشامل للأجهزة والتكييف بالرياض',
+    titleEn: 'Comprehensive Electronic Fault Diagnostics in Riyadh',
+    subtitleAr: 'كشف دقيق ومبكر لأعطال التكييف والتبريد باستخدام أجهزة القياس الرقمية وأجهزة كشف التسريبات بالأمواج فوق الصوتية.',
+    subtitleEn: 'Precision digital troubleshooting to pinpoint root causes without guesswork or unnecessary part replacements.',
+    overviewAr: `التشخيص الخاطئ للأعطال يكلف العميل مبالغ طائلة في شراء قطع غيار غير تالفة دون حل المشكلة الحقيقية. في جوزاء للتبريد والتكييف، نعتمد على بروتوكول فحص علمي مدعوم بأجهزة القياس الرقمية الأمريكية والألمانية المتطورة لكشف وتحديد العطل بدقة 100% قبل البدء بأي عمل.`,
+    overviewEn: `Inaccurate diagnosis leads to expensive, unnecessary part replacements without actually resolving the core issue. At Jawzaa, our technicians follow an evidence-based diagnostic checklist powered by advanced digital clamp meters, ultrasonic leak detectors, and thermal imaging cameras to pinpoint malfunctions with 100% accuracy before touching a single wire.`,
+    stats: [
+      { labelAr: 'فحص وتشخيص دقيق', labelEn: 'Diagnostics Completed', value: '8,000+' },
+      { labelAr: 'دقة تحديد العطل الحقيقي', labelEn: 'Root Cause Accuracy', value: '99.5%' },
+      { labelAr: 'توفير تكاليف القطع غير اللازمة', labelEn: 'Saved Wasted Costs', value: 'مضمون' },
+    ],
+    symptomsAddressedAr: [
+      'تكرار العطل بعد تصليحه بواسطة فنيين آخرين',
+      'فصل قواطع الكهرباء دون سبب واضح',
+      'عدم معرفة مصدر تسريب الفريون المخفي',
+      'ارتفاع غير مبرر في فاتورة استهلاك الكهرباء',
+    ],
+    symptomsAddressedEn: [
+      'Malfunctions recurring despite previous repairs by others',
+      'Mysterious breaker tripping without obvious causes',
+      'Hidden freon leaks that standard visual checks missed',
+      'Unexplained spikes in monthly household electric bills',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'الفحص الحراري والكهربائي', desc: 'قياس الفولتية والأمبير واختبار كفاءة العزل ومكثفات التشغيل' },
+      { num: '02', title: 'الكشف الصوتي عن التسريبات', desc: 'استخدام كاشف الفريون الإلكتروني لفحص كافة نقاط اللحام' },
+      { num: '03', title: 'تقرير تشخيصي معتمد وتسعير', desc: 'تزويد العميل بتقرير واضح يشرح المشكلة وتكلفة الإصلاح الدقيقة' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Thermal & Electrical Scan', desc: 'Measuring voltage, running amps, and winding insulation resistance' },
+      { num: '02', title: 'Acoustic Leak Sniffing', desc: 'Deploying electronic refrigerant sniffers across all joints and coils' },
+      { num: '03', title: 'Clear Diagnostic Report & Quote', desc: 'Handing over a transparent breakdown of the root cause and fixed quote' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'خدمة الفحص والتشخيص المنزلي',
+        nameEn: 'On-Site Diagnostic Service',
+        priceAr: '100 ريال (مجاني في حال الموافقة على الإصلاح)',
+        priceEn: '100 SAR (FREE if repair is performed)',
+        descAr: 'فحص إلكتروني شامل للجهاز في موقعك',
+        descEn: 'Full digital inspection at your location',
+        isPopular: true,
+        featuresAr: ['فحص كهربائي وميكانيكي شامل', 'كشف تسريبات الفريون بالأجهزة', 'تقرير بتكلفة الإصلاح الدقيقة', 'خصم قيمة الفحص عند إجراء الصيانة'],
+        featuresEn: ['Comprehensive electrical & mechanical check', 'Electronic refrigerant leak detection', 'Transparent upfront quote', 'Diagnostic fee waived if repair is approved'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'هل تحسب رسوم الفحص إذا تم إجراء الصيانة معكم؟',
+        qEn: 'Is the diagnostic fee waived if we proceed with the repair?',
+        aAr: 'نعم! إذا وافقت على إجراء الإصلاح معنا، يتم خصم رسوم الفحص بالكامل وتدفع فقط قيمة الإصلاح المتفق عليه.',
+        aEn: 'Yes! If you approve the repair, the diagnostic fee is completely waived and you only pay for the agreed repair service.',
+      },
+    ],
+  },
+
+  'maintenance-contracts': {
+    slug: 'maintenance-contracts',
+    icon: 'contract',
+    heroImage: 'poster-summer-maintenance',
+    titleAr: 'عقود الصيانة السنوية والدورية للمكيفات والأجهزة بالرياض',
+    titleEn: 'Annual HVAC & Appliance Maintenance Contracts in Riyadh',
+    subtitleAr: 'باقات وقائية مخصصة للفلل، الشركات، المطاعم، والمجمعات تشمل زيارات دورية مجدولة وأولوية خدمة قصوى وخصومات على قطع الغيار.',
+    subtitleEn: 'Customized preventative maintenance packages for residential villas, corporate offices, and restaurants across Riyadh.',
+    overviewAr: `الصيانة الوقائية المنتظمة هي المفتاح الحقيقي لتجنب تعطل المكيفات المفاجئ في ذروة حرارة الصيف وإطالة العمر الافتراضي للأجهزة بنسبة تصل إلى 60%. تقدم جوزاء للتبريد والتكييف عقود صيانة سنوية مرنة ومصممة خصيصاً للفلل السكنية، المطاعم والمقاهي، الشركات، والمدارس في كافة أحياء الرياض.`,
+    overviewEn: `Regular preventive maintenance is the proven key to avoiding catastrophic AC breakdowns during peak summer heatwaves while extending appliance lifespan by up to 60%. Jawzaa delivers flexible, cost-effective annual maintenance contracts tailored for luxury villas, commercial restaurants, corporate offices, and residential compounds in Riyadh.`,
+    stats: [
+      { labelAr: 'مبنى وفيلا تحت عقودنا', labelEn: 'Active Contracts', value: '320+' },
+      { labelAr: 'انخفاض في الأعطال المفاجئة', labelEn: 'Breakdown Reduction', value: '75%' },
+      { labelAr: 'استجابة طارئة لأصحاب العقود', labelEn: 'Emergency Priority', value: 'ساعتين فقط' },
+    ],
+    symptomsAddressedAr: [
+      'تجنب التوقف المفاجئ للمكيفات في منتصف فصل الصيف',
+      'توفير مبالغ الصيانة الطارئة المكلفة',
+      'الحفاظ على نظافة وجودة الهواء الداخلي للمنزل أو المنشأة',
+      'ضمان أولوية استقبال البلاغات في مواسم الضغط العالي',
+    ],
+    symptomsAddressedEn: [
+      'Preventing sudden AC shutdowns during extreme heatwaves',
+      'Drastically reducing expensive emergency repair costs',
+      'Maintaining clean, allergen-free indoor air quality for your family',
+      'Securing top-priority dispatch during peak seasonal demand',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'المعاينة الأولية وحصر الأجهزة', desc: 'زيارة مهندس مختص لحصر كافة المكيفات وتحديد متطلباتها' },
+      { num: '02', title: 'صياغة العقد والجدول الزمني', desc: 'تحديد مواعيد الزيارات الدورية الموسمية والمزايا التعاقدية' },
+      { num: '03', title: 'تنفيذ الزيارات الدورية', desc: 'غسيل، فحص فريون، تزييت محركات، واختبار كفاءة التشغيل' },
+      { num: '04', title: 'دعم طوارئ وتقارير دورية', desc: 'استجابة فورية لأي طارئ وتقديم تقرير بحالة الأجهزة بعد كل زيارة' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Initial Site Survey', desc: 'Assessing all HVAC equipment condition and operational requirements' },
+      { num: '02', title: 'Tailored Contract Schedule', desc: 'Setting seasonal visit calendar and defining SLA commitments' },
+      { num: '03', title: 'Preventative Visits', desc: 'Deep cleaning, gas check, bearing lubrication, and amp analysis' },
+      { num: '04', title: 'Emergency SLA & Reports', desc: 'Rapid 2-hour emergency dispatch and comprehensive status logs' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'عقد الفلل السكنية الفضي',
+        nameEn: 'Silver Residential Villa Plan',
+        priceAr: 'يبدأ من 1,200 ريال / سنة',
+        priceEn: 'From 1,200 SAR / Year',
+        descAr: 'مثالي للفلل (حتى 8 مكيفات سبليت)',
+        descEn: 'Ideal for family homes (up to 8 ACs)',
+        featuresAr: ['زيارتان وقائيتان شاملتان سنوياً', 'غسيل كامل للوحدات الداخلية والخارجية', 'فحص وضبط مستوى الفريون مجاناً', 'خصم 20% على قطع الغيار والأعطال الطارئة'],
+        featuresEn: ['2 comprehensive seasonal visits per year', 'Full indoor & outdoor deep pressure wash', 'Free freon top-ups and pressure tune-ups', '20% discount on parts and emergency labor'],
+      },
+      {
+        nameAr: 'عقد الفلل الذهبي الشامل',
+        nameEn: 'Gold Comprehensive Villa Plan',
+        priceAr: 'يبدأ من 2,200 ريال / سنة',
+        priceEn: 'From 2,200 SAR / Year',
+        descAr: 'تغطية شاملة لجميع المكيفات والثلاجات',
+        descEn: 'Full coverage for ACs & refrigeration',
+        isPopular: true,
+        featuresAr: ['4 زيارات دورية مجدولة سنوياً', 'غسيل وتعقيم كيميائي شامل', 'صيانة وقائية لثلاجات وغسالات المنزل', 'استجابة طارئة خلال ساعتين فقط'],
+        featuresEn: ['4 scheduled quarterly visits per year', 'Deep chemical sanitization and wash', 'Preventative checks for fridges and washers', 'Guaranteed 2-hour emergency response SLA'],
+      },
+      {
+        nameAr: 'عقد الشركات والمطاعم المخصص',
+        nameEn: 'Commercial & Restaurant Contract',
+        priceAr: 'تسعير مخصص للمنشأة',
+        priceEn: 'Custom Corporate SLA',
+        descAr: 'للمطاعم والمباني والمجمعات التجارية',
+        descEn: 'For restaurants, retail and offices',
+        featuresAr: ['جدول صيانة شهري أو ربع سنوي', 'صيانة غرف التبريد ووحدات البكج والدكت', 'تقارير معتمدة لبلدية الرياض والسلامة', 'خط ساخن مخصص لدعم الطوارئ 24/7'],
+        featuresEn: ['Monthly or quarterly scheduled service', 'Walk-in freezer & central rooftop care', 'Official municipal compliance logs', 'Dedicated 24/7 emergency dispatch hotline'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'ما هي سرعة الاستجابة لبلاغات الطوارئ لأصحاب العقود؟',
+        qEn: 'What is the emergency response SLA for contract clients?',
+        aAr: 'يحصل عملاء عقود الصيانة السنوية على أولوية قصوى حيث يصلهم الفني في حالات الطوارئ خلال ساعتين فقط من تسجيل البلاغ.',
+        aEn: 'Contract clients enjoy top priority status, with guaranteed technician dispatch reaching your site within 2 hours of emergency notification.',
+      },
+    ],
+  },
+};
+
+// Case Studies Data
+export const CASE_STUDIES = [
+  {
+    id: 'villa-central-ac-overhaul',
+    titleAr: 'تجديد وصيانة شاملة لـ 12 مكيف كونسيلد في فيلا سكنية بحي الياسمين',
+    titleEn: 'Complete 12-Unit Concealed Ducted AC Overhaul in Al-Yasmin Villa',
+    categoryAr: 'فلل سكنية',
+    categoryEn: 'Residential Villa',
+    date: '2026',
+    clientAr: 'عائلة آل سعود — حي الياسمين، الرياض',
+    clientEn: 'Al-Saud Family — Al-Yasmin, Riyadh',
+    image: 'ac-outdoor-units-stack',
+    metrics: [
+      { labelAr: 'تحسن في برودة الهواء', labelEn: 'Cooling Delta-T', value: '+35%' },
+      { labelAr: 'توفير باستهلاك الكهرباء', labelEn: 'Energy Reduction', value: '28%' },
+      { labelAr: 'مدة تنفيذ المشروع', labelEn: 'Execution Time', value: 'يومين فقط' },
+    ],
+    challengeAr: 'كانت الفيلا تعاني من ضعف شديد في التبريد في الطابق العلوي وتسرب مياه على الأسقف الجبسية بسبب انسداد مجاري التصريف وتراكم الأتربة داخل الدكت، مع صدور روائح رطوبة مزعجة.',
+    challengeEn: 'The villa suffered severe cooling drop in upper-floor bedrooms, repeated water leaks through gypsum false ceilings from blocked drain pans, and heavy musty odors due to choked duct registers.',
+    solutionAr: 'قام فريق جوزاء الهندسي بفك مجاري الهواء وتنظيفها، وغسيل الوحدات الداخلية والخارجية بمضخات الضغط، واستبدال صمامات التمدد التالفة، وشحن فريون R410A وضبط موازنة الهواء CFM في كافة الغرف.',
+    solutionEn: 'Jawzaa engineering team pressure-washed all evaporator and condenser coils, cleared and sealed condensate pans, replaced worn expansion valves, recharged virgin R410A gas, and balanced room CFM airflow.',
+  },
+  {
+    id: 'restaurant-cold-room-repair',
+    titleAr: 'صيانة طارئة وإعادة بناء كمبروسر غرفة تبريد لمطعم شهير بحي العليا',
+    titleEn: 'Emergency Cold Room Compressor Rebuild for Olaya Restaurant',
+    categoryAr: 'مطاعم وتجاري',
+    categoryEn: 'Commercial Restaurant',
+    date: '2026',
+    clientAr: 'مطعم ومقهى راقٍ — حي العليا، الرياض',
+    clientEn: 'Fine Dining Restaurant — Olaya, Riyadh',
+    image: 'fridge-ac-service-bay',
+    metrics: [
+      { labelAr: 'وقت الاستجابة والوصول', labelEn: 'Response Time', value: '40 دقيقة' },
+      { labelAr: 'حماية المخزون من التلف', labelEn: 'Inventory Saved', value: '100%' },
+      { labelAr: 'استعادة درجة التبريد', labelEn: 'Target Temp Restored', value: '-18°C' },
+    ],
+    challengeAr: 'توقف مفاجئ لكمبروسر غرفة التجميد الرئيسية في عطلة نهاية الأسبوع مع وجود مخزون لحوم وأغذية تتجاوز قيمته 80,000 ريال مهدد بالتلف.',
+    challengeEn: 'Catastrophic failure of the main walk-in freezer compressor during peak weekend operations, putting over 80,000 SAR of fresh meat inventory at risk of spoilage.',
+    solutionAr: 'تم إرسال فريق الطوارئ الميداني خلال 40 دقيقة، وتم تشخيص احتراق ريليه البدء وتلف صمام الضغط، فتم استبدالها فورياً وإعادة تفريغ وشحن غاز الفريون واستعادة درجة -18 مئوية خلال ساعتين.',
+    solutionEn: 'Emergency mobile unit arrived in 40 minutes, diagnosed burned starter relay and seized discharge valve, replaced components with genuine OEM parts, vacuumed and charged system, reaching -18°C within 2 hours.',
+  },
+  {
+    id: 'industrial-pump-motor-rewind',
+    titleAr: 'إعادة لف وتجديد محرك مروحة تكييف مركزي 15 حصان لمجمع تجاري',
+    titleEn: '15HP Industrial Blower Motor Rewind with Class H Insulation',
+    categoryAr: 'موتورات ومصانع',
+    categoryEn: 'Industrial & Motors',
+    date: '2026',
+    clientAr: 'مجمع تجاري وإداري — طريق الملك فهد، الرياض',
+    clientEn: 'Commercial Plaza — King Fahd Road, Riyadh',
+    image: 'ba-after',
+    metrics: [
+      { labelAr: 'وفر في تكلفة شراء محرك جديد', labelEn: 'Cost Savings vs New', value: '65%' },
+      { labelAr: 'نقاء النحاس الكهرومغناطيسي', labelEn: 'Copper Wire Purity', value: '100%' },
+      { labelAr: 'مدة الضمان المعتمد', labelEn: 'Certified Warranty', value: 'سنة كاملة' },
+    ],
+    challengeAr: 'احتراق محرك البلاور الرئيسي لمكيفات المجمع المركزي بسبب تذبذب تيار كهربائي، مع عدم توفر محرك بديل مطابق في السوق المحلي إلا بعد طلبية تستغرق شهراً.',
+    challengeEn: 'Burned stator coils on a 15HP central rooftop blower due to voltage spike, with zero replacement units available locally without a 4-week import delay.',
+    solutionAr: 'تم نقل المحرك لورشة جوزاء، وفك الأسلاك التالفة، وإعادة لفه بسلك نحاس نقي فائق العزل (Class H)، وتركيب بيرنجات يابانية NSK، وتسليمه واختباره تحت الحمل بنجاح خلال 24 ساعة.',
+    solutionEn: 'Motor was transported to Jawzaa rewind bay, stripped, rewound with Class H pure copper wire, fitted with premium Japanese NSK bearings, dynamically balanced and reinstalled within 24 hours.',
+  },
+];
+
+// Blog Posts Data
+export const BLOG_POSTS = [
+  {
+    slug: 'how-to-fix-ac-not-cooling-riyadh-summer',
+    titleAr: 'لماذا يتوقف المكيف عن التبريد في حر الصيف بالرياض؟ و5 خطوات لحل المشكلة',
+    titleEn: 'Why ACs Stop Cooling in 50°C Riyadh Heat: 5 Expert Fixes',
+    categoryAr: 'دليل صيانة المكيفات',
+    categoryEn: 'AC Maintenance Guide',
+    date: '2026-08-20',
+    readTimeAr: '5 دقائق قراءة',
+    readTimeEn: '5 min read',
+    image: 'poster-ac-not-cooling',
+    excerptAr: 'دليل شامل يشرح الأسباب الحقيقية وراء خروج هواء دافئ من المكيف عند ارتفاع درجات الحرارة في الرياض، وكيفية التعامل معها لتجنب احتراق الكمبروسر.',
+    excerptEn: 'A comprehensive guide explaining the exact reasons your air conditioner blows warm air during extreme heatwaves and how to protect your compressor.',
+    contentAr: `عندما ترتفع درجات الحرارة في الرياض لتتجاوز 48 درجة مئوية، يتعرض مكيف الهواء لضغط تشغيلي هائل. إليك الأسباب الخمسة الأكثر شيوعاً لضعف التبريد:
+
+1. **انسداد فلاتر الهواء بالأتربة:** يؤدي الغبار إلى منع تدفق الهواء عبر زعانف المبخر، مما يتسبب في تجمد الأنابيب وتوقف التبريد. قم بتنظيف الفلاتر بالماء كل أسبوعين في الصيف.
+2. **تسريب غاز الفريون:** أي ثقب مجهري في صواميل الربط أو أنابيب النحاس يقلل ضغط الغاز، مما يجعل الكمبروسر يعمل دون قدرة على التبريد.
+3. **تلف كابستور التشغيل (Capacitor):** كابستور المكيف يتأثر بالحرارة الشديدة، وعند تلفه يتوقف الكمبروسر عن العمل وتسمع صوت أزيز فقط.
+4. **تراكم الغبار على الوحدة الخارجية:** الوحدة الخارجية بحاجة لتصريف الحرارة للخارج، وإذا كانت مسدودة بالأتربة تفصل حماية الأوفرلود تلقائياً.
+5. **ضبط غير صحيح للترموستات:** تأكد من ضبط وضع التشغيل على "Cool" وليس "Fan" وضبط المروحة على الوضع التلقائي "Auto".`,
+    contentEn: `When summer temperatures in Riyadh surge past 48°C, your AC compressor operates under immense mechanical stress. Here are the 5 leading reasons for cooling failure:
+
+1. **Choked Air Filters:** Desert sand buildup restricts airflow across evaporator coils, leading to pipe icing and weak air delivery. Wash filters with water every 2 weeks.
+2. **Freon Gas Leakage:** Even a microscopic pinhole leak in flare connections depletes refrigerant charge, causing the compressor to run continuously without cooling.
+3. **Blown Run Capacitor:** Intense heatwaves degrade capacitor internal dielectric fluid, preventing the compressor from starting up.
+4. **Suffocated Outdoor Condenser:** Outdoor units must reject immense heat. When choked with dust, thermal overload switches trip the system repeatedly.
+5. **Incorrect Thermostat Mode:** Ensure the remote mode is set to "Cool" and fan set to "Auto" rather than continuous "Fan" mode.`,
+  },
+  {
+    slug: 'signs-your-refrigerator-needs-freon',
+    titleAr: '5 علامات واضحة تدل على وجود تسريب فريون في ثلاجتك',
+    titleEn: '5 Clear Signs Your Refrigerator Has a Freon Gas Leak',
+    categoryAr: 'أعطال الثلاجات',
+    categoryEn: 'Fridge Troubleshooting',
+    date: '2026-08-15',
+    readTimeAr: '4 دقائق قراءة',
+    readTimeEn: '4 min read',
+    image: 'poster-fridge-door-seal',
+    excerptAr: 'تعرف على مؤشرات نقص غاز الفريون في الثلاجات المنزلية وكيف يحميك التدخل المبكر من احتراق كمبروسر الثلاجة.',
+    excerptEn: 'Learn the definitive warning signs of freon loss in home refrigerators and how prompt repair prevents compressor burnout.',
+    contentAr: `غاز الفريون في الثلاجة يتحرك داخل دورة محكمة الإغلاق ولا ينفد بالاستخدام العادي. إذا نقص الفريون، فهذا يعني وجود تسريب يجب إصلاحه. إليك أبرز العلامات:
+
+- **الثلاجة دافئة والفريزر نصف مجمد:** يبدأ نقص الفريون بالتأثير على الجزء السفلي للثلاجة أولاً.
+- **الكمبروسر يعمل دون توقف:** يحاول الكمبروسر تعويض فقدان التبريد فيظل يعمل لساعات متواصلة ويسخن بشدة.
+- **انبعاث رائحة كيميائية خفيفة:** في بعض حالات التسريب الداخلي تظهر رائحة مميزة تشبه رائحة الزيت الخفيف.
+- **تكون ثلج غير متساوٍ على ماسورة الفريزر:** ظهور بقعة ثلج صغيرة عند مدخل الماسورة فقط مع جفاف بقية المبخر.
+- **ارتفاع غير عادي في فاتورة الكهرباء:** نتيجة التشغيل المستمر للضاغط على مدار 24 ساعة.`,
+    contentEn: `Freon in a refrigerator circulates inside a hermetically sealed closed loop and never gets consumed over time. If gas is low, there is a physical leak. Key indicators include:
+
+- **Warm Refrigerator Compartment with Semi-Frozen Freezer:** Cooling loss manifests in the fresh food section first.
+- **Compressor Running Non-Stop:** The motor runs continuously for hours attempting to reach the set temperature.
+- **Faint Chemical Oil Odor:** Internal evaporative leaks sometimes release a distinct chemical-lube scent.
+- **Partial Frost Ball on Coil Entry:** A localized ball of ice forms where refrigerant enters the evaporator while the rest stays warm.
+- **Spike in Electric Utility Bills:** Caused by continuous 24/7 compressor operation.`,
+  },
+  {
+    slug: 'motor-rewinding-vs-replacement',
+    titleAr: 'إعادة لف المحرك الكهربائي أم شراء محرك جديد؟ مقارنة الجدوى والتكلفة',
+    titleEn: 'Motor Rewinding vs Buying New: Cost & Longevity Comparison',
+    categoryAr: 'الموتورات والكهرباء',
+    categoryEn: 'Motor Engineering',
+    date: '2026-08-10',
+    readTimeAr: '6 دقائق قراءة',
+    readTimeEn: '6 min read',
+    image: 'poster-before-after-motor',
+    excerptAr: 'مقارنة فنية ومالية توضح متى يكون إعادة لف موتور التكييف أو المضخة خياراً أفضل بكثير من شراء محرك جديد.',
+    excerptEn: 'An engineering and financial breakdown revealing when rewinding an HVAC motor or pump is far superior to purchasing a new unit.',
+    contentAr: `عند احتراق محرك كهربائي، يقع العميل في حيرة بين شراء محرك جديد أو إعادة لفه في ورشة متخصصة. إليك المقارنة الفنية:
+
+- **التكلفة المالية:** توفر عملية إعادة اللف ما بين 50% إلى 70% من سعر شراء محرك أصلي جديد من الوكيل.
+- **جودة المواد:** في ورشة جوزاء، نستخدم سلك نحاس نقي 100% مع عزل حراري فائق الفئة H، بينما تحتوي بعض المحركات التجارية الجديدة في السوق على أسلاك ألومنيوم مطلية بالنحاس سرعان ما تحترق.
+- **سرعة الإنجاز:** إعادة لف المحرك في ورشتنا تتم خلال 24 ساعة، بينما قد يستغرق طلب محرك نادر من الوكالة أسابيع.
+- **الخلاصة:** إعادة اللف بنحاس أصلي مع تغيير البيرنجات يمنحك محركاً بجودة تضاهي المصنع مع توفير مالي كبير وضمان حقيقي.`,
+    contentEn: `When an electric motor burns out, property owners face the dilemma of rewinding vs buying a replacement. Here is the technical reality:
+
+- **Financial Savings:** Rewinding saves between 50% to 70% compared to purchasing a brand-new OEM unit from distributors.
+- **Material Quality:** At Jawzaa, we use 100% pure electrolytic copper and Class H insulation. In contrast, many cheap aftermarket replacement motors on the market use copper-clad aluminum wire that burns out rapidly.
+- **Turnaround Speed:** Motor rewinding is completed in our workshop within 24 hours, whereas ordering hard-to-find motors can take weeks.
+- **Verdict:** Precision rewinding with pure copper and Japanese bearings delivers factory-grade durability at a fraction of the cost with full warranty.`,
+  },
+];
+
+// Careers Data
+export const CAREERS_DATA = [
+  {
+    id: 'hvac-senior-tech',
+    titleAr: 'فني تكييف وتبريد أول (HVAC Senior Technician)',
+    titleEn: 'Senior HVAC & Refrigeration Technician',
+    typeAr: 'دوام كامل — الرياض',
+    typeEn: 'Full-Time — Riyadh',
+    experienceAr: 'خبرة 5+ سنوات في صيانة المكيفات المركزية والسبليت',
+    experienceEn: '5+ years experience in central and split AC maintenance',
+    descAr: 'نبحث عن فني تكييف متمرس يمتلك مهارات تشخيص الأعطال الإلكترونية، شحن الفريون، لحام النحاس، وصيانة مكيفات الكونسيلد والباكج.',
+    descEn: 'Seeking an experienced HVAC technician skilled in electronic diagnostics, freon charging, copper brazing, and ducted/package AC maintenance.',
+  },
+  {
+    id: 'motor-rewind-specialist',
+    titleAr: 'أخصائي لف موتورات ومحركات كهربائية',
+    titleEn: 'Electric Motor Rewinding Specialist',
+    typeAr: 'دوام كامل — ورشة جوزاء، الرياض',
+    typeEn: 'Full-Time — Jawzaa Bay, Riyadh',
+    experienceAr: 'خبرة 4+ سنوات في لف محركات التكييف والمضخات 1 فاز و 3 فاز',
+    experienceEn: '4+ years experience in 1-phase and 3-phase motor rewinding',
+    descAr: 'مسؤول عن حساب بيانات اللف، استخدام الأسلاك النحاسية النقية، العزل الحراري بالورنيش، واختبار الأمبير والاتزان الميكانيكي.',
+    descEn: 'Responsible for recording winding data, pure copper coiling, varnish baking, ampere load testing, and dynamic rotor balancing.',
+  },
+  {
+    id: 'appliance-repair-tech',
+    titleAr: 'فني صيانة ثلاجات وغسالات منزلية',
+    titleEn: 'Home Appliance (Fridges & Washers) Technician',
+    typeAr: 'دوام كامل — الرياض',
+    typeEn: 'Full-Time — Riyadh',
+    experienceAr: 'خبرة 3+ سنوات في ثلاجات النوفروست والغسالات الأوتوماتيك',
+    experienceEn: '3+ years experience in no-frost refrigerators and automatic washers',
+    descAr: 'القيام بالزيارات المنزلية لفحص وإصلاح الثلاجات والغسالات وكروت التحكم وطلمبات التصريف بمهنية وأمانة عالية.',
+    descEn: 'Conducting home visits to troubleshoot and repair refrigerators, washers, inverter control boards, and drain systems.',
+  },
+];
