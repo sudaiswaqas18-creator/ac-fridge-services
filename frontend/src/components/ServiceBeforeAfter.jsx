@@ -127,6 +127,28 @@ const SERVICE_BA_CONFIGS = {
       { labelAr: 'سحب الأمبير', labelEn: 'Amperage', valAr: 'مطابق تماماً لمواصفات المصنع', valEn: 'Exact Factory Amp Specs' },
     ],
   },
+  'central-hvac': {
+    beforeImg: baHvacBefore,
+    afterImg: baHvacAfter,
+    tagAr: 'صيانة التكييف المركزي والتجاري',
+    tagEn: 'Commercial & Central HVAC Overhaul',
+    titleAr: 'مقارنة فحص وغسيل التكييف المركزي قبل وبعد الصيانة',
+    titleEn: 'Central HVAC: Before vs After Maintenance',
+    descAr: 'شاهد الفارق الملموس بعد إزالة الأتربة الصحراوية المتراكمة عن مكثفات التكييف المركزي وضبط ضغوط الفريون بدقة.',
+    descEn: 'Experience the tangible cooling restoration and efficiency surge after deep coil washing and digital manifold calibration.',
+    beforeSpecs: [
+      { labelAr: 'انسداد المكثف بالأتربة', labelEn: 'Condenser Dirt', valAr: '90% مسدود بالغبار والرمال', valEn: '90% Clogged Desert Sand' },
+      { labelAr: 'ضغط رأس الكمبروسر', labelEn: 'Head Pressure', valAr: 'مرتفع وسخونة مفرطة بالسطح', valEn: 'High Head Pressure & Heat' },
+      { labelAr: 'سحب تيار الكمبروسر', labelEn: 'Compressor Amps', valAr: 'سحب زائد ومهدد بالفصل', valEn: 'Over-Current Amperage' },
+      { labelAr: 'تدفق التبريد للمبنى', labelEn: 'Airflow CFM', valAr: 'تبريد ضعيف واستهلاك مرتفع', valEn: 'Weak Cooling & High Bills' },
+    ],
+    afterSpecs: [
+      { labelAr: 'انسداد المكثف بالأتربة', labelEn: 'Condenser Dirt', valAr: '100% نظيف ومعقم بالكامل', valEn: '100% Gleaming Clean Fins' },
+      { labelAr: 'ضغط رأس الكمبروسر', labelEn: 'Head Pressure', valAr: 'ضغط مثالي وتبادل حراري مستقر', valEn: 'Optimal Stable Pressures' },
+      { labelAr: 'سحب تيار الكمبروسر', labelEn: 'Compressor Amps', valAr: 'مطابق لمواصفات المصنع الأصلية', valEn: 'Balanced OEM Factory Amps' },
+      { labelAr: 'تدفق التبريد للمبنى', labelEn: 'Airflow CFM', valAr: 'أقصى كفاءة تدفق وهواء منعش', valEn: 'Maximum Building Airflow' },
+    ],
+  },
   default: {
     beforeImg: baHvacBefore,
     afterImg: baHvacAfter,
@@ -155,10 +177,11 @@ const getConfig = (slug) => {
   if (!slug) return SERVICE_BA_CONFIGS.default;
   if (slug.includes('ac-repair') || slug === 'ac-repair') return SERVICE_BA_CONFIGS['ac-repair-riyadh'];
   if (slug.includes('cleaning') || slug === 'ac-cleaning') return SERVICE_BA_CONFIGS['ac-cleaning-installation'];
+  if (slug.includes('central') || slug.includes('hvac') || slug === 'central-hvac') return SERVICE_BA_CONFIGS['central-hvac'];
   if (slug.includes('fridge') || slug.includes('refrigerator')) return SERVICE_BA_CONFIGS['refrigerator-freezer-repair'];
   if (slug.includes('washer') || slug.includes('washing')) return SERVICE_BA_CONFIGS['washing-machine-dryer'];
   if (slug.includes('motor') || slug.includes('rewinding')) return SERVICE_BA_CONFIGS['motor-rewinding-welding'];
-  if (slug.includes('hvac') || slug.includes('central') || slug.includes('contract')) return SERVICE_BA_CONFIGS.default;
+  if (slug.includes('contract')) return SERVICE_BA_CONFIGS.default;
   return SERVICE_BA_CONFIGS[slug] || SERVICE_BA_CONFIGS.default;
 };
 

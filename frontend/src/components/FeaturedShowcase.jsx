@@ -45,7 +45,7 @@ export default function FeaturedShowcase() {
       id: 'washer',
       badge: isRTL ? 'فحص إلكتروني' : 'Digital Diagnostics',
       img: washerImg,
-      title: isRTL ? 'صيانة الغسالات والنشافات الأوتوماتيكية' : 'Automatic Washer & Dryer Board & Bearing Repair',
+      title: isRTL ? 'صيانة وإصلاح الغسالات والنشافات الأوتوماتيكية' : 'Automatic Washer & Dryer Repair Services',
       desc: isRTL
         ? 'معالجة اهتزاز الحلة وتغيير رولمان البلي الأصلي، تصليح كروت التحكم الإلكترونية ومضخات الطرد.'
         : 'Drum bearing & suspension shock replacement, PCB control board troubleshooting, and drain pump repair.',
