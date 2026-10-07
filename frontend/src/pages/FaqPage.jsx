@@ -87,7 +87,7 @@ export default function FaqPage() {
 
           <div className="faq-bottom-cta-card">
             <h3 className="faq-cta-title">{isRTL ? 'لم تجد إجابة على سؤالك؟' : 'Still Have Questions?'}</h3>
-            <p className="faq-cta-sub">{isRTL ? 'فريق خدمة العملاء متاح يومياً من 8 صباحاً وحتى منتصف الليل للإجابة على كافة استفساراتك.' : 'Our customer team is available daily from 8 AM to Midnight.'}</p>
+            <p className="faq-cta-sub">{isRTL ? 'فريق خدمة العملاء متاح يومياً من 8 صباحاً وحتى 11:30 مساءً للإجابة على كافة استفساراتك.' : 'Our customer team is available daily from 8 AM to 11:30 PM.'}</p>
             <div className="faq-cta-buttons">
               <a className="btn btn-wa" href={waLink()} target="_blank" rel="noopener">
                 {I.whatsapp} {isRTL ? 'تحدث مع فني الآن' : 'Chat with a Technician'}

@@ -1002,7 +1002,7 @@ export const CASE_STUDIES = [
     date: '2026',
     clientAr: 'عائلة آل سعود — حي الياسمين، الرياض',
     clientEn: 'Al-Saud Family — Al-Yasmin, Riyadh',
-    image: 'ac-outdoor-units-stack',
+    image: 'case-villa-ducted-ac',
     metrics: [
       { labelAr: 'تحسن في برودة الهواء', labelEn: 'Cooling Delta-T', value: '+35%' },
       { labelAr: 'توفير باستهلاك الكهرباء', labelEn: 'Energy Reduction', value: '28%' },
@@ -1022,7 +1022,7 @@ export const CASE_STUDIES = [
     date: '2026',
     clientAr: 'مطعم ومقهى راقٍ — حي العليا، الرياض',
     clientEn: 'Fine Dining Restaurant — Olaya, Riyadh',
-    image: 'fridge-ac-service-bay',
+    image: 'case-restaurant-coldroom',
     metrics: [
       { labelAr: 'وقت الاستجابة والوصول', labelEn: 'Response Time', value: '40 دقيقة' },
       { labelAr: 'حماية المخزون من التلف', labelEn: 'Inventory Saved', value: '100%' },
@@ -1042,7 +1042,7 @@ export const CASE_STUDIES = [
     date: '2026',
     clientAr: 'مجمع تجاري وإداري — طريق الملك فهد، الرياض',
     clientEn: 'Commercial Plaza — King Fahd Road, Riyadh',
-    image: 'ba-after',
+    image: 'case-industrial-motor',
     metrics: [
       { labelAr: 'وفر في تكلفة شراء محرك جديد', labelEn: 'Cost Savings vs New', value: '65%' },
       { labelAr: 'نقاء النحاس الكهرومغناطيسي', labelEn: 'Copper Wire Purity', value: '100%' },

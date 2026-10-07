@@ -332,7 +332,7 @@ export default function IndustryDetailPage() {
                 </div>
                 <div className="sb-g-item">
                   <span className="g-icon">{I.clock}</span>
-                  <span>{isRTL ? 'خدمة يومية 8:00 ص - 12:00 منتصف الليل' : 'Daily 8:00 AM - Midnight'}</span>
+                  <span>{isRTL ? 'خدمة يومية 8:00 ص - 11:30 مساءً' : 'Daily 8:00 AM - 11:30 PM'}</span>
                 </div>
                 <div className="sb-g-item">
                   <span className="g-icon">{I.wallet}</span>

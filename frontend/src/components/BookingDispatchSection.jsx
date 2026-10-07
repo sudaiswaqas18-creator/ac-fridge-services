@@ -205,7 +205,7 @@ export default function BookingDispatchSection() {
             <span className="v-dot">•</span>
             <span>{I.wallet} {isRTL ? 'لا دفع إلا بعد إتمام الإصلاح' : 'No payment until satisfaction'}</span>
             <span className="v-dot">•</span>
-            <span>{I.clock} {isRTL ? 'خدمة يومية 8 ص - 12 ليلاً' : 'Daily 8 AM - Midnight'}</span>
+            <span>{I.clock} {isRTL ? 'خدمة يومية 8 ص - 11:30 م' : 'Daily 8 AM - 11:30 PM'}</span>
           </div>
         </div>
 

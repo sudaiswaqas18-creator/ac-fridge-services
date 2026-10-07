@@ -71,7 +71,16 @@ export function DataProvider({ children }) {
   // 3. Case Studies
   const [cases, setCases] = useState(() => {
     const saved = localStorage.getItem('jawzaa_db_cases');
-    return saved ? JSON.parse(saved) : CASE_STUDIES;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        return parsed.map(c => {
+          const fresh = CASE_STUDIES.find(x => x.id === c.id);
+          return fresh ? { ...c, image: fresh.image, titleAr: fresh.titleAr, titleEn: fresh.titleEn } : c;
+        });
+      } catch (e) { /* ignore */ }
+    }
+    return CASE_STUDIES;
   });
 
   // 4. Blog Posts
@@ -95,7 +104,16 @@ export function DataProvider({ children }) {
   // 7. Gallery
   const [gallery, setGallery] = useState(() => {
     const saved = localStorage.getItem('jawzaa_db_gallery');
-    return saved ? JSON.parse(saved) : GALLERY_ITEMS;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        return parsed.map(g => {
+          const fresh = GALLERY_ITEMS.find(x => x.id === g.id);
+          return fresh ? { ...g, src: fresh.src, titleAr: fresh.titleAr, titleEn: fresh.titleEn } : g;
+        });
+      } catch (e) { /* ignore */ }
+    }
+    return GALLERY_ITEMS;
   });
 
   // 8. Contact & Booking Inquiries

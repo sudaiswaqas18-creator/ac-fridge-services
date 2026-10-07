@@ -13,8 +13,8 @@ export const BRAND = {
   whatsapp: '966544786559',
   cityAr: 'الرياض، المملكة العربية السعودية',
   cityEn: 'Riyadh, Kingdom of Saudi Arabia',
-  hoursAr: 'يومياً: 8:00 صباحاً – 12:00 منتصف الليل',
-  hoursEn: 'Daily: 8:00 AM – 12:00 Midnight',
+  hoursAr: 'يومياً: 8:00 صباحاً – 11:30 مساءً',
+  hoursEn: 'Daily: 8:00 AM – 11:30 PM',
 };
 
 export const waLink = (msg = 'السلام عليكم، أحتاج فني صيانة من جوزاء للتبريد والتكييف') =>
@@ -38,7 +38,7 @@ export const T = {
     topbar: {
       available: 'متواجدون الآن — نغطي كافة أحياء الرياض',
       callUs: 'اتصل بنا',
-      hours: '8:00 ص - 12:00 م',
+      hours: '8:00 ص - 11:30 م',
     },
     hero: {
       badge: 'فريق فني معتمد • استجابة سريعة في نفس اليوم',
@@ -357,7 +357,7 @@ export const T = {
       callCardTitle: 'الاتصال الهاتفي المباشر',
       callCardDesc: 'فريق خدمة العملاء جاهز للإجابة وتنسيق زيارة الفني.',
       hoursCardTitle: 'ساعات العمل اليومية',
-      hoursCardDesc: 'يومياً من 8:00 صباحاً وحتى 12:00 منتصف الليل.',
+      hoursCardDesc: 'يومياً من 8:00 صباحاً وحتى 11:30 مساءً.',
       locCardTitle: 'موقع المعرض والورشة',
       locCardDesc: 'الرياض — نغطي كافة الأحياء الشمالية والجنوبية والشرقية والغربية.',
       formHeading: 'إرسال طلب صيانة سريع',
@@ -390,7 +390,7 @@ export const T = {
     topbar: {
       available: 'Available Now — Covering All Neighborhoods in Riyadh',
       callUs: 'Call Us',
-      hours: '8:00 AM - 12:00 Midnight',
+      hours: '8:00 AM - 11:30 PM',
     },
     hero: {
       badge: 'Certified Technicians • Same-Day Fast Dispatch Across Riyadh',
@@ -709,7 +709,7 @@ export const T = {
       callCardTitle: 'Direct Phone Call',
       callCardDesc: 'Customer support ready to answer questions and dispatch technicians.',
       hoursCardTitle: 'Daily Working Hours',
-      hoursCardDesc: 'Daily from 8:00 AM to 12:00 Midnight without interruption.',
+      hoursCardDesc: 'Daily from 8:00 AM to 11:30 PM without interruption.',
       locCardTitle: 'Workshop & Storefront Location',
       locCardDesc: 'Riyadh — Serving North, South, East, and West districts.',
       formHeading: 'Send a Fast Repair Request',
