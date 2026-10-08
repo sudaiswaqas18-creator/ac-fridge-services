@@ -1,4 +1,7 @@
 /* Shared finishing pass: readable type, balanced cards and touch-friendly controls. */
+.hero-clickable-banner { cursor: pointer; }
+.hero-clickable-banner * { cursor: pointer; }
+.hero-clickable-banner .hero-slide-dots button { cursor: pointer; }
 .polished-hero.hero-video-master { min-height: min(780px, 88svh); padding: 100px 0 110px; isolation: isolate; }
 .polished-hero .hero-video-overlay { background: linear-gradient(90deg, rgba(6,24,43,.88) 0%, rgba(6,24,43,.69) 33%, rgba(6,24,43,.18) 66%, rgba(6,24,43,.04) 100%); }
 .polished-hero .hero-bottom-shadow-gradient { height: 80px; background: linear-gradient(0deg,rgba(6,24,43,.5),transparent); }

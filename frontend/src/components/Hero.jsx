@@ -57,14 +57,23 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="hero-video-master restored-hero polished-hero"
+      className="hero-video-master restored-hero polished-hero hero-clickable-banner"
       id="home"
+      onClick={handleBannerClick}
+      onKeyDown={(e) => {
+        if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          handleBannerClick();
+        }
+      }}
+      tabIndex={0}
+      role="link"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false); }}
-      title={isRTL ? `انقر للانتقال إلى صفحة الخدمة` : `Click to view service details`}
-      aria-label={isRTL ? 'القسم الرئيسي لخدمات جوزاء' : 'Jawzaa Main Hero Banner'}
+      title={isRTL ? `انقر للانتقال إلى صفحة ${HERO_SLIDES[currentSlide].wordAr}` : `Click banner to view ${HERO_SLIDES[currentSlide].wordEn}`}
+      aria-label={isRTL ? 'القسم الرئيسي لخدمات جوزاء - انقر لفتح تفاصيل الخدمة' : 'Jawzaa Main Hero Banner - Click to open service'}
     >
       {/* Background moving banners container */}
       <div className="hero-video-bg-container hero-slides-viewport" aria-hidden="true">
@@ -121,10 +130,31 @@ export default function Hero() {
             ? 'فنيون معتمدون مجهزون بأحدث أجهزة الفحص الرقمية وكشف تسريب الفريون • خدمة منزلية سريعة بنفس اليوم • قطع غيار أصلية بضمان خطي معتمد وأسعار شفافة محددة مسبقاً.'
             : 'From HVAC & refrigeration fixes to complete equipment overhauls — our licensed technicians deliver quality workmanship, on time and within budget. Serving residential and commercial clients across Riyadh.'}
         </p>
-        <button type="button" className="btn btn-gold hero-details-button" onClick={handleBannerClick}>{isRTL ? 'اكتشف الخدمة' : 'Explore This Service'}</button>
+        <button
+          type="button"
+          className="btn btn-gold hero-details-button"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleBannerClick();
+          }}
+        >
+          {isRTL ? 'اكتشف الخدمة' : 'Explore This Service'}
+        </button>
       </div>
       <div className="hero-slide-dots" aria-label={isRTL ? 'اختيار البانر' : 'Choose a banner'}>
-        {HERO_SLIDES.map((slide, index) => <button key={slide.id} type="button" className={index === currentSlide ? 'active' : ''} aria-label={isRTL ? slide.wordAr : slide.wordEn} aria-pressed={index === currentSlide} onClick={() => setCurrentSlide(index)} />)}
+        {HERO_SLIDES.map((slide, index) => (
+          <button
+            key={slide.id}
+            type="button"
+            className={index === currentSlide ? 'active' : ''}
+            aria-label={isRTL ? slide.wordAr : slide.wordEn}
+            aria-pressed={index === currentSlide}
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrentSlide(index);
+            }}
+          />
+        ))}
       </div>
     </section>
   );
