@@ -33,7 +33,7 @@ export default function WorkDetailPage() {
       </section>
       {section === 'gallery' && <Gallery />}
       {section === 'videos' && <VideosSection />}
-      {section === 'transformations' && <BeforeAfter />}
+      {section === 'transformations' && <BeforeAfter expanded />}
     </div>
   );
 }

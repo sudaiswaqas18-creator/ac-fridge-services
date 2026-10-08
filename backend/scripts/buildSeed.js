@@ -49,8 +49,8 @@ async function main() {
       icon: 'home',
       titleAr: 'الفلل والقصور والمجمعات السكنية',
       titleEn: 'Residential Villas & Luxury Compounds',
-      descAr: 'خدمة صيانة منزلية فورية لجميع مكيفات وثلاجات وغسالات المنزل مع المحافظة التامة على نظافة الأثاث والمفروشات.',
-      descEn: 'Same-day on-site maintenance for home ACs, refrigerators, and washers with 100% floor and furniture protection.',
+      descAr: 'خدمة صيانة منزلية فورية لجميع مكيفات وثلاجات وفريزرات المنزل مع المحافظة التامة على نظافة الأثاث والمفروشات.',
+      descEn: 'Same-day on-site maintenance for home ACs, refrigerators, and freezers with 100% floor and furniture protection.',
       featuresAr: ['استجابة سريعة في نفس اليوم في كافة أحياء الرياض', 'فنيون مؤهلون ومعتمدون بأعلى درجات الأمانة', 'عقود صيانة سنوية مخصصة للعائلات مع خصومات'],
       featuresEn: ['Same-day arrival across all Riyadh neighborhoods', 'Certified technicians with strict professionalism', 'Customized annual family maintenance plans with discounts'],
     },
@@ -62,7 +62,7 @@ async function main() {
       descAr: 'صيانة طارئة لغرف التبريد والتجميد (Walk-in Freezers) وصانعات الثلج ومكيفات صالات الضيوف لضمان استمرارية التشغيل.',
       descEn: 'Emergency service for walk-in freezers, ice machines, and dining hall HVAC to prevent food inventory loss.',
       featuresAr: ['خط ساخن للطوارئ 24/7 للمطاعم المتعاقدة', 'صيانة متخصصة لغرف التجميد والتبريد التجاري', 'تقارير فنية معتمدة تفي باشتراطات البلدية والسلامة'],
-      featuresEn: ['24/7 emergency dispatch line for contracted restaurants', 'Specialized commercial refrigeration care', 'Official municipal and food-safety compliance logs'],
+      featuresEn: ['24/7 emergency service line for contracted restaurants', 'Specialized commercial refrigeration care', 'Official municipal and food-safety compliance logs'],
     },
     {
       id: 'corporate',
@@ -96,9 +96,8 @@ async function main() {
     inquiries,
     settings: {
       phonePrimary: '0544786559',
-      phoneSecondary: '0599757554',
       email: 'info@jawzaa-hvac.sa',
-      workingHours: '8:00 AM - 12:00 Midnight',
+      workingHours: 'Saturday–Thursday, 8:00 AM–11:30 PM; Friday closed',
     },
   };
 

@@ -48,7 +48,7 @@ export function Contact() {
       body: JSON.stringify(newInquiry),
     }).catch(() => {});
 
-    // 3. Open WhatsApp for instant dispatch
+    // 3. Open WhatsApp for instant service
     const msg = isRTL
       ? `طلب صيانة جديد من موقع جوزاء:\n👤 الاسم: ${formData.name}\n📱 الجوال: ${formData.phone}\n📍 الحي: ${formData.area || 'الرياض'}\n🛠️ الخدمة: ${serviceName}\n📝 تفاصيل العطل: ${formData.notes || 'لا توجد'}`
       : `New Maintenance Request from Jawzaa Website:\n👤 Name: ${formData.name}\n📱 Phone: ${formData.phone}\n📍 Area: ${formData.area || 'Riyadh'}\n🛠️ Service: ${serviceName}\n📝 Malfunction Details: ${formData.notes || 'None'}`;
@@ -92,7 +92,7 @@ export function Contact() {
               <div className="ci-body">
                 <h4 className="ci-title">{t.callCardTitle}</h4>
                 <p className="ci-desc">{t.callCardDesc}</p>
-                <span className="ci-value" dir="ltr">{BRAND.phonePrimary} / {BRAND.phoneSecondary}</span>
+                <span className="ci-value" dir="ltr">{BRAND.phonePrimary}</span>
               </div>
             </a>
 
@@ -103,7 +103,7 @@ export function Contact() {
                 <p className="ci-desc">{isRTL ? BRAND.hoursAr : BRAND.hoursEn}</p>
                 <span className="ci-status-badge">
                   <span className="live-dot-green" />
-                  {isRTL ? 'خدمة يومية بلا انقطاع' : 'Open 7 Days a Week'}
+                  {isRTL ? 'مغلق يوم الجمعة' : 'Friday Closed'}
                 </span>
               </div>
             </div>
@@ -182,29 +182,11 @@ export function Contact() {
                       <option value="" disabled>
                         {isRTL ? 'اختر الخدمة المطلوبة...' : 'Select service...'}
                       </option>
-                      {isRTL ? (
-                        <>
-                          <option value="صيانة وتنظيف مكيفات سبليت">صيانة وتنظيف مكيفات سبليت</option>
-                          <option value="شحن فريون أصلي وكشف تسريب">شحن فريون أصلي وكشف تسريب</option>
-                          <option value="صيانة تكييف مركزي ومخفي">صيانة تكييف مركزي ومخفي</option>
-                          <option value="تصليح ثلاجة أو فريزر منزلي">تصليح ثلاجة أو فريزر منزلي</option>
-                          <option value="صيانة غسالة أو نشافة أوتوماتيك">صيانة غسالة أو نشافة أوتوماتيك</option>
-                          <option value="لف وإصلاح موتور ومضخة مياه">لف وإصلاح موتور ومضخة مياه</option>
-                          <option value="فحص شامل وتشخيص عطل">فحص شامل وتشخيص عطل</option>
-                          <option value="عقد صيانة سنوي">عقد صيانة سنوي دوري</option>
-                        </>
-                      ) : (
-                        <>
-                          <option value="Split AC Service & Cleaning">Split AC Service & Cleaning</option>
-                          <option value="Freon Gas Refill & Leak Check">Freon Gas Refill & Leak Check</option>
-                          <option value="Central & Ducted HVAC Repair">Central & Ducted HVAC Repair</option>
-                          <option value="Refrigerator & Freezer Repair">Refrigerator & Freezer Repair</option>
-                          <option value="Automatic Washer & Dryer Repair">Automatic Washer & Dryer Repair</option>
-                          <option value="Pure Copper Motor Rewinding">Pure Copper Motor Rewinding</option>
-                          <option value="Comprehensive Diagnostics">Comprehensive Diagnostics</option>
-                          <option value="Annual Maintenance Contract">Annual Maintenance Contract</option>
-                        </>
-                      )}
+                      {[
+                        ['AC & HVAC', 'صيانة المكيفات'],
+                        ['Refrigerators & Freezers', 'الثلاجات والفريزرات'],
+                        ['Motor Rewinding', 'لف المحركات'],
+                      ].map(([en, ar]) => <option key={en} value={isRTL ? ar : en}>{isRTL ? ar : en}</option>)}
                     </select>
                   </div>
                 </div>
@@ -223,7 +205,7 @@ export function Contact() {
 
                 <button className="btn btn-wa btn-contact-submit" type="submit">
                   {I.whatsapp}
-                  <span>{isRTL ? 'إرسال الطلب وحجز الفني فوراً' : 'Submit Request & Dispatch Technician'}</span>
+                  <span>{isRTL ? 'إرسال الطلب وحجز الفني فوراً' : 'Send Request & Book Technician'}</span>
                 </button>
 
                 {submitted && (
@@ -277,7 +259,7 @@ export function Contact() {
               </div>
 
               <a
-                href="https://maps.app.goo.gl/WDg2itdrGeQ81SE99?g_st=aw"
+                href={BRAND.mapUrl}
                 target="_blank"
                 rel="noopener"
                 className="btn btn-navy"
@@ -301,7 +283,7 @@ export function Contact() {
             >
               <iframe
                 title={isRTL ? 'موقع جوزاء للتبريد والتكييف بالرياض' : 'Jawzaa HVAC Riyadh Location'}
-                src="https://maps.google.com/maps?q=%D8%AA%D8%A8%D8%B1%D9%8A%D8%AF%20%D9%88%D8%AA%D9%83%D9%8A%D9%8A%D9%81%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src={BRAND.mapEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

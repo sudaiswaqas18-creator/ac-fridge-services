@@ -206,16 +206,17 @@ a.footer-contact-item:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: var(--radius-sm);
+  width: auto;
+  align-self: flex-start;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border-radius: 8px;
   background: var(--grad-gold);
   color: var(--navy-950) !important;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.94rem;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(255, 196, 0, 0.35);
+  box-shadow: 0 4px 14px rgba(255, 196, 0, 0.35);
   transition: all var(--transition-normal);
 }
 

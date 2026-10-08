@@ -4,14 +4,14 @@ import { I } from '../Icons.jsx'
 
 export default function HomePage() {
   useEffect(() => {
-    document.title = `${BRAND.name} | صيانة مكيفات وثلاجات وغسالات بالرياض`
+    document.title = `${BRAND.name} | صيانة مكيفات وثلاجات وفريزرات بالرياض`
   }, [])
 
   return (
     <section>
       <div className="hero">
         <h1>جوزاء للتبريد والتكييف</h1>
-        <p>صيانة مكيفات، ثلاجات، وغسالات في الرياض — خدمة منزلية سريعة</p>
+        <p>صيانة مكيفات، ثلاجات، وفريزرات في الرياض — خدمة منزلية سريعة</p>
         <a className="btn btn-wa" href="https://wa.me/966544786559" target="_blank">
           {I.whatsapp} راسلنا واتساب
         </a>

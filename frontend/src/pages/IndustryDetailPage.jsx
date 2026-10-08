@@ -15,10 +15,10 @@ const INDUSTRIES_DETAILS = {
     subtitleEn: 'Comprehensive same-day on-site maintenance across all Riyadh districts with 100% furniture & floor protection.',
     overviewAr: `توفر مؤسسة جوزاء للتبريد والتكييف خدمات صيانة منزلية راقية مصممة خصيصاً للفلل والقصور والشقق والمجمعات السكنية في الرياض. ندرك أهمية الراحة والخصوصية للعائلة، ولذلك يعمل فنيونا وفق أعلى معايير النظافة والاحترافية والأمانة.
 
-تشمل خدماتنا السكنية: الغسيل والتعقيم العميق لكافة مكيفات السبليت والكونسيلد والشباك، شحن الفريون الأصلي، كشف وإصلاح تسريبات المياه، تصليح الثلاجات والفريزرات فورياً بالمنزل دون الحاجة لنقلها، وصيانة الغسالات والنشافات الأوتوماتيكية مع منحك سند ضمان خطي معتمد على كافة أعمال الصيانة وقطع الغيار.`,
+تشمل خدماتنا السكنية: الغسيل والتعقيم العميق لكافة مكيفات السبليت والكونسيلد والشباك، شحن الفريون الأصلي، كشف وإصلاح تسريبات المياه، تصليح الثلاجات والفريزرات فورياً بالمنزل دون الحاجة لنقلها، وصيانة المحركات والمضخات مع منحك سند ضمان خطي معتمد على كافة أعمال الصيانة وقطع الغيار.`,
     overviewEn: `Jawzaa Refrigeration & AC delivers premium residential maintenance services tailored for luxury villas, private residences, and residential compounds across Riyadh. We understand the paramount importance of family privacy and home cleanliness, ensuring our technicians adhere to the highest standards of etiquette and precision.
 
-Our residential capabilities include: high-pressure deep cleaning and sanitization for split, ducted, and window ACs, genuine freon charging, water leak elimination, immediate on-site refrigerator and freezer repair without offsite transportation, and automatic washer/dryer servicing backed by written warranties on parts and labor.`,
+Our residential capabilities include: high-pressure deep cleaning and sanitization for split, ducted, and window ACs, genuine freon charging, water leak elimination, immediate on-site refrigerator and freezer repair without offsite transportation and motor servicing backed by written warranties on parts and labor.`,
     stats: [
       { labelAr: 'فيلا ومنزل تم خدمتها', labelEn: 'Villas & Homes Serviced', value: '4,800+' },
       { labelAr: 'سرعة الوصول بالرياض', labelEn: 'Rapid Arrival', value: '30 - 45 دقيقة' },
@@ -28,11 +28,11 @@ Our residential capabilities include: high-pressure deep cleaning and sanitizati
     featuresAr: [
       'استجابة سريعة في نفس اليوم في كافة أحياء الرياض (شمال، شرق، غرب، وجنوب)',
       'فنيون مؤهلون ومعتمدون ومجهزون بأحدث أجهزة الفحص الرقمية وأغطية حماية الأثاث',
-      'صيانة 95% من أعطال الثلاجات والمكيفات والغسالات فورياً داخل المنزل',
+      'صيانة 95% من أعطال الثلاجات والمكيفات والفريزرات فورياً داخل المنزل',
       'عقود صيانة سنوية دورية مخفضة تضمن عمل الأجهزة بكفاءة قصوى طوال العام',
     ],
     featuresEn: [
-      'Same-day rapid dispatch covering all North, South, East, and West Riyadh districts',
+      'Same-day rapid service covering all North, South, East, and West Riyadh districts',
       'Certified, background-checked technicians equipped with digital diagnostic tools and protective gear',
       'Over 95% of appliance and AC repairs completed immediately on-site during a single visit',
       'Discounted annual maintenance agreements ensuring peak cooling and energy efficiency all year round',
@@ -41,14 +41,12 @@ Our residential capabilities include: high-pressure deep cleaning and sanitizati
       'صيانة وتنظيف مكيفات غرف النوم والمجالس والصالات',
       'شحن فريون أصلي R410A / R22 مع كشف التنسيم',
       'تصليح ثلاجات وفريزرات المطبخ وحل مشكلة ضعف التبريد',
-      'صيانة غسالات الملابس وحل مشاكل الاهتزاز وعدم التصريف',
       'لف وإصلاح مضخات مياه الخزانات ومحركات التهوية',
     ],
     checklistEn: [
       'Bedroom, living room, and majlis AC servicing and pressure washing',
       'Genuine R410A / R22 freon recharge with electronic leak sniffing',
       'Kitchen refrigerator and freezer troubleshooting & cooling restoration',
-      'Washing machine vibration elimination and drain pump overhaul',
       'Rooftop water booster pump and ventilation motor rewinding',
     ],
   },
@@ -58,7 +56,7 @@ Our residential capabilities include: high-pressure deep cleaning and sanitizati
     titleAr: 'حلول التبريد والتكييف للمطاعم والمقاهي وسلاسل الأغذية',
     titleEn: 'Commercial Refrigeration & HVAC for Restaurants & Cafes',
     subtitleAr: 'صيانة طارئة 24/7 لغرف التبريد والتجميد وصانعات الثلج ومكيفات صالات الضيوف لمنع تلف المخزون الغذائي.',
-    subtitleEn: '24/7 emergency dispatch for walk-in freezers, ice makers, and dining area HVAC to protect food inventory and guest comfort.',
+    subtitleEn: '24/7 emergency service for walk-in freezers, ice makers, and dining area HVAC to protect food inventory and guest comfort.',
     overviewAr: `يعتمد نجاح المطاعم والمقاهي على استمرارية عمل غرف التبريد وثلاجات التخزين دون أي توقف مفاجئ قد يتسبب في خسائر مالية جسيمة في المخزون الغذائي. توفر مؤسسة جوزاء فرق طوارئ متخصصة في التبريد التجاري مجهزة بأحدث قطع الغيار ومعدات الفحص لخدمة قطاع الضيافة والأغذية بالرياض.
 
 نقدم عقود صيانة وقائية وخدمة طوارئ سريعة تشمل: صيانة وإعادة بناء كمبروسرات غرف التجميد (Walk-in Freezers) وغرف التبريد، شحن غازات التبريد المعتمدة، صيانة ثلاجات العرض، صانعات الثلج، وأنظمة شفط ودكت مطابخ المطاعم، مع تقديم تقارير فنية دورية تفي باشتراطات سلامة الغذاء وبلدية الرياض.`,
@@ -159,7 +157,7 @@ Our corporate scope includes: airflow balancing across individual offices and co
 Our technicians service central refrigeration rack systems, balance thermostatic expansion valves, clean dust-laden condenser banks, replace evaporator fan motors, and braze refrigerant leaks to lower operating power bills and maximize equipment longevity.`,
     stats: [
       { labelAr: 'سوبرماركت ومتجر نخدمه', labelEn: 'Retail Stores Supported', value: '110+' },
-      { labelAr: 'استجابة فورية للأعطال', labelEn: 'Rapid Repair Dispatch', value: 'أقل من 45 د' },
+      { labelAr: 'استجابة فورية للأعطال', labelEn: 'Rapid Repair Service', value: 'أقل من 45 د' },
       { labelAr: 'دقة ضبط درجات الحرارة', labelEn: 'Temp Precision', value: '±0.5°C' },
       { labelAr: 'ضمان استمرارية التبريد', labelEn: 'Uptime Guarantee', value: '99.9%' },
     ],
@@ -187,7 +185,7 @@ Our technicians service central refrigeration rack systems, balance thermostatic
       'Commercial meat, poultry and ice cream chest freezer maintenance',
       'Outdoor condenser bank pressure washing and debris clearing',
       'Digital thermostat calibration and defrost cycle scheduling',
-      '24/7 priority emergency dispatch for contracted supermarket chains',
+      '24/7 priority emergency service for contracted supermarket chains',
     ],
   },
 };
@@ -307,7 +305,7 @@ export default function IndustryDetailPage() {
               <p className="sb-desc">
                 {isRTL
                   ? 'فريقنا الهندسي جاهز للوصول فوراً لموقع منشأتك أو منزلك بالرياض.'
-                  : 'Our certified engineering team is ready for rapid same-day dispatch.'}
+                  : 'Our certified engineering team is ready for rapid same-day service.'}
               </p>
               <a
                 className="btn btn-wa btn-sb-book"
@@ -332,7 +330,7 @@ export default function IndustryDetailPage() {
                 </div>
                 <div className="sb-g-item">
                   <span className="g-icon">{I.clock}</span>
-                  <span>{isRTL ? 'خدمة يومية 8:00 ص - 11:30 مساءً' : 'Daily 8:00 AM - 11:30 PM'}</span>
+                  <span>{isRTL ? 'خدمة يومية 8:00 ص - 11:30 مساءً' : 'Sat–Thu 8:00 AM–11:30 PM'}</span>
                 </div>
                 <div className="sb-g-item">
                   <span className="g-icon">{I.wallet}</span>

@@ -6,7 +6,7 @@ import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 import { localizedValue } from '../localizedValue.js';
 
-const mediaGlob = import.meta.glob('../assets/media/*.{webp,jpg,jpeg,png}', { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.{webp,jpg,jpeg,png}', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name =>
   mediaGlob[`../assets/media/${name}.webp`] ||
   mediaGlob[`../assets/media/${name}.jpg`] ||
@@ -27,8 +27,8 @@ export default function PortfolioPage() {
 
   return (
     <div className="portfolio-page-view">
-      {/* Hero Banner */}
-      <section className="subpage-hero-banner">
+      {/* Hero Banner with Detailed Workshop Background */}
+      <section className="subpage-hero-banner portfolio-hero-banner">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <span className="subpage-hero-badge">
@@ -147,12 +147,6 @@ export default function PortfolioPage() {
               onClick={() => setFilterCat('fridge')}
             >
               {isRTL ? 'الثلاجات والفريزرات' : 'Refrigerators'}
-            </button>
-            <button
-              className={`gallery-tab-btn ${filterCat === 'washer' ? 'active' : ''}`}
-              onClick={() => setFilterCat('washer')}
-            >
-              {isRTL ? 'الغسالات والنشافات' : 'Washers'}
             </button>
             <button
               className={`gallery-tab-btn ${filterCat === 'workshop' ? 'active' : ''}`}

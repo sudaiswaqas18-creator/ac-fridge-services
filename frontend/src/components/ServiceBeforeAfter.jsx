@@ -9,14 +9,12 @@ import baCleaningBefore from '../assets/media/ba-cleaning-before.jpg';
 import baCleaningAfter from '../assets/media/ba-cleaning-after.jpg';
 import baFridgeBefore from '../assets/media/ba-fridge-before.jpg';
 import baFridgeAfter from '../assets/media/ba-fridge-after.jpg';
-import baWasherBefore from '../assets/media/ba-washer-before.jpg';
-import baWasherAfter from '../assets/media/ba-washer-after.jpg';
 import baMotorBefore from '../assets/media/ba-before.webp';
 import baMotorAfter from '../assets/media/ba-after.webp';
 import baHvacBefore from '../assets/media/ba-hvac-before.jpg';
 import baHvacAfter from '../assets/media/ba-hvac-after.jpg';
 
-const SERVICE_BA_CONFIGS = {
+export const SERVICE_BA_CONFIGS = {
   'ac-repair-riyadh': {
     beforeImg: baAcBefore,
     afterImg: baAcAfter,
@@ -83,35 +81,13 @@ const SERVICE_BA_CONFIGS = {
       { labelAr: 'كاوتش الباب', labelEn: 'Door Gasket', valAr: 'إغلاق مغناطيسي محكم 100%', valEn: '100% Airtight Magnetic Seal' },
     ],
   },
-  'washing-machine-dryer': {
-    beforeImg: baWasherBefore,
-    afterImg: baWasherAfter,
-    tagAr: 'صيانة الغسالات والنشافات',
-    tagEn: 'Washer & Dryer Mechanics',
-    titleAr: 'تجديد رمان البلي ومساعدات الحلة وبرمجة الكارتة',
-    titleEn: 'Tub Bearing Overhaul & Control Board Repair',
-    descAr: 'القضاء على الاهتزاز العنيف أثناء العصر وإصلاح مشاكل عدم تصريف الماء أو دوران الحلة.',
-    descEn: 'Eliminating excessive spin vibrations and repairing pump drains and inverter control boards.',
-    beforeSpecs: [
-      { labelAr: 'صوت العصر', labelEn: 'Spin Sound', valAr: 'ضجيج رمان بلي تالف واحتكاك', valEn: 'Loud Grinding Bearing Noise' },
-      { labelAr: 'حركة الغسالة', labelEn: 'Vibration', valAr: 'اهتزاز عنيف وتحرك من المكان', valEn: 'Violent Shaking & Moving' },
-      { labelAr: 'عصر الملابس', labelEn: 'Water Spin', valAr: 'ملابس تخرج مبللة بالكامل', valEn: 'Clothes Soaked & Undrained' },
-      { labelAr: 'رموز الأعطال', labelEn: 'Error Codes', valAr: 'أخطاء OE / UE / LE متكررة', valEn: 'Frequent OE / UE / LE Errors' },
-    ],
-    afterSpecs: [
-      { labelAr: 'صوت العصر', labelEn: 'Spin Sound', valAr: 'دوران فائق الهدوء والنعومة', valEn: 'Ultra-Smooth Silent Spin' },
-      { labelAr: 'حركة الغسالة', labelEn: 'Vibration', valAr: 'ثبات تام بمساعدات أصلية', valEn: 'Rock-Solid Stability' },
-      { labelAr: 'عصر الملابس', labelEn: 'Water Spin', valAr: 'تجفيف فعال وسحب كامل للماء', valEn: 'High-Efficiency Full Spin' },
-      { labelAr: 'رموز الأعطال', labelEn: 'Error Codes', valAr: 'برمجة دقيقة بدون أي أخطاء', valEn: 'Zero Errors & Calibrated' },
-    ],
-  },
   'motor-rewinding-welding': {
     beforeImg: baMotorBefore,
     afterImg: baMotorAfter,
     tagAr: 'إعادة لف المحركات الكهربائية',
     tagEn: 'Electric Motor Rewinding',
     titleAr: 'لف الستاتور بالنحاس النقي وعزل حراري Class H',
-    titleEn: 'Stator Rewinding with Pure Copper & Class H',
+    titleEn: 'Stator Rewinding with Pure Copper & Class',
     descAr: 'تجديد المحركات المحترقة وإعادتها لكفاءة المصنع مع عزل حراري فائق وموازنة ديناميكية.',
     descEn: 'Rebuilding burnt motor windings back to factory standards with high thermal resistance and balancing.',
     beforeSpecs: [
@@ -179,7 +155,6 @@ const getConfig = (slug) => {
   if (slug.includes('cleaning') || slug === 'ac-cleaning') return SERVICE_BA_CONFIGS['ac-cleaning-installation'];
   if (slug.includes('central') || slug.includes('hvac') || slug === 'central-hvac') return SERVICE_BA_CONFIGS['central-hvac'];
   if (slug.includes('fridge') || slug.includes('refrigerator')) return SERVICE_BA_CONFIGS['refrigerator-freezer-repair'];
-  if (slug.includes('washer') || slug.includes('washing')) return SERVICE_BA_CONFIGS['washing-machine-dryer'];
   if (slug.includes('motor') || slug.includes('rewinding')) return SERVICE_BA_CONFIGS['motor-rewinding-welding'];
   if (slug.includes('contract')) return SERVICE_BA_CONFIGS.default;
   return SERVICE_BA_CONFIGS[slug] || SERVICE_BA_CONFIGS.default;
@@ -251,6 +226,12 @@ export default function ServiceBeforeAfter({ serviceSlug, serviceTitle }) {
               role="slider"
               aria-label="Before and After Transformation"
               aria-valuenow={Math.round(sliderPos)}
+              aria-valuemin={4} aria-valuemax={96}
+              onKeyDown={e => {
+                if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+                e.preventDefault();
+                setSliderPos(p => e.key === 'Home' ? 4 : e.key === 'End' ? 96 : Math.max(4, Math.min(96, p + (e.key === 'ArrowRight' ? 4 : -4))));
+              }}
               tabIndex={0}
             >
               {/* Dual Before / After Images with Clip-Path (Identical to Motor Rewinding Slider) */}

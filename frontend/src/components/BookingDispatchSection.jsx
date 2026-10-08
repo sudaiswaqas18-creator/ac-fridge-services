@@ -41,23 +41,12 @@ export default function BookingDispatchSection() {
       id: 'motor',
       icon: I.motor,
       nameAr: 'لف المحركات واللحام ولوازم الدينمو',
-      nameEn: 'Motor Rewinding & Brazing',
+      nameEn: 'Motor Rewinding',
       subServices: [
         { ar: 'إعادة لف محرك مروحة التكييف بالنحاس النقي', en: 'AC Fan & Blower Motor Copper Rewind' },
         { ar: 'لف وتجديد دينمو ومضخات المياه', en: 'Water Pump & Dynamo Rewinding' },
         { ar: 'لحام مواسير النحاس والألمنيوم (Brazing)', en: 'Copper & Aluminum Pipe Oxy-Brazing' },
         { ar: 'تغيير رمان بلي (Bearings) وميكانيكال سيل', en: 'Heavy-Duty Bearings & Mechanical Seals' },
-      ],
-    },
-    {
-      id: 'washer',
-      icon: I.washer,
-      nameAr: 'الغسالات والنشافات الأوتوماتيكية',
-      nameEn: 'Washing Machines & Dryers',
-      subServices: [
-        { ar: 'إصلاح عدم الدوران والعصر والتنشيف', en: 'Drum Not Spinning & Drain Pump Repair' },
-        { ar: 'تبديل مساعدات الحلة ومانع الاهتزاز', en: 'Suspension Shocks & Anti-Vibration Pads' },
-        { ar: 'صيانة وبرمجة كارتة التحكم الإلكترونية', en: 'Control Board & Inverter Diagnostics' },
       ],
     },
   ];
@@ -83,7 +72,7 @@ export default function BookingDispatchSection() {
       phone: ph || 'WhatsApp Direct',
       area: dist,
       service: `${catName} - ${chosenSub}`,
-      notes: isRTL ? 'تم الحجز عبر لوحة الإرسال الفوري السريع' : 'Booked via Direct Dispatch Module',
+      notes: isRTL ? 'تم الحجز عبر لوحة الإرسال الفوري السريع' : 'Booked via Quick Booking Form',
       date: new Date().toLocaleString(isRTL ? 'ar-SA' : 'en-US'),
       status: 'new',
     };
@@ -99,7 +88,7 @@ export default function BookingDispatchSection() {
     // Open WhatsApp
     const msg = isRTL
       ? `طلب حجز فني صيانة عاجل من موقع جوزاء:\n🛠️ القسم: ${catName}\n⚡ الخدمة: ${chosenSub}\n📍 الحي بالرياض: ${dist}\n📱 الجوال: ${ph || 'عبر واتساب'}\n⏱️ نرجو تأكيد موعد وصول الفني اليوم.`
-      : `Urgent Technician Booking Request from Jawzaa Website:\n🛠️ Category: ${catName}\n⚡ Service: ${chosenSub}\n📍 Riyadh District: ${dist}\n📱 Contact Phone: ${ph || 'via WhatsApp'}\n⏱️ Please confirm dispatch timing.`;
+      : `Urgent Technician Booking Request from Jawzaa Website:\n🛠️ Category: ${catName}\n⚡ Service: ${chosenSub}\n📍 Riyadh District: ${dist}\n📱 Contact Phone: ${ph || 'via WhatsApp'}\n⏱️ Please confirm arrival time.`;
 
     window.open(waLink(msg), '_blank', 'noopener');
   };
@@ -113,8 +102,8 @@ export default function BookingDispatchSection() {
             <span className="dispatch-radar-icon animated-radar-icon">{I.bolt}</span>
             <span className="dispatch-bar-title">
               {isRTL
-                ? 'حجز فني صيانة عاجل في 60 ثانية (خصم 15% على الفحص الميداني)'
-                : 'Book an Urgent On-Site Technician in 60 Seconds (15% Off Diagnosis)'}
+                ? 'حجز فني صيانة عاجل في 60 ثانية'
+                : 'Book an Urgent On-Site Technician in 60 Seconds'}
             </span>
           </div>
 
@@ -144,7 +133,7 @@ export default function BookingDispatchSection() {
             <div className="subservices-label">
               <span>{isRTL ? 'اختر الخدمة المطلوبة:' : 'SELECT SUB-SERVICE:'}</span>
             </div>
-            <div className="hero-subservices-chips">
+            <div className={`hero-subservices-chips ${selectedCatId === 'motor' ? 'motor-subservices' : ''}`}>
               {currentCat.subServices.map((sub, idx) => {
                 const subText = isRTL ? sub.ar : sub.en;
                 const isSelected = selectedSubService === subText || (!selectedSubService && idx === 0);
@@ -196,7 +185,7 @@ export default function BookingDispatchSection() {
 
             <button type="submit" className="btn btn-wa btn-video-dispatch-submit pulse-cta-btn">
               <span className="btn-icon">{I.whatsapp}</span>
-              <span>{isRTL ? 'طلب فني فوري' : 'Dispatch Technician Now'}</span>
+              <span>{isRTL ? 'طلب فني فوري' : 'Book a Technician Now'}</span>
             </button>
           </form>
 
@@ -205,7 +194,7 @@ export default function BookingDispatchSection() {
             <span className="v-dot">•</span>
             <span>{I.wallet} {isRTL ? 'لا دفع إلا بعد إتمام الإصلاح' : 'No payment until satisfaction'}</span>
             <span className="v-dot">•</span>
-            <span>{I.clock} {isRTL ? 'خدمة يومية 8 ص - 11:30 م' : 'Daily 8 AM - 11:30 PM'}</span>
+            <span>{I.clock} {isRTL ? 'السبت–الخميس 8 ص–11:30 م • الجمعة مغلق' : 'Sat–Thu 8 AM–11:30 PM · Friday Closed'}</span>
           </div>
         </div>
 
@@ -223,7 +212,7 @@ export default function BookingDispatchSection() {
             <div className="v-pillar-icon animated-icon">{I.clock}</div>
             <div className="v-pillar-body">
               <strong>{isRTL ? 'وصول سريع خلال 30 دقيقة' : '30-Min Rapid Arrival'}</strong>
-              <p>{isRTL ? 'أسطول سيارات مجهز يغطي كل أحياء الرياض' : 'Guaranteed dispatch covering all Riyadh areas'}</p>
+              <p>{isRTL ? 'أسطول سيارات مجهز يغطي كل أحياء الرياض' : 'Fast service across all Riyadh areas'}</p>
             </div>
           </div>
 

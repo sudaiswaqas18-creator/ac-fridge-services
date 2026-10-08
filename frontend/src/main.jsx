@@ -12,6 +12,7 @@ import './styles/contact.css'
 import './styles/footer.css'
 import './styles/float.css'
 import './styles/refinements.css'
+import './styles/polish.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

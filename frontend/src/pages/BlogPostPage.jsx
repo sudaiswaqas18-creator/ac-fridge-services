@@ -5,7 +5,7 @@ import { BRAND, waLink } from '../translations.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob('../assets/media/*.webp', { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name => mediaGlob[`../assets/media/${name}.webp`];
 
 export default function BlogPostPage() {
@@ -92,7 +92,7 @@ export default function BlogPostPage() {
             {/* Share / WhatsApp CTA Bar */}
             <div className="article-cta-box">
               <h3 className="art-cta-title">{isRTL ? 'هل تواجه هذا العطل في جهازك الآن؟' : 'Experiencing This Issue Right Now?'}</h3>
-              <p className="art-cta-sub">{isRTL ? 'احجز فحصاً منزلياً فورياً وسنصل إليك في نفس اليوم.' : 'Book an on-site diagnostic visit with same-day dispatch.'}</p>
+              <p className="art-cta-sub">{isRTL ? 'احجز فحصاً منزلياً فورياً وسنصل إليك في نفس اليوم.' : 'Book an on-site diagnostic visit with same-day service.'}</p>
               <a className="btn btn-wa btn-art-wa" href={waLink()} target="_blank" rel="noopener">
                 {I.whatsapp} {isRTL ? 'احجز فني عبر واتساب' : 'Book Technician on WhatsApp'}
               </a>

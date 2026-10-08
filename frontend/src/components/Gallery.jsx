@@ -4,7 +4,7 @@ import { T } from '../translations.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob('../assets/media/*.{webp,jpg,jpeg,png}', { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.{webp,jpg,jpeg,png}', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name =>
   mediaGlob[`../assets/media/${name}.webp`] ||
   mediaGlob[`../assets/media/${name}.jpg`] ||
@@ -71,12 +71,6 @@ export function Gallery() {
             onClick={() => setActiveTab('fridge')}
           >
             {t.tabs.fridge}
-          </button>
-          <button
-            className={`gallery-tab-btn ${activeTab === 'washer' ? 'active' : ''}`}
-            onClick={() => setActiveTab('washer')}
-          >
-            {t.tabs.washer}
           </button>
           <button
             className={`gallery-tab-btn ${activeTab === 'workshop' ? 'active' : ''}`}

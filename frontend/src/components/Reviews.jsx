@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { RIYADH_AREAS, POSTER_ITEMS } from '../data.js';
-import { T } from '../translations.js';
+import { T, BRAND } from '../translations.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob('../assets/media/*.webp', { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name => mediaGlob[`../assets/media/${name}.webp`];
 
 export function Reviews() {
@@ -150,12 +150,12 @@ export function Areas() {
         <div className="areas-chips-cloud">
           {RIYADH_AREAS.map((area, idx) => (
             <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(isRTL ? `حي ${area.ar} الرياض` : `${area.en} District Riyadh`)}`}
+              href={BRAND.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="area-pill-chip"
               key={idx}
-              title={isRTL ? `عرض موقع حي ${area.ar} على خرائط جوجل` : `View ${area.en} District on Google Maps`}
+              title={isRTL ? 'موقع ورشة جوزاء' : 'Jawzaa workshop location'}
             >
               <span className="pin-mini">{I.pin}</span>
               <span>{isRTL ? `حي ${area.ar}` : `${area.en} District`}</span>

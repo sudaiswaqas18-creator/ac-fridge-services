@@ -10,7 +10,7 @@ export default function GalleryPage() {
 
   return (
     <div className="gallery-page-view">
-      <section className="subpage-hero-banner">
+      <section className="subpage-hero-banner gallery-hero-banner">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <span className="subpage-hero-badge">

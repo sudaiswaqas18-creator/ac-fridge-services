@@ -1,3 +1,4 @@
+import CardCarousel from './CardCarousel.jsx';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { T, waLink } from '../translations.js';
@@ -8,7 +9,6 @@ import { I } from '../Icons.jsx';
 const ICONS_MAP = {
   ac: I.ac,
   fridge: I.fridge,
-  washer: I.washer,
   motor: I.motor,
   diagnosis: I.diagnosis,
   contract: I.contract,
@@ -26,7 +26,6 @@ const FEAT_ICONS_MAP = {
 const SERVICE_SLUG_MAP = {
   'ac-repair': 'ac-repair',
   'fridge-repair': 'refrigerator-repair',
-  'washer-repair': 'washing-machine-repair',
   'motor-rewind': 'motor-rewinding',
   'diagnosis': 'fault-diagnostics',
   'contracts': 'maintenance-contracts',
@@ -96,7 +95,7 @@ export function Services() {
           <div className="section-divider" />
         </div>
 
-        <div className="services-grid-container">
+        <CardCarousel className="services-carousel" label={isRTL ? 'خدماتنا' : 'Our services'}>
           {services.map(svc => {
             const detailSlug = SERVICE_SLUG_MAP[svc.id] || svc.id;
             return (
@@ -134,7 +133,7 @@ export function Services() {
               </article>
             );
           })}
-        </div>
+        </CardCarousel>
       </div>
     </section>
   );

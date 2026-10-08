@@ -22,12 +22,11 @@ export function Footer() {
   ];
 
   const serviceLinks = [
-    { to: '/services/ac-repair', label: isRTL ? 'صيانة مكيفات سبليت' : 'Split AC Maintenance' },
-    { to: '/services/ac-repair', label: isRTL ? 'شحن فريون أصلي' : 'Freon Gas Refill' },
-    { to: '/services/refrigerator-repair', label: isRTL ? 'تصليح ثلاجات وفريزرات' : 'Refrigerator Repair' },
-    { to: '/services/washing-machine-repair', label: isRTL ? 'صيانة غسالات أوتوماتيك' : 'Washer & Dryer Repair' },
-    { to: '/services/motor-rewinding', label: isRTL ? 'لف موتورات ومضخات' : 'Motor Rewinding' },
-    { to: '/services/maintenance-contracts', label: isRTL ? 'عقود صيانة سنوية' : 'Maintenance Contracts' },
+    { to: '/services/ac-repair', label: isRTL ? 'صيانة وإصلاح المكيفات' : 'AC & HVAC Services' },
+    { to: '/services/ac-cleaning', label: isRTL ? 'غسيل وتنظيف المكيفات' : 'AC Jet Cleaning' },
+    { to: '/services/central-hvac', label: isRTL ? 'التكييف المركزي والدكت' : 'Central & Ducted HVAC' },
+    { to: '/services/refrigerator-repair', label: isRTL ? 'تصليح ثلاجات وفريزرات' : 'Refrigerators & Freezers' },
+    { to: '/services/motor-rewinding', label: isRTL ? 'لف موتورات ومضخات' : 'Motor & Pump Rewinding' },
   ];
 
   return (
@@ -48,8 +47,8 @@ export function Footer() {
 
             <p className="footer-description">
               {isRTL
-                ? 'مؤسسة جوزاء للتبريد والتكييف — صيانة هندسية معتمدة للتكييف والأجهزة المنزلية في الرياض. فنيون معتمدون، قطع غيار أصلية 100%، وضمان خطي معتمد.'
-                : 'Jawzaa Refrigeration & AC — Certified engineering repair services for HVAC and household appliances in Riyadh. Licensed technicians, 100% OEM parts, and written warranty.'}
+                ? 'مؤسسة جوزاء للتبريد والتكييف — مركز هندسي معتمد لصيانة التكييف المركزي والسبليت، الثلاجات وغرف التبريد، ولف المحركات والمضخات بالرياض. سرعة استجابة ميدانية لجميع الأحياء، قطع غيار أصلية 100%، وضمان خطي معتمد على كافة أعمال الصيانة والإصلاح.'
+                : 'Jawzaa Refrigeration & AC — Certified engineering repair center for residential and commercial HVAC, refrigerators, cold rooms, and motor rewinding across Riyadh. Fast mobile response to all districts, 100% genuine OEM parts, and official written warranty on all services.'}
             </p>
 
             <div className="footer-social">
@@ -131,15 +130,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`tel:${BRAND.phoneSecondaryIntl}`} className="footer-contact-item">
-                  <span className="footer-contact-icon">{I.phone}</span>
-                  <span dir="ltr">{BRAND.phoneSecondaryIntl}</span>
-                </a>
-              </li>
-              <li>
                 <a href={waLink()} target="_blank" rel="noopener" className="footer-contact-item">
                   <span className="footer-contact-icon">{I.whatsapp}</span>
-                  <span>{isRTL ? 'واتساب مباشر 24/7' : '24/7 WhatsApp Chat'}</span>
+                  <span>{isRTL ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}</span>
                 </a>
               </li>
               <li>
@@ -149,10 +142,10 @@ export function Footer() {
                 </span>
               </li>
               <li>
-                <span className="footer-contact-item">
+                <a href={BRAND.mapUrl} target="_blank" rel="noopener noreferrer" className="footer-contact-item">
                   <span className="footer-contact-icon">{I.pin}</span>
                   <span>{isRTL ? BRAND.cityAr : BRAND.cityEn}</span>
-                </span>
+                </a>
               </li>
             </ul>
 
@@ -166,8 +159,8 @@ export function Footer() {
         <div className="footer-seo-bar">
           <p>
             {isRTL
-              ? 'مؤسسة جوزاء للتبريد والتكييف — صيانة مكيفات بالرياض، فني تكييف معتمد، تصليح مكيفات سبليت وشباك ومخفي، غسيل مكيفات بضغط الماء مع التعقيم، شحن فريون أصلي R410a و R22، صيانة ثلاجات وفريزرات سامسونج وإل جي وبوش، تصليح غسالات أوتوماتيك، لف موتورات ومضخات مياه بنحاس نقي 100%، عقود صيانة سنوية للفلل والشركات والمجمعات. نخدم كافة أحياء الرياض: النرجس، الياسمين، الملقا، حطين، الصحافة، الروضة، قرطبة، اليرموك، الحمراء، المروج، العقيق، السويدي، الشفا، النسيم، ظهرة لبن، وطويق.'
-              : 'Jawzaa HVAC & Refrigeration — Top-rated AC maintenance & repair in Riyadh, split & window AC service, high-pressure chemical wash, original R410A & R22 freon gas recharge, Samsung, LG & Bosch refrigerator repair, automatic washer & dryer troubleshooting, 100% pure copper electric motor & water pump rewinding, preventative maintenance contracts across all Riyadh districts.'}
+              ? 'صيانة المكيفات والثلاجات والفريزرات ولف المحركات والمضخات في جميع أحياء الرياض. مواعيد واضحة وخدمة متقنة وضمان خطي.'
+              : 'AC and refrigeration care, motor and pump rewinding across Riyadh. Clear appointments, careful workmanship and written warranties.'}
           </p>
         </div>
 
@@ -176,6 +169,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {isRTL ? BRAND.nameAr : BRAND.nameEn}. {isRTL ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}
           </p>
+          <a className="footer-credit" href="https://www.facebook.com/AfyraDigital" target="_blank" rel="noopener noreferrer">Developed by Afyra Digital</a>
           <div className="footer-bottom-links">
             <Link to="/faq" onClick={scrollToTop}>{isRTL ? 'الأسئلة الشائعة' : 'FAQs'}</Link>
             <Link to="/privacy" onClick={scrollToTop}>{isRTL ? 'سياسة الخصوصية' : 'Privacy Policy'}</Link>

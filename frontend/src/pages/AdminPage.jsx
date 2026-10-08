@@ -1486,7 +1486,6 @@ export default function AdminPage() {
                       >
                         <option value="ac">{isAr ? 'تكييف وسبليت' : 'AC & Split'}</option>
                         <option value="fridge">{isAr ? 'ثلاجات وتبريد' : 'Refrigeration'}</option>
-                        <option value="washer">{isAr ? 'غسالات وأجهزة' : 'Washers'}</option>
                         <option value="motor">{isAr ? 'لف محركات ودينمو' : 'Motors'}</option>
                         <option value="diagnosis">{isAr ? 'كشف وتشخيص' : 'Diagnosis'}</option>
                         <option value="contract">{isAr ? 'عقود تجارية' : 'Commercial Contracts'}</option>

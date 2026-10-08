@@ -64,8 +64,8 @@ export default function AboutPage() {
     {
       nameAr: 'فني أول / كمال الدين',
       nameEn: 'Senior Tech / Kamal Al-Deen',
-      roleAr: 'أخصائي صيانة الثلاجات والغسالات الذكية',
-      roleEn: 'Smart Refrigerator & Washer Diagnostics',
+      roleAr: 'أخصائي صيانة الثلاجات والفريزرات الذكية',
+      roleEn: 'Smart Refrigerator & Freezer Diagnostics',
       icon: I.fridge,
       expAr: '10 أعوام في صيانة كروت التحكم ودورات النوفروست لسامسونج وإل جي وهيتاشي',
       expEn: '10+ years in inverter PCB diagnostics and no-frost refrigeration circuits',
@@ -84,7 +84,7 @@ export default function AboutPage() {
     {
       icon: I.bolt,
       titleAr: 'السرعة والوصول الفوري',
-      titleEn: 'Punctuality & Fast Dispatch',
+      titleEn: 'Punctuality & Fast Service',
       descAr: 'نصل إلى باب منزلك في الموعد المحدد بنفس اليوم في كافة أحياء الرياض خلال 30 دقيقة.',
       descEn: 'Same-day technician arrival at your scheduled appointment time across Riyadh.',
     },
@@ -107,7 +107,7 @@ export default function AboutPage() {
   return (
     <div className="about-page-view">
       {/* Hero Banner */}
-      <section className="subpage-hero-banner">
+      <section className="subpage-hero-banner about-hero-banner">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <span className="subpage-hero-badge">
@@ -115,7 +115,7 @@ export default function AboutPage() {
             {isRTL ? 'عن مؤسسة جوزاء للتبريد والتكييف' : 'About Jawzaa HVAC & Appliance Specialists'}
           </span>
           <h1 className="subpage-hero-title">
-            {isRTL ? 'أكثر من عقد من الخبرة والريادة في صيانة الأجهزة بالرياض' : 'Over a Decade of HVAC & Appliance Leadership in Riyadh'}
+            {isRTL ? 'أكثر من 14 عاماً من الخبرة والريادة في صيانة الأجهزة بالرياض' : '14+ Years of HVAC & Appliance Leadership in Riyadh'}
           </h1>
           <p className="subpage-hero-desc">
             {isRTL
@@ -127,156 +127,29 @@ export default function AboutPage() {
 
       <CompanySectionNav />
 
-      {/* Story & Facility Showcase Section */}
-      <section className="about-story-section">
-        <div className="container about-story-grid">
-          <div className="story-text-col">
-            <span className="section-tag">
-              <span className="tag-icon">{I.sparkle}</span>
-              {isRTL ? 'قصتنا ورؤيتنا' : 'Our Story & Vision'}
-            </span>
-            <h2 className="story-title">
-              {isRTL ? 'نبني ثقة عملائنا بالشفافية والعمل المتقن' : 'Building Trust Through Precision & Engineering Integrity'}
-            </h2>
-            <p className="story-p">
-              {isRTL
-                ? 'تأسست مؤسسة جوزاء للتبريد والتكييف في مدينة الرياض استجابةً لحاجة السوق المحلي لخدمات صيانة موثوقة وعالية الجودة. لاحظنا معاناة الكثير من العملاء من تكرار الأعطال، سوء التشخيص، والأسعار المبالغ فيها، فكان هدفنا تقديم تجربة صيانة راقية تعتمد على الفحص العلمي الدقيق، قطع الغيار الأصلية، والضمان الحقيقي.'
-                : 'Jawzaa was established in Riyadh to address the critical need for transparent, dependable appliance and HVAC services. Recognizing common homeowner frustrations with recurring breakdowns and guesswork repairs, we set out to build an engineering-backed service grounded in digital diagnostics, original OEM parts, and written warranties.'}
-            </p>
-            <p className="story-p">
-              {isRTL
-                ? 'اليوم، نفخر بامتلاك ورشة مركزية مجهزة بأحدث أدوات لف المحركات وصيانة الكمبروسرات، إلى جانب أسطول من سيارات الصيانة المتنقلة التي تجوب كافة أحياء العاصمة الرياض لتقديم حلول سريعة في نفس اليوم.'
-                : 'Today, we proudly operate a specialized electromechanical workshop equipped for high-precision motor rewinding and compressor overhauls, supported by a fleet of mobile technical units serving every district in the capital.'}
-            </p>
 
-            <div className="story-stats-row">
-              <div className="story-stat-item">
-                <span className="ss-num">12+</span>
-                <span className="ss-lbl">{isRTL ? 'سنوات خبرة معتمدة' : 'Years Experience'}</span>
-              </div>
-              <div className="story-stat-item">
-                <span className="ss-num">5,500+</span>
-                <span className="ss-lbl">{isRTL ? 'جهاز تم إصلاحه بنجاح' : 'Fixed Appliances'}</span>
-              </div>
-              <div className="story-stat-item">
-                <span className="ss-num">99.4%</span>
-                <span className="ss-lbl">{isRTL ? 'نسبة رضا العملاء' : 'Customer Rating'}</span>
-              </div>
-            </div>
+      <div className="company-editorial">
+        <section className="company-intro container">
+          <div className="company-intro-copy">
+            <span className="section-tag">{isRTL ? 'خبرة تثق بها' : 'Experience You Can Rely On'}</span>
+            <h2>{isRTL ? 'عناية مدروسة، من الفحص إلى الإصلاح.' : 'Careful diagnosis. Work done with care.'}</h2>
+            <p>{isRTL ? 'من صيانة تكييف منزلك إلى إصلاح الثلاجات ولف المحركات، نجمع الخبرة الفنية مع خطوات واضحة وتجربة خدمة مريحة.' : 'From your home cooling system to refrigeration and motor rewinding, we bring technical experience and a clear, thoughtful approach to every repair.'}</p>
+            <p>{isRTL ? 'تدعم ورشتنا المتخصصة فرق الصيانة الميدانية في الرياض. نوضح المشكلة وخيارات الإصلاح قبل البدء، ثم نختبر الأداء بعد إتمام العمل.' : 'Our specialist workshop supports on-site teams across Riyadh. We explain the fault and repair options before work begins, then check performance before completing the visit.'}</p>
+            <a className="btn btn-navy" href={waLink()} target="_blank" rel="noopener">{isRTL ? 'تحدث مع فريقنا' : 'Talk to Our Team'} {I.arrowR}</a>
           </div>
-
-          <div className="story-image-col">
-            <div className="story-img-frame">
-              <img src={storefrontImg} alt="مقر وورشة جوزاء بالرياض" className="story-main-img" />
-              <div className="story-badge-float">
-                <span className="sbf-icon">{I.check}</span>
-                <div>
-                  <strong>{isRTL ? 'مؤسسة جوزاء للتبريد والتكييف' : 'Jawzaa Engineering Workshop'}</strong>
-                  <p>{isRTL ? 'الرياض — ورشة متخصصة وأسطول متنقل' : 'Riyadh Facility & Mobile Technical Units'}</p>
-                </div>
-              </div>
-            </div>
+          <div className="company-photo"><img src={storefrontImg} alt={isRTL ? 'ورشة جوزاء في الرياض' : 'Jawzaa workshop in Riyadh'} /><div>{I.pin}<span>{isRTL ? 'ورشة متخصصة. خدمة في جميع أحياء الرياض.' : 'A specialist workshop. Serving all of Riyadh.'}</span></div></div>
+        </section>
+        <div className="company-stats container">{[['14+', 'Years of Experience', 'سنوات خبرة'], ['5,500+', 'Appliances Repaired', 'جهاز تم إصلاحه'], ['99.4%', 'Customer Rating', 'تقييم العملاء']].map(([value,en,ar]) => <div key={en}><strong>{value}</strong><span>{isRTL ? ar : en}</span></div>)}</div>
+        <section className="company-standards">
+          <div className="container company-standards-layout">
+            <div className="company-section-intro"><span className="section-tag">{isRTL ? 'معاييرنا' : 'Our Service Standards'}</span><h2>{isRTL ? 'الوضوح في كل خطوة. الجودة في كل تفصيلة.' : 'Clear at every step. Care in every detail.'}</h2><p>{isRTL ? 'مبادئ عملية توجه طريقة عملنا، من أول اتصال حتى تسليم الجهاز.' : 'Practical commitments that guide our work, from your first call to the final performance check.'}</p><img src={workshopImg} alt={isRTL ? 'داخل ورشة الصيانة' : 'Inside our service workshop'} loading="lazy" /></div>
+            <div className="company-values">{values.map((value,index) => <article key={value.titleEn}><span className="company-value-icon">{value.icon}</span><div><span className="company-step-number">0{index+1}</span><h3>{isRTL ? value.titleAr : value.titleEn}</h3><p>{isRTL ? value.descAr : value.descEn}</p></div></article>)}</div>
           </div>
-        </div>
-      </section>
-
-      {/* Milestone Timeline */}
-      <section className="about-timeline-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">
-              <span className="tag-icon">{I.clock}</span>
-              {isRTL ? 'مسيرة الإنجازات' : 'Our Journey & Milestones'}
-            </span>
-            <h2 className="section-title">{isRTL ? 'محطات مضيئة في مسيرة جوزاء' : 'Key Milestones Over the Years'}</h2>
-            <div className="section-divider" />
-          </div>
-
-          <div className="timeline-grid">
-            {timeline.map((item, idx) => (
-              <div className="timeline-card" key={idx}>
-                <div className="timeline-year-bubble">{item.year}</div>
-                <h3 className="timeline-card-title">{isRTL ? item.titleAr : item.titleEn}</h3>
-                <p className="timeline-card-desc">{isRTL ? item.descAr : item.descEn}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Values */}
-      <section className="about-values-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">
-              <span className="tag-icon">{I.star}</span>
-              {isRTL ? 'قيمنا ومبادئنا' : 'Core Values & Principles'}
-            </span>
-            <h2 className="section-title">{isRTL ? 'المبادئ التي تقود كل خطوة في عملنا' : 'Principles That Drive Our Craft'}</h2>
-            <div className="section-divider" />
-          </div>
-
-          <div className="values-grid">
-            {values.map((v, i) => (
-              <div className="value-card" key={i}>
-                <div className="value-icon-box">{v.icon}</div>
-                <h3 className="value-title">{isRTL ? v.titleAr : v.titleEn}</h3>
-                <p className="value-desc">{isRTL ? v.descAr : v.descEn}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership & Technical Team */}
-      <section className="about-team-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">
-              <span className="tag-icon">{I.userCheck}</span>
-              {isRTL ? 'فريق العمل والخبراء' : 'Senior Engineering & Tech Crew'}
-            </span>
-            <h2 className="section-title">{isRTL ? 'نخبة من أمهر المهندسين والفنيين' : 'Meet Our Certified Technical Leaders'}</h2>
-            <div className="section-divider" />
-          </div>
-
-          <div className="team-grid">
-            {teamMembers.map((member, i) => (
-              <div className="team-card" key={i}>
-                <div className="team-avatar-box">
-                  {member.icon}
-                </div>
-                <span className="team-cert-badge">{member.cert}</span>
-                <h3 className="team-name">{isRTL ? member.nameAr : member.nameEn}</h3>
-                <span className="team-role">{isRTL ? member.roleAr : member.roleEn}</span>
-                <p className="team-exp">{isRTL ? member.expAr : member.expEn}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Bottom Banner */}
-      <section className="about-cta-banner">
-        <div className="container about-cta-inner">
-          <div className="cta-text-side">
-            <h2 className="cta-banner-title">
-              {isRTL ? 'هل تحتاج إلى استشارة فنية أو فحص منزلي عاجل؟' : 'Need Technical Advice or Immediate On-Site Dispatch?'}
-            </h2>
-            <p className="cta-banner-sub">
-              {isRTL ? 'فريقنا جاهز للرد على استفساراتك وتنسيق موعد في أقرب وقت.' : 'Our technical team is on standby to assist you and book same-day service.'}
-            </p>
-          </div>
-          <div className="cta-btn-side">
-            <a className="btn btn-wa btn-cta-large" href={waLink()} target="_blank" rel="noopener">
-              {I.whatsapp} {isRTL ? 'تواصل معنا واتساب' : 'Chat on WhatsApp'}
-            </a>
-            <a className="btn btn-gold-outline btn-cta-large" href={`tel:${BRAND.phonePrimaryIntl}`}>
-              {I.phone} {isRTL ? 'اتصال مباشر' : 'Direct Call'}
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
+        <section className="company-journey container"><div className="company-section-intro"><span className="section-tag">{isRTL ? 'مسيرتنا' : 'Our Journey'}</span><h2>{isRTL ? 'خبرة تنمو مع احتياجات عملائنا' : 'Growing With the Needs of Our Customers'}</h2></div><div className="company-timeline">{timeline.map(item => <article key={item.year}><span>{item.year}</span><h3>{isRTL ? item.titleAr : item.titleEn}</h3><p>{isRTL ? item.descAr : item.descEn}</p></article>)}</div></section>
+        <section className="company-people"><div className="container"><div className="section-header"><span className="section-tag">{isRTL ? 'فريقنا المتخصص' : 'The People Behind the Work'}</span><h2 className="section-title">{isRTL ? 'خبرات متكاملة لخدمة أفضل' : 'Specialist Skills. One Dedicated Team.'}</h2><p className="section-subtitle">{isRTL ? 'التكييف والتبريد ولف المحركات، بإشراف فريق متخصص.' : 'Focused expertise in HVAC, refrigeration and motor rewinding.'}</p></div><div className="company-team">{teamMembers.map(member => <article key={member.nameEn}><div className="company-member-top"><span>{member.icon}</span><small>{member.cert}</small></div><h3>{isRTL ? member.nameAr : member.nameEn}</h3><h4>{isRTL ? member.roleAr : member.roleEn}</h4><p>{isRTL ? member.expAr : member.expEn}</p></article>)}</div></div></section>
+        <section className="company-booking container"><div><span>{isRTL ? 'نحن هنا لمساعدتك' : 'Here When You Need Us'}</span><h2>{isRTL ? 'لنجد الحل المناسب لجهازك.' : 'Let’s Find the Right Solution for Your Equipment.'}</h2><p>{isRTL ? BRAND.hoursAr : BRAND.hoursEn}</p></div><div className="company-booking-actions"><a className="btn btn-gold" href={waLink()} target="_blank" rel="noopener">{I.whatsapp}{isRTL ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}</a><a className="btn btn-gold-outline" href={'tel:' + BRAND.phonePrimaryIntl}>{I.phone}{isRTL ? 'اتصال مباشر' : 'Call Our Team'}</a></div></section>
+      </div>
     </div>
   );
 }

@@ -12,7 +12,6 @@ import acImg from '../assets/media/poster-before-after-ac.webp';
 import jetCleanImg from '../assets/media/poster-ac-jet-cleaning.webp';
 import centralImg from '../assets/media/poster-commercial-hvac-maintenance.webp';
 import fridgeImg from '../assets/media/poster-before-after-fridge.webp';
-import washerImg from '../assets/media/poster-before-after-washer.webp';
 import motorImg from '../assets/media/poster-before-after-motor.webp';
 import diagImg from '../assets/media/poster-correct-diagnosis.webp';
 import contractImg from '../assets/media/ac-outdoor-units-stack.webp';
@@ -33,7 +32,6 @@ const PREVIEW_IMAGE_MAP = {
   'ac-cleaning': jetCleanImg,
   'central-hvac': centralImg,
   'refrigerator-repair': fridgeImg,
-  'washing-machine-repair': washerImg,
   'motor-rewinding': motorImg,
   'fault-diagnostics': diagImg,
   'maintenance-contracts': contractImg,
@@ -133,7 +131,7 @@ export default function Header() {
             <div className="topbar-right">
               <div className="topbar-status-pill">
                 <span className="status-dot-green" />
-                <span>{isRTL ? 'خدمة طوارئ في جميع أحياء الرياض' : 'Same-Day Dispatch Across Riyadh'}</span>
+                <span>{isRTL ? 'خدمة طوارئ في جميع أحياء الرياض' : 'Same-Day Service Across Riyadh'}</span>
               </div>
 
               <button
@@ -209,9 +207,11 @@ export default function Header() {
                       </div>
 
                       {/* Full-Width Mega Menu (Task 3: Spans complete screen width with dynamic preview) */}
-                      {isOpen && (
+                      {(
                         <div
-                          className="mega-menu-fullwidth-wrapper"
+                          className={`mega-menu-fullwidth-wrapper ${isOpen ? 'is-open' : ''}`}
+                          aria-hidden={!isOpen}
+                          inert={!isOpen || undefined}
                           onMouseEnter={() => handleMouseEnter(item.id, item.items)}
                         >
                           <div className="mega-menu-inner-container">

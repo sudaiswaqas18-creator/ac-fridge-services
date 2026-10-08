@@ -9,7 +9,7 @@ import { localizedValue } from '../localizedValue.js';
 import { SERVICE_IMAGES } from '../content/serviceImages.js';
 import ServiceBeforeAfter from '../components/ServiceBeforeAfter.jsx';
 
-const mediaGlob = import.meta.glob('../assets/media/*.{webp,jpg,jpeg,png}', { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.{webp,jpg,jpeg,png}', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name => {
   if (!name) return '';
   return (
@@ -232,7 +232,7 @@ export default function ServiceDetailPage() {
             <div className="sidebar-booking-card">
               <h3 className="sb-title">{isRTL ? 'احجز موعداً في دقيقة' : 'Book in 60 Seconds'}</h3>
               <p className="sb-desc">
-                {isRTL ? 'فنيونا جاهزون للوصول إلى منزلك في نفس اليوم.' : 'Our technicians are ready to dispatch today.'}
+                {isRTL ? 'فنيونا جاهزون للوصول إلى منزلك في نفس اليوم.' : 'Book a convenient on-site visit with our technicians.'}
               </p>
               <a
                 className="btn btn-wa btn-sb-book"

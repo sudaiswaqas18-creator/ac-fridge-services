@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SERVICE_IMAGES } from '../content/serviceImages.js';
+import { DETAILED_SERVICES } from '../content/siteData.js';
+import { SERVICE_IMAGES, SPECIALTY_IMAGES } from '../content/serviceImages.js';
 import Checker from '../components/Checker.jsx';
 import BeforeAfter from '../components/BeforeAfter.jsx';
 import { Stats, Features } from '../components/Services.jsx';
@@ -9,7 +10,7 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob('../assets/media/*.{webp,jpg,jpeg,png}', { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.{webp,jpg,jpeg,png}', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name => {
   if (!name) return '';
   return (
@@ -26,7 +27,6 @@ const ICONS_MAP = {
   snow: I.snow,
   tools: I.tools,
   fridge: I.fridge,
-  washer: I.washer,
   motor: I.motor,
   diagnosis: I.diagnosis,
   contract: I.contract,
@@ -37,7 +37,6 @@ const DEFAULT_SERVICE_IMAGES = {
   'ac-cleaning': 'poster-ac-jet-cleaning',
   'central-hvac': 'poster-commercial-hvac-maintenance',
   'refrigerator-repair': 'fridge-repair-bay',
-  'washing-machine-repair': 'poster-before-after-washer',
   'motor-rewinding': 'poster-motor-rewinding',
   'electronic-diagnostics': 'poster-correct-diagnosis',
   'maintenance-contracts': 'poster-summer-maintenance',
@@ -46,7 +45,6 @@ const DEFAULT_SERVICE_IMAGES = {
   'ac-cleaning-installation': 'poster-ac-jet-cleaning',
   'central-hvac-maintenance': 'poster-commercial-hvac-maintenance',
   'refrigerator-freezer-repair': 'fridge-repair-bay',
-  'washing-machine-dryer': 'poster-before-after-washer',
   'motor-rewinding-welding': 'poster-motor-rewinding',
   'fault-diagnosis-inspection': 'poster-correct-diagnosis',
   'commercial-maintenance-contracts': 'poster-summer-maintenance',
@@ -56,7 +54,6 @@ const CATEGORIES_LIST = [
   { id: 'all', icon: I.sparkle, labelAr: 'جميع الخدمات المعتمدة', labelEn: 'All Services' },
   { id: 'ac', icon: I.ac, labelAr: 'صيانة التكييف والتهوية', labelEn: 'AC & HVAC' },
   { id: 'fridge', icon: I.fridge, labelAr: 'الثلاجات والفريزرات', labelEn: 'Refrigerators' },
-  { id: 'washer', icon: I.washer, labelAr: 'الغسالات والأجهزة', labelEn: 'Home Appliances' },
   { id: 'motor', icon: I.motor, labelAr: 'لف المحركات واللحام', labelEn: 'Motor Rewinding' },
   { id: 'contract', icon: I.contract, labelAr: 'العقود والمنشآت', labelEn: 'Commercial Contracts' },
 ];
@@ -66,20 +63,62 @@ export default function ServicesPage() {
   const { services } = useData();
   const [activeCategory, setActiveCategory] = useState('all');
 
-  const filteredServices = services.filter(svc => {
-    if (activeCategory === 'all') return true;
-    if (activeCategory === 'ac') return svc.slug.includes('ac') || svc.slug.includes('hvac');
-    if (activeCategory === 'fridge') return svc.slug.includes('fridge') || svc.slug.includes('refrigerator');
-    if (activeCategory === 'washer') return svc.slug.includes('washer') || svc.slug.includes('washing');
-    if (activeCategory === 'motor') return svc.slug.includes('motor') || svc.slug.includes('rewinding');
-    if (activeCategory === 'contract') return svc.slug.includes('contract') || svc.slug.includes('commercial');
-    return true;
+  const categorySlugs = {
+    ac: ['ac-repair', 'ac-cleaning', 'central-hvac'],
+    fridge: ['refrigerator-repair'],
+    motor: ['motor-rewinding'],
+    contract: ['maintenance-contracts'],
+  };
+
+  const specialties = {
+    fridge: [
+      ['Home Refrigerator Repair', 'صيانة الثلاجات المنزلية', 'Cooling faults, thermostats and door seals for household refrigerators.', 'إصلاح ضعف التبريد والثرموستات وعوازل أبواب الثلاجات المنزلية.'],
+      ['Freezer & Defrost Repair', 'صيانة الفريزرات والديفروست', 'Restore freezer performance with defrost, fan and refrigerant diagnostics.', 'استعادة كفاءة التجميد بفحص الديفروست والمراوح ودورة التبريد.'],
+      ['Cold Room & Commercial Refrigeration', 'غرف التبريد والثلاجات التجارية', 'Compressor and refrigeration circuit care for cold rooms and commercial units.', 'صيانة الضواغط ودورات التبريد لغرف التبريد والوحدات التجارية.'],
+    ],
+    motor: [
+      ['Electric Motor Rewinding', 'إعادة لف المحركات الكهربائية', 'Pure copper rewinding, insulation checks and load testing for electric motors.', 'إعادة اللف بالنحاس النقي وفحص العزل واختبار المحركات تحت الحمل.'],
+      ['Water Pump Repair & Rewinding', 'صيانة وإعادة لف مضخات المياه', 'Pump winding, bearing and mechanical seal repairs to restore reliable flow.', 'إصلاح ملفات المضخات والبلي ومانع التسرب لاستعادة تدفق المياه.'],
+      ['Motor Bearings & Copper Brazing', 'بلي المحركات ولحام النحاس', 'Bearing replacement, mechanical balancing and copper pipe brazing.', 'استبدال البلي والموازنة الميكانيكية ولحام مواسير النحاس.'],
+    ],
+    contract: [
+      ['Corporate & Office HVAC Contracts', 'عقود صيانة تكييف الشركات والمكاتب والمنشآت', 'Preventive HVAC maintenance for ducted package systems, routine quarterly visits, and official ZATCA tax invoicing.', 'صيانة وقائية دورية لتكييف المكاتب والمباني الإدارية، زيارات ربع سنوية مجدولة، وفواتير ضريبية إلكترونية معتمدة.'],
+      ['Restaurant & Cold Chain Contracts', 'عقود صيانة المطاعم والمقاهي وسلاسل التبريد', 'Emergency care for walk-in freezers, display chillers, and ice makers with guaranteed 2-hour priority response.', 'صيانة متخصصة لغرف التجميد والتبريد وثلاجات العرض وصانعات الثلج مع استجابة طارئة خلال ساعتين فقط.'],
+      ['Annual Villa & Residential Compound Care', 'عقود الصيانة السنوية للفلل والمجمعات السكنية', 'Comprehensive annual care for all home split, ducted and refrigeration units with seasonal inspections and discounts.', 'تغطية سنوية شاملة لكافة مكيفات وثلاجات الفيلا مع فحص قبل الصيف وأولوية قصوى وخصومات على قطع الغيار.'],
+    ],
+  };
+
+  const catalog = Object.entries(categorySlugs).flatMap(([category, slugs]) => {
+    let originals = slugs.map(slug => services.find(s => s.slug === slug) || DETAILED_SERVICES[slug]).filter(Boolean);
+    if (!originals.length && category === 'contract') {
+      const fallbackContract = services.find(s => /contract/i.test(s.slug)) || DETAILED_SERVICES['maintenance-contracts'];
+      if (fallbackContract) originals = [fallbackContract];
+    }
+    if (category === 'ac') {
+      return originals.map((s, idx) => ({ ...s, category, cardId: `ac-${idx}` }));
+    }
+    if (!originals[0]) return [];
+    return specialties[category].map(([titleEn, titleAr, subtitleEn, subtitleAr], index) => ({
+      ...originals[0],
+      category,
+      cardId: `${category}-${index}`,
+      titleEn,
+      titleAr,
+      subtitleEn,
+      subtitleAr,
+      symptomsAddressedEn: (originals[0].symptomsAddressedEn || []).slice(index * 2, index * 2 + 2),
+      symptomsAddressedAr: (originals[0].symptomsAddressedAr || []).slice(index * 2, index * 2 + 2),
+    }));
   });
+
+  const filteredServices = activeCategory === 'all'
+    ? catalog
+    : catalog.filter(s => s.category === activeCategory);
 
   return (
     <div className="services-page-view">
-      {/* Subpage Hero Banner */}
-      <section className="subpage-hero-banner">
+      {/* Subpage Hero Banner with Detailed HVAC Background */}
+      <section className="subpage-hero-banner services-hero-banner">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <span className="subpage-hero-badge">
@@ -134,11 +173,12 @@ export default function ServicesPage() {
               const title = isRTL ? svc.titleAr : svc.titleEn;
               const subtitle = isRTL ? svc.subtitleAr : svc.subtitleEn;
               const symptoms = ((isRTL ? svc.symptomsAddressedAr : svc.symptomsAddressedEn) || []).slice(0, 2);
+              if (!symptoms.length) symptoms.push(isRTL ? 'فحص دقيق وخطة صيانة واضحة' : 'Detailed inspection and a clear service plan', isRTL ? 'اختبار الأداء بعد إتمام العمل' : 'Performance testing after service');
               const imgKey = svc.heroImage || DEFAULT_SERVICE_IMAGES[svc.slug] || 'workshop-technician-wide';
-              const imgSrc = SERVICE_IMAGES[svc.slug] || getMediaUrl(imgKey);
+              const imgSrc = SPECIALTY_IMAGES[svc.cardId] || SPECIALTY_IMAGES[svc.slug] || SERVICE_IMAGES[svc.slug] || getMediaUrl(imgKey);
 
               return (
-                <article className="service-case-card" key={svc.slug}>
+                <article className="service-case-card" key={svc.cardId || svc.slug}>
                   <div className="service-case-image-wrap">
                     <img src={imgSrc} alt={title} className="service-card-img" loading="lazy" decoding="async" width="1376" height="768" />
                     <span className="service-case-category">{isRTL ? 'خدمة معتمدة' : 'Certified Service'}</span>

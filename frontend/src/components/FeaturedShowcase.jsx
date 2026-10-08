@@ -5,7 +5,6 @@ import { I } from '../Icons.jsx';
 import acImg from '../assets/media/poster-before-after-ac.webp';
 import fridgeImg from '../assets/media/poster-before-after-fridge.webp';
 import motorImg from '../assets/media/poster-before-after-motor.webp';
-import washerImg from '../assets/media/poster-before-after-washer.webp';
 
 export default function FeaturedShowcase() {
   const { isRTL } = useLanguage();
@@ -40,16 +39,6 @@ export default function FeaturedShowcase() {
         ? 'إعادة بناء محركات التكييف والمضخات الغاطسة بأسلاك نحاس معزولة حرارياً واختبار عزل إلكتروني دقيق.'
         : 'Precision rewinding for blower motors & water pumps using heat-insulated copper with load testing.',
       link: '/services/motor-rewinding',
-    },
-    {
-      id: 'washer',
-      badge: isRTL ? 'فحص إلكتروني' : 'Digital Diagnostics',
-      img: washerImg,
-      title: isRTL ? 'صيانة وإصلاح الغسالات والنشافات الأوتوماتيكية' : 'Automatic Washer & Dryer Repair Services',
-      desc: isRTL
-        ? 'معالجة اهتزاز الحلة وتغيير رولمان البلي الأصلي، تصليح كروت التحكم الإلكترونية ومضخات الطرد.'
-        : 'Drum bearing & suspension shock replacement, PCB control board troubleshooting, and drain pump repair.',
-      link: '/services/washing-machine-repair',
     },
   ];
 

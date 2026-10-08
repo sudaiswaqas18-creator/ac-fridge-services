@@ -33,7 +33,7 @@ export default function FaqPage() {
           <p className="subpage-hero-desc">
             {isRTL
               ? 'إجابات واضحة وشفافة على كافة تساؤلات العملاء المتعلقة بأسعار الصيانة، مدد الضمان، وسرعة الاستجابة.'
-              : 'Transparent answers regarding pricing, warranty duration, dispatch times, and service protocols.'}
+              : 'Transparent answers regarding pricing, warranty duration, service times, and service protocols.'}
           </p>
 
           <div className="faq-search-bar-wrap">
@@ -87,7 +87,7 @@ export default function FaqPage() {
 
           <div className="faq-bottom-cta-card">
             <h3 className="faq-cta-title">{isRTL ? 'لم تجد إجابة على سؤالك؟' : 'Still Have Questions?'}</h3>
-            <p className="faq-cta-sub">{isRTL ? 'فريق خدمة العملاء متاح يومياً من 8 صباحاً وحتى 11:30 مساءً للإجابة على كافة استفساراتك.' : 'Our customer team is available daily from 8 AM to 11:30 PM.'}</p>
+            <p className="faq-cta-sub">{isRTL ? 'فريق خدمة العملاء متاح من السبت إلى الخميس من 8 صباحاً وحتى 11:30 مساءً للإجابة على كافة استفساراتك.' : 'Our customer team is available Saturday to Thursday from 8 AM to 11:30 PM.'}</p>
             <div className="faq-cta-buttons">
               <a className="btn btn-wa" href={waLink()} target="_blank" rel="noopener">
                 {I.whatsapp} {isRTL ? 'تحدث مع فني الآن' : 'Chat with a Technician'}

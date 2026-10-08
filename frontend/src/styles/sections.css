@@ -1372,7 +1372,7 @@
 .marquee-track {
   display: inline-flex;
   gap: 36px;
-  animation: marqueeRun 28s linear infinite;
+  animation: marqueeRun 12s linear infinite;
 }
 
 @keyframes marqueeRun {
@@ -1381,7 +1381,7 @@
 }
 
 [dir="rtl"] .marquee-track {
-  animation: marqueeRunRTL 28s linear infinite;
+  animation: marqueeRunRTL 12s linear infinite;
 }
 
 @keyframes marqueeRunRTL {
@@ -1833,11 +1833,14 @@
    SERVICE DETAIL PAGE
    ========================================================================== */
 .service-hero-banner {
-  background: var(--bg-dark);
-  padding: 70px 0 60px;
+  background: linear-gradient(135deg, rgba(8, 23, 44, 0.48) 0%, rgba(13, 37, 69, 0.52) 50%, rgba(5, 16, 32, 0.65) 100%),
+              url('../assets/media/services-hero-bg.jpg') center/cover no-repeat;
+  padding: 120px 0 95px;
+  min-height: 380px;
   position: relative;
   overflow: hidden;
   color: var(--text-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .service-hero-glow {

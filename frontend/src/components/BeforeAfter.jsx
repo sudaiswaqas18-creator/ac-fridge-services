@@ -1,126 +1,61 @@
-import React, { useCallback, useRef, useState } from 'react';
-import { T } from '../translations.js';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import CardCarousel from './CardCarousel.jsx';
+import { SERVICE_BA_CONFIGS } from './ServiceBeforeAfter.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import { I } from '../Icons.jsx';
-import beforeImg from '../assets/media/ba-before.webp';
-import afterImg from '../assets/media/ba-after.webp';
 
-export default function BeforeAfter() {
-  const { lang, isRTL } = useLanguage();
-  const t = T[lang].baSec;
+const RESULT_CONFIGS = {
+  ...SERVICE_BA_CONFIGS,
+  'diagnostic-results': { ...SERVICE_BA_CONFIGS['ac-repair-riyadh'], tagEn: 'Fault Diagnostics', tagAr: 'تشخيص الأعطال', titleEn: 'From Fault Finding to Restored Cooling', titleAr: 'من تشخيص العطل إلى استعادة التبريد', descEn: 'Diagnostic checks guide the repair, followed by cooling and electrical performance verification.', descAr: 'فحص دقيق يحدد الإصلاح المطلوب، يليه التحقق من التبريد والأداء الكهربائي.' },
+  'maintenance-results': { ...SERVICE_BA_CONFIGS['ac-cleaning-installation'], tagEn: 'Preventive Maintenance', tagAr: 'الصيانة الوقائية', titleEn: 'Cleaner Coils. More Reliable Performance.', titleAr: 'ملفات أنظف وأداء أكثر استقراراً', descEn: 'Coil cleaning and performance checks are part of scheduled preventive care.', descAr: 'تنظيف الملفات وفحص الأداء ضمن برنامج العناية الوقائية الدورية.' },
+};
+const RESULTS = [
+  ['motor-rewinding-welding', 'motor-rewinding'],
+  ['ac-repair-riyadh', 'ac-repair'],
+  ['refrigerator-freezer-repair', 'refrigerator-repair'],
+  ['ac-cleaning-installation', 'ac-cleaning'],
+  ['central-hvac', 'central-hvac'],
+  ['diagnostic-results', 'fault-diagnostics'],
+  ['maintenance-results', 'maintenance-contracts'],
+];
+export function ResultCard({ config, path }) {
+  const { isRTL } = useLanguage();
   const [position, setPosition] = useState(50);
-  const containerRef = useRef(null);
-  const isDragging = useRef(false);
-
-  const handleMove = useCallback(
-    clientX => {
-      const container = containerRef.current;
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
-      let percent = ((clientX - rect.left) / rect.width) * 100;
-      percent = Math.min(96, Math.max(4, percent));
-      setPosition(percent);
-    },
-    []
-  );
-
-  const onMouseDown = e => {
-    isDragging.current = true;
-    handleMove(e.touches ? e.touches[0].clientX : e.clientX);
-  };
-
-  const onMouseMove = e => {
-    if (!isDragging.current) return;
-    handleMove(e.touches ? e.touches[0].clientX : e.clientX);
-  };
-
-  const onMouseUp = () => {
-    isDragging.current = false;
-  };
-
-  return (
-    <section className="ba-section">
-      <div className="container">
-        <div className="section-header">
-          <span className="section-tag light-tag">
-            <span className="tag-icon">{I.bolt}</span>
-            {t.tag}
-          </span>
-          <h2 className="section-title text-white" style={{ color: '#FFFFFF' }}>{t.title}</h2>
-          <p className="section-subtitle text-light" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>{t.sub}</p>
-          <div className="section-divider" />
-        </div>
-
-        <div className="ba-content-grid">
-          <div className="ba-slider-wrapper">
-            <div
-              className="ba-interactive-slider"
-              ref={containerRef}
-              style={{ '--slider-pos': `${position}%` }}
-              onMouseDown={onMouseDown}
-              onMouseMove={onMouseMove}
-              onMouseUp={onMouseUp}
-              onMouseLeave={onMouseUp}
-              onTouchStart={onMouseDown}
-              onTouchMove={onMouseMove}
-              onTouchEnd={onMouseUp}
-              role="slider"
-              aria-label="Before and After Comparison"
-              aria-valuemin={4}
-              aria-valuemax={96}
-              aria-valuenow={Math.round(position)}
-              onKeyDown={e => {
-                if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
-                e.preventDefault();
-                setPosition(p => e.key === 'Home' ? 4 : e.key === 'End' ? 96 : Math.max(4, Math.min(96, p + (e.key === 'ArrowRight' ? 4 : -4))));
-              }}
-              tabIndex={0}
-            >
-              <img
-                src={beforeImg}
-                alt="Motor before repair"
-                className="ba-img ba-before-img"
-                loading="lazy"
-                decoding="async"
-                draggable="false"
-              />
-              <img
-                src={afterImg}
-                alt="Motor after rewinding"
-                className="ba-img ba-after-img"
-                draggable="false"
-              />
-
-              <div className="ba-label ba-label-before">{t.beforeLabel}</div>
-              <div className="ba-label ba-label-after">{t.afterLabel}</div>
-
-              <div className="ba-divider-handle">
-                <div className="ba-handle-knob">
-                  <span className="knob-icon">{I.sliderKnob}</span>
-                </div>
-              </div>
-            </div>
-            <p className="ba-tip-note">
-              <span>{I.sliderKnob}</span>
-              <span>{isRTL ? 'اسحب الشريط لمقارنة نتيجة إعادة اللف' : 'Drag the slider to compare rewinding results'}</span>
-            </p>
-          </div>
-
-          <div className="ba-details-card">
-            <h3 className="ba-card-title">{t.cardTitle}</h3>
-            <p className="ba-card-text">{t.cardText}</p>
-
-            <ul className="ba-points-list">
-              {t.points.map((point, index) => (
-                <li key={index}>
-                  <span className="point-check-icon">{I.check}</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+  return <article className="result-story">
+    <div className="result-comparison">
+      <div className="result-images">
+        <img src={config.beforeImg} alt={isRTL ? 'قبل الصيانة' : 'Before repair'} loading="lazy" draggable="false" />
+        <img src={config.afterImg} alt={isRTL ? 'بعد الصيانة' : 'After repair'} loading="lazy" draggable="false" style={{ clipPath: `inset(0 0 0 ${position}%)` }} />
+        <span className="result-label before">{isRTL ? 'قبل' : 'Before'}</span>
+        <span className="result-label after">{isRTL ? 'بعد' : 'After'}</span>
+        <span className="result-handle" style={{ left: `${position}%` }} aria-hidden="true"><span>↔</span></span>
+        <input type="range" min="4" max="96" value={position} onChange={e => setPosition(Number(e.target.value))} aria-label={isRTL ? 'مقارنة قبل وبعد الصيانة' : 'Compare before and after repair'} />
       </div>
-    </section>
-  );
+      <p className="result-hint">{isRTL ? 'اسحب للمقارنة قبل وبعد' : 'Drag to compare before and after'}</p>
+    </div>
+    <div className="result-copy">
+      <span className="result-eyebrow">{isRTL ? config.tagAr : config.tagEn}</span>
+      <h3>{isRTL ? config.titleAr : config.titleEn}</h3>
+      <p>{isRTL ? config.descAr : config.descEn}</p>
+      <dl>{config.afterSpecs.map((spec, i) => <div key={i}><dt>{isRTL ? spec.labelAr : spec.labelEn}</dt><dd>{isRTL ? spec.valAr : spec.valEn}</dd></div>)}</dl>
+      <Link className="btn btn-gold" to={`/services/${path}`}>{isRTL ? 'تفاصيل الخدمة' : 'Explore This Service'} <span aria-hidden="true">↗</span></Link>
+    </div>
+  </article>;
+}
+export default function BeforeAfter({ expanded = false }) {
+  const { isRTL } = useLanguage();
+  if (expanded) return <div className="work-results-sections">{RESULTS.map(([key,path], index) => <section className="work-result-section" key={key} id={path}><div className="container"><div className="work-result-heading"><span>{String(index + 1).padStart(2, '0')}</span><h2>{isRTL ? RESULT_CONFIGS[key].tagAr : RESULT_CONFIGS[key].tagEn}</h2></div><ResultCard config={RESULT_CONFIGS[key]} path={path} /></div></section>)}</div>;
+  return <section className="ba-section results-section">
+    <div className="container">
+      <div className="section-header">
+        <span className="section-tag light-tag">{isRTL ? 'نتائج أعمالنا' : 'See the Difference'}</span>
+        <h2 className="section-title">{isRTL ? 'عناية دقيقة. نتائج واضحة.' : 'Expert Care. Visible Results.'}</h2>
+        <p className="section-subtitle">{isRTL ? 'اكتشف نتائج صيانة المكيفات والثلاجات ولف المحركات.' : 'Explore before-and-after results across AC care, refrigeration and motor rewinding.'}</p>
+        <div className="section-divider" />
+      </div>
+    </div>
+    <CardCarousel className="results-carousel" label={isRTL ? 'نتائج قبل وبعد' : 'Before and after results'}>
+      {RESULTS.map(([key,path]) => <ResultCard key={key} config={RESULT_CONFIGS[key]} path={path} />)}
+    </CardCarousel>
+  </section>;
 }

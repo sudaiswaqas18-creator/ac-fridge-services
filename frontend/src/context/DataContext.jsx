@@ -18,8 +18,8 @@ const DEFAULT_INDUSTRIES = [
     icon: 'home',
     titleAr: 'الفلل والقصور والمجمعات السكنية',
     titleEn: 'Residential Villas & Luxury Compounds',
-    descAr: 'خدمة صيانة منزلية فورية لجميع مكيفات وثلاجات وغسالات المنزل مع المحافظة التامة على نظافة الأثاث والمفروشات.',
-    descEn: 'Same-day on-site maintenance for home ACs, refrigerators, and washers with 100% floor and furniture protection.',
+    descAr: 'خدمة صيانة منزلية فورية لجميع مكيفات وثلاجات وفريزرات المنزل مع المحافظة التامة على نظافة الأثاث والمفروشات.',
+    descEn: 'Same-day on-site maintenance for home ACs, refrigerators, and freezers with 100% floor and furniture protection.',
     featuresAr: ['استجابة سريعة في نفس اليوم في كافة أحياء الرياض', 'فنيون مؤهلون ومعتمدون بأعلى درجات الأمانة', 'عقود صيانة سنوية مخصصة للعائلات مع خصومات'],
     featuresEn: ['Same-day arrival across all Riyadh neighborhoods', 'Certified technicians with strict professionalism', 'Customized annual family maintenance plans with discounts'],
   },
@@ -31,7 +31,7 @@ const DEFAULT_INDUSTRIES = [
     descAr: 'صيانة طارئة لغرف التبريد والتجميد (Walk-in Freezers) وصانعات الثلج ومكيفات صالات الضيوف لضمان استمرارية التشغيل.',
     descEn: 'Emergency service for walk-in freezers, ice machines, and dining hall HVAC to prevent food inventory loss.',
     featuresAr: ['خط ساخن للطوارئ 24/7 للمطاعم المتعاقدة', 'صيانة متخصصة لغرف التجميد والتبريد التجاري', 'تقارير فنية معتمدة تفي باشتراطات البلدية والسلامة'],
-    featuresEn: ['24/7 emergency dispatch line for contracted restaurants', 'Specialized commercial refrigeration care', 'Official municipal and food-safety compliance logs'],
+    featuresEn: ['24/7 emergency service line for contracted restaurants', 'Specialized commercial refrigeration care', 'Official municipal and food-safety compliance logs'],
   },
   {
     id: 'corporate',
@@ -56,6 +56,25 @@ const DEFAULT_INDUSTRIES = [
 ];
 
 export function DataProvider({ children }) {
+  // One-time content refresh; preserve custom content and all booking inquiries.
+  const contentVersion = '2026-10-services-v3';
+  if (localStorage.getItem('jawzaa_content_version') !== contentVersion) {
+    const defaults = { services: Object.values(DETAILED_SERVICES), reviews: TESTIMONIALS_DATA, cases: CASE_STUDIES, posts: BLOG_POSTS, industries: DEFAULT_INDUSTRIES, faqs: FAQS_DATA, gallery: GALLERY_ITEMS };
+    for (const [key, fresh] of Object.entries(defaults)) {
+      const storageKey = 'jawzaa_db_' + key;
+      try {
+        const old = JSON.parse(localStorage.getItem(storageKey) || 'null');
+        if (Array.isArray(old)) {
+          const merged = old.map(item => {
+            const match = fresh.find(entry => item.slug ? entry.slug === item.slug : item.id != null ? entry.id === item.id : entry.qEn === item.qEn);
+            return match ? { ...item, ...match } : item;
+          }).filter(item => !/washer|washing.machine|غسال/i.test(JSON.stringify(item)));
+          localStorage.setItem(storageKey, JSON.stringify(merged));
+        }
+      } catch { localStorage.removeItem(storageKey); }
+    }
+    localStorage.setItem('jawzaa_content_version', contentVersion);
+  }
   // 1. Services
   const [services, setServices] = useState(() => {
     const saved = localStorage.getItem('jawzaa_db_services');
