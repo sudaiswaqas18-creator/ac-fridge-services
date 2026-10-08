@@ -16,7 +16,7 @@ export default function BlogPage() {
   return (
     <div className="blog-page-view">
       {/* Hero Banner */}
-      <section className="subpage-hero-banner">
+      <section className="subpage-hero-banner blog-hero-banner">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <span className="subpage-hero-badge">

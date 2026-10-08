@@ -35,7 +35,7 @@ export default function CaseStudyDetailPage() {
   return (
     <div className="case-detail-view">
       {/* Hero Banner */}
-      <section className="subpage-hero-banner">
+      <section className="subpage-hero-banner work-detail-hero">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <div className="service-breadcrumbs">

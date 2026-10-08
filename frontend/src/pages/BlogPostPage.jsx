@@ -29,7 +29,7 @@ export default function BlogPostPage() {
   return (
     <div className="blog-post-view">
       {/* Hero Banner */}
-      <section className="subpage-hero-banner">
+      <section className="subpage-hero-banner blog-hero-banner">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <div className="service-breadcrumbs">

@@ -10,7 +10,7 @@ export default function ReviewsPage() {
 
   return (
     <div className="reviews-page-view">
-      <section className="subpage-hero-banner">
+      <section className="subpage-hero-banner reviews-hero-banner">
         <div className="subpage-hero-glow" />
         <div className="container subpage-hero-content">
           <span className="subpage-hero-badge">
