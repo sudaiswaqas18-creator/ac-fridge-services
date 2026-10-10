@@ -1477,6 +1477,7 @@ export default function AdminPage() {
                         style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1.5px solid #CBD5E1' }}
                       >
                         <option value="ac">{isAr ? 'تكييف وسبليت' : 'AC & Split'}</option>
+                        <option value="washer">{isAr ? 'الغسالات والنشافات' : 'Washing Machines'}</option>
                         <option value="fridge">{isAr ? 'ثلاجات وتبريد' : 'Refrigeration'}</option>
                         <option value="motor">{isAr ? 'لف محركات ودينمو' : 'Motors'}</option>
                         <option value="diagnosis">{isAr ? 'كشف وتشخيص' : 'Diagnosis'}</option>

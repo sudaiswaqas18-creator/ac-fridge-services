@@ -9,7 +9,7 @@ import { localizedValue } from '../localizedValue.js';
 import { SERVICE_IMAGES } from '../content/serviceImages.js';
 import ServiceBeforeAfter from '../components/ServiceBeforeAfter.jsx';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp'], { eager: true, import: 'default' });
 const getMediaUrl = name => {
   if (!name) return '';
   return mediaGlob[`../assets/media/${name}.webp`] || mediaGlob[`../assets/media/${name}`] || '';

@@ -1,3 +1,4 @@
+import heroBannerWasher from '../assets/media/washer-home.jpg';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
@@ -7,6 +8,14 @@ import heroBannerFridge from '../assets/media/hero-banner-fridge.webp';
 import heroBannerMotor from '../assets/media/hero-banner-motor.webp';
 
 const HERO_SLIDES = [
+  {
+    id: 'washer',
+    image: heroBannerWasher,
+    path: '/services/washing-machine-repair',
+    wordEn: 'Automatic Washers & Dryers',
+    wordAr: 'الغسالات والنشافات الأوتوماتيك',
+  },
+
   {
     id: 'ac',
     image: heroBannerAc,

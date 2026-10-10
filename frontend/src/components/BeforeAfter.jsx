@@ -10,6 +10,7 @@ const RESULT_CONFIGS = {
   'maintenance-results': { ...SERVICE_BA_CONFIGS['ac-cleaning-installation'], tagEn: 'Preventive Maintenance', tagAr: 'الصيانة الوقائية', titleEn: 'Cleaner Coils. More Reliable Performance.', titleAr: 'ملفات أنظف وأداء أكثر استقراراً', descEn: 'Coil cleaning and performance checks are part of scheduled preventive care.', descAr: 'تنظيف الملفات وفحص الأداء ضمن برنامج العناية الوقائية الدورية.' },
 };
 const RESULTS = [
+  ['washing-machine-dryer', 'washing-machine-repair'],
   ['motor-rewinding-welding', 'motor-rewinding'],
   ['ac-repair-riyadh', 'ac-repair'],
   ['refrigerator-freezer-repair', 'refrigerator-repair'],

@@ -5,7 +5,7 @@ import { BRAND, waLink } from '../translations.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp'], { eager: true, import: 'default' });
 const getMediaUrl = name => mediaGlob[`../assets/media/${name}.webp`];
 
 export default function BlogPostPage() {

@@ -6,7 +6,7 @@ import { I } from '../Icons.jsx';
 export default function Checker() {
   const { lang, isRTL } = useLanguage();
   const t = T[lang].checkerSec;
-  const order = isRTL ? ['المكيفات', 'الثلاجات', 'الموتورات والمركات'] : ['Air Conditioners', 'Refrigerators', 'Motors & Pumps'];
+  const order = isRTL ? ['المكيفات', 'الثلاجات', 'الغسالات', 'الموتورات والمركات'] : ['Air Conditioners', 'Refrigerators', 'Washing Machines', 'Motors & Pumps'];
   const symptoms = [...T[lang].symptomsList].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
 
   const [selectedIdx, setSelectedIdx] = useState(0);
@@ -17,12 +17,14 @@ export default function Checker() {
         { id: 'ALL', label: 'جميع الأعطال', icon: I.sparkle },
         { id: 'المكيفات', label: 'المكيفات', icon: I.ac },
         { id: 'الثلاجات', label: 'الثلاجات', icon: I.fridge },
+        { id: 'الغسالات', label: 'الغسالات', icon: I.washer },
         { id: 'الموتورات والمركات', label: 'الموتورات', icon: I.motor },
       ]
     : [
         { id: 'ALL', label: 'All Issues', icon: I.sparkle },
         { id: 'Air Conditioners', label: 'Air Conditioners', icon: I.ac },
         { id: 'Refrigerators', label: 'Refrigerators', icon: I.fridge },
+        { id: 'Washing Machines', label: 'Washing Machines', icon: I.washer },
         { id: 'Motors & Pumps', label: 'Motors & Pumps', icon: I.motor },
       ];
 

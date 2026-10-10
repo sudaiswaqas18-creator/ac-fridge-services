@@ -15,6 +15,14 @@ export const NAV_LINKS = [
 
 export const GALLERY_ITEMS = [
   {
+    id: 'washer-workshop',
+    src: 'gal-washer-department',
+    category: 'washer',
+    titleAr: 'ورشة صيانة الغسالات الأوتوماتيكية',
+    titleEn: 'Automatic Washing Machine Repair Department',
+  },
+
+  {
     id: 'storefront-day',
     src: 'gal-showroom-workshop',
     category: 'workshop',
@@ -171,6 +179,20 @@ export const POSTER_ITEMS = [
 
 export const TESTIMONIALS_DATA = [
   {
+    id: 5,
+    nameAr: 'أبو عبدالعزيز الزهراني',
+    nameEn: 'Abu Abdulaziz Al-Zahrani',
+    areaAr: 'حي الشفا — الرياض',
+    areaEn: 'Al-Shifa District — Riyadh',
+    rating: 5,
+    date: '2026',
+    serviceAr: 'صيانة غسالة إل جي أوتوماتيك',
+    serviceEn: 'LG Automatic Washer Repair',
+    textAr: 'الغسالة كانت تصدر صوت خبط قوي وتوقف عند مرحلة التجفيف. اتصلت فيهم وجاء الفني وفكها وفحص المساعدات ورولمان البلي وغيرهم بقطع أصلية. الحين هادية جداً حتى في أعلى سرعة عصر. أنصح بالتعامل معهم بشدة.',
+    textEn: 'The washing machine made heavy banging noises and stopped before spinning. The technician inspected the suspension shocks and drum bearings, replacing them with OEM parts. Now it runs super quiet even on maximum spin speed.',
+  },
+
+  {
     id: 1,
     nameAr: 'عبدالله المطيري',
     nameEn: 'Abdullah Al-Mutairi',
@@ -238,6 +260,9 @@ export const TESTIMONIALS_DATA = [
 ];
 
 export const FAQS_DATA = [
+  {"qEn":"Do you repair washing machines and dryers in Riyadh?","qAr":"هل تصلحون الغسالات والنشافات في الرياض؟","aEn":"Yes. We diagnose and repair automatic washing machines and dryers, including drainage, spin-cycle, door-lock and control-board faults. Share the brand, model and symptoms when booking.","aAr":"نعم، نفحص ونصلح الغسالات الأوتوماتيكية والنشافات، بما في ذلك التصريف والعصر وقفل الباب ولوحة التحكم. أرسل الماركة والموديل ووصف العطل عند الحجز."},
+  {"qEn":"Can my washing machine be repaired at home?","qAr":"هل يمكن إصلاح الغسالة في المنزل؟","aEn":"Many faults can be inspected and repaired on site. Bearing, drum or major electronic repairs may need workshop service; the technician explains the options and quote before work begins.","aAr":"يمكن فحص وإصلاح كثير من الأعطال في المنزل. قد تتطلب أعمال البلي أو الحلة أو الإلكترونيات نقل الجهاز للورشة، ويوضح الفني الخيارات والتكلفة قبل البدء."},
+  {"qEn":"What should I do if my washing machine leaks or stops draining?","qAr":"ماذا أفعل إذا سربت الغسالة الماء أو توقفت عن التصريف؟","aEn":"Stop the cycle and turn off the water supply. If safe and dry, disconnect the power. Avoid restarting the machine and send us the model and a description of the fault to arrange an inspection.","aAr":"أوقف البرنامج وأغلق مصدر الماء. افصل الكهرباء إذا كان المكان جافاً وآمناً. تجنب إعادة التشغيل وأرسل الموديل ووصف العطل لترتيب الفحص."},
   {
     qAr: 'هل تقدمون خدمة الصيانة المنزلية في جميع أحياء مدينة الرياض؟',
     qEn: 'Do you provide home repair service across all neighborhoods in Riyadh?',

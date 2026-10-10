@@ -43,6 +43,13 @@ export const NAV_STRUCTURE = {
           icon: 'fridge',
         },
         {
+          id: 'washing-machine-repair',
+          title: 'صيانة الغسالات والنشافات',
+          desc: 'غسالات أوتوماتيكية، طلمبات التصريف، وتغيير البلي',
+          path: '/services/washing-machine-repair',
+          icon: 'washer',
+        },
+        {
           id: 'motor-rewinding',
           title: 'لف وإصلاح الموتورات (المركات)',
           desc: 'إعادة لف بالنحاس النقي 100% وعوازل حرارية فائقة',
@@ -192,6 +199,13 @@ export const NAV_STRUCTURE = {
           icon: 'fridge',
         },
         {
+          id: 'washing-machine-repair',
+          title: 'Washer & Dryer Service',
+          desc: 'Automatic washer repairs, drain pumps & bearings',
+          path: '/services/washing-machine-repair',
+          icon: 'washer',
+        },
+        {
           id: 'motor-rewinding',
           title: 'Electric Motor Rewinding',
           desc: '100% pure copper rewinding with Class H insulation',
@@ -307,6 +321,95 @@ export const NAV_STRUCTURE = {
 
 // Detailed Dedicated Service Pages Data (500+ words unique content per service)
 export const DETAILED_SERVICES = {
+  'washing-machine-repair': {
+    slug: 'washing-machine-repair',
+    icon: 'washer',
+    heroImage: 'poster-before-after-washer',
+    titleAr: 'صيانة وتصليح الغسالات والنشافات الأوتوماتيكية بالرياض',
+    titleEn: 'Automatic Washing Machine & Dryer Repair in Riyadh',
+    subtitleAr: 'إصلاح أعطال عدم التصريف، مشاكل الدوران والعصر، الاهتزاز والصوت المزعج، وتصليح كروت التحكم الإلكترونية.',
+    subtitleEn: 'Fixing drain failures, spinning issues, excessive vibration, and electronic control board malfunctions with original parts.',
+    overviewAr: `الغسالة الأوتوماتيكية والنشافة من الأجهزة المنزلية الحيوية التي لا غنى عنها في أي منزل بالرياض. في مؤسسة جوزاء، نقدم صيانة فورية متخصصة لجميع ماركات الغسالات (إل جي، سامسونج، دايو، بوش، ويرلبول، ميديا، كاندي، وغيرها) ذات التعبئة الأمامية والعلوية.
+
+يعالج خبراؤنا مشكلات عدم تصريف المياه، تلف طلمبة الطرد، احتراق صمام سحب المياه، تلف مساعدات امتصاص الاهتزاز، تآكل رولمان بلي الحلة الداخلية، بالإضافة إلى تشخيص وبرمجة كروت التحكم الإلكترونية التالفة لتوفير تكلفة استبدالها الباهظة.`,
+    overviewEn: `Automatic washing machines and tumble dryers are essential household appliances. At Jawzaa, we provide swift on-site maintenance across Riyadh for front-load and top-load washers from LG, Samsung, Daewoo, Bosch, Whirlpool, Midea, Candy, and other leading brands.
+
+Our specialists troubleshoot drainage pump failures, burned inlet water valves, worn suspension shock absorbers, noisy drum bearings, and electronic PCB inverter control boards, restoring your machine to smooth, quiet operation without requiring costly replacements.`,
+    stats: [
+      { labelAr: 'غسالة تم إصلاحها', labelEn: 'Washers Serviced', value: '1,900+' },
+      { labelAr: 'إصلاح منزلي فوري', labelEn: 'On-Site Fix Rate', value: '92%' },
+      { labelAr: 'قطع غيار أصلية', labelEn: 'OEM Spare Parts', value: '100% معتمدة' },
+      { labelAr: 'ضمان على الإصلاح', labelEn: 'Service Warranty', value: 'معتمد' },
+    ],
+    symptomsAddressedAr: [
+      'الغسالة لا تصرف المياه وتتوقف فجأة أثناء دورة الغسيل',
+      'الحلة لا تدور إطلاقاً أو لا تقوم بمرحلة العصر السريع والتجفيف',
+      'اهتزاز عنيف وخبط قوي وصوت طحن أثناء سرعات الدوران العالية',
+      'تسريب مياه من أسفل الغسالة أو من إطار الباب المطاطي',
+      'ظهور رموز أعطال على الشاشة الرقمية وعدم استجابة أزرار اللمس',
+    ],
+    symptomsAddressedEn: [
+      'Washer not draining water and stalling mid-cycle with error code',
+      'Drum not spinning or failing to reach high-speed extraction spin',
+      'Violent shaking, thumping, and metal grinding during spin cycles',
+      'Water leaking from underneath machine or front door rubber gasket',
+      'Digital error codes displayed on panel with buttons unresponsive',
+    ],
+    processStepsAr: [
+      { num: '01', title: 'الفحص وقراءة أكواد الأعطال', desc: 'اختبار دورة التشغيل وقراءة الحساسات والطلمبة والكرت' },
+      { num: '02', title: 'الفك واستبدال القطع المعطوبة', desc: 'تغيير طلمبة التصريف أو المساعدات أو رولمان البلي بقطع أصلية' },
+      { num: '03', title: 'اختبار التوازن والاتزان', desc: 'معايرة مساعدات الحلة والتأكد من هدوء الدوران وانعدام الصوت' },
+      { num: '04', title: 'دورة غسيل تجريبية والضمان', desc: 'تشغيل دورة كاملة للتأكد من تصريف المياه والعصر وتسليم الضمان' },
+    ],
+    processStepsEn: [
+      { num: '01', title: 'Diagnostic & Error Code Scan', desc: 'Testing pump, motor tachometer, pressure sensor, and PCB' },
+      { num: '02', title: 'Part Replacement', desc: 'Swapping defective drain pumps, shocks, or drum bearings with OEM parts' },
+      { num: '03', title: 'Dynamic Balance Tuning', desc: 'Calibrating suspension dampers to ensure quiet vibration-free spinning' },
+      { num: '04', title: 'Full Test Cycle & Warranty', desc: 'Running test wash and spin cycle before handing over warranty' },
+    ],
+    pricingTiers: [
+      {
+        nameAr: 'صيانة طلمبة التصريف والفلتر',
+        nameEn: 'Drain Pump & Filter Service',
+        priceAr: 'يبدأ من 140 ريال',
+        priceEn: 'From 140 SAR',
+        descAr: 'حل مشاكل عدم صرف المياه والانسداد',
+        descEn: 'Fixing water drainage and pump blockages',
+        featuresAr: ['تنظيف مجرى الصرف والفلتر', 'استبدال طلمبة الطرد بقطعة أصلية', 'اختبار حساس منسوب المياه', 'ضمان على عملية التصريف'],
+        featuresEn: ['Clearing drain path & lint filter', 'Installing genuine drain pump', 'Testing water level pressure switch', 'Drainage operation warranty'],
+      },
+      {
+        nameAr: 'تغيير مساعدات امتصاص الاهتزاز',
+        nameEn: 'Shock Absorber & Damper Swap',
+        priceAr: 'يبدأ من 180 ريال',
+        priceEn: 'From 180 SAR',
+        descAr: 'القضاء على الخبط والاهتزاز العنيف',
+        descEn: 'Eliminating violent banging & drum shaking',
+        isPopular: true,
+        featuresAr: ['طقم مساعدات هيدروليكية أصلية', 'ضبط اتزان حلة الغسيل', 'فحص سير المحرك والكلتش', 'ضمان على هدوء واستقرار الجهاز'],
+        featuresEn: ['Set of OEM hydraulic shock absorbers', 'Re-centering and balancing wash tub', 'Drive belt and motor check', 'Vibration-free stability guarantee'],
+      },
+      {
+        nameAr: 'تغيير رولمان البلي والكرت الإلكتروني',
+        nameEn: 'Bearing & PCB Board Overhaul',
+        priceAr: 'حسب نوع وموديل الغسالة',
+        priceEn: 'Varies by Brand & Model',
+        descAr: 'إصلاح مشاكل الصوت العالي واللوحة',
+        descEn: 'Bearing rebuild & control board repair',
+        featuresAr: ['رولمان بلي وأولسيه مائي ياباني أصلي', 'إصلاح أو استبدال لوحة التحكم الإلكترونية', 'تشحيم وتجميع الحلة بالكامل', 'ضمان معتمد وشامل'],
+        featuresEn: ['OEM water seal & Japanese bearings', 'PCB inverter control board repair', 'Complete drum sealing and lube', 'Comprehensive parts warranty'],
+      },
+    ],
+    faqs: [
+      {
+        qAr: 'ما سبب صدور صوت طحن قوي يشبه الطائرة عند عصر الغسالة؟',
+        qEn: 'Why does my washer make a loud jet-engine sound during spin?',
+        aAr: 'هذا العرض دليل قاطع على تآكل رولمان البلي (المحامل) وتلف الأولسيه العازل للماء، مما يسمح بتسرب الماء لكرات البلي وصدئها. يتم حلها بتغيير طقم البلي والأولسيه الأصلي.',
+        aEn: 'This symptom indicates worn drum bearings and a failed water seal, allowing water into the ball races causing rust and noise. It is resolved by replacing the bearings and seal.',
+      },
+    ],
+  },
+
   'ac-repair': {
     slug: 'ac-repair',
     icon: 'ac',
@@ -865,7 +968,7 @@ We exclusively utilize 100% pure electrolytic copper magnet wire combined with C
         descEn: 'Full coverage for ACs & refrigeration',
         isPopular: true,
         featuresAr: ['4 زيارات دورية مجدولة سنوياً', 'غسيل وتعقيم كيميائي شامل', 'صيانة وقائية لثلاجات وفريزرات المنزل', 'استجابة طارئة خلال ساعتين فقط'],
-        featuresEn: ['4 scheduled quarterly visits per year', 'Deep chemical sanitization and wash', 'Preventative checks for fridges and freezers', 'Guaranteed 2-hour emergency response SLA'],
+        featuresEn: ['4 scheduled quarterly visits per year', 'Deep chemical sanitization and wash', 'Preventative checks for fridges, freezers and washing machines', 'Guaranteed 2-hour emergency response SLA'],
       },
       {
         nameAr: 'عقد الشركات والمطاعم المخصص',
@@ -1062,13 +1165,13 @@ export const CAREERS_DATA = [
   },
   {
     id: 'appliance-repair-tech',
-    titleAr: 'فني صيانة ثلاجات وفريزرات منزلية',
-    titleEn: 'Refrigerator & Freezer Technician',
+    titleAr: 'فني صيانة ثلاجات وغسالات منزلية',
+    titleEn: 'Refrigerator & Washing Machine Technician',
     typeAr: 'دوام كامل — الرياض',
     typeEn: 'Full-Time — Riyadh',
     experienceAr: 'خبرة 3+ سنوات في ثلاجات النوفروست والفريزرات',
     experienceEn: '3+ years experience in no-frost refrigerators and freezers',
-    descAr: 'القيام بالزيارات المنزلية لفحص وإصلاح الثلاجات والفريزرات وكروت التحكم وطلمبات التصريف بمهنية وأمانة عالية.',
-    descEn: 'Conducting home visits to troubleshoot and repair refrigerators, freezers, inverter control boards, and drain systems.',
+    descAr: 'القيام بالزيارات المنزلية لفحص وإصلاح الثلاجات والغسالات وكروت التحكم وطلمبات التصريف بمهنية وأمانة عالية.',
+    descEn: 'Conducting home visits to troubleshoot and repair refrigerators, washing machines, inverter control boards, and drain systems.',
   },
 ];

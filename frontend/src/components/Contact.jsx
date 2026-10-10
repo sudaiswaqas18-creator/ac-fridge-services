@@ -185,6 +185,7 @@ export function Contact() {
                       {[
                         ['AC & HVAC', 'صيانة المكيفات'],
                         ['Refrigerators & Freezers', 'الثلاجات والفريزرات'],
+                        ['Washing Machines & Dryers', 'الغسالات والنشافات'],
                         ['Motor Rewinding', 'لف المحركات'],
                       ].map(([en, ar]) => <option key={en} value={isRTL ? ar : en}>{isRTL ? ar : en}</option>)}
                     </select>

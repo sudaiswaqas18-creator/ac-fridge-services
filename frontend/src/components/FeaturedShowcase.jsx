@@ -1,3 +1,4 @@
+import washerImg from '../assets/media/poster-before-after-washer.webp';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
@@ -10,6 +11,17 @@ export default function FeaturedShowcase() {
   const { isRTL } = useLanguage();
 
   const cards = [
+    {
+      id: 'washer',
+      badge: isRTL ? 'فحص إلكتروني' : 'Digital Diagnostics',
+      img: washerImg,
+      title: isRTL ? 'صيانة وإصلاح الغسالات والنشافات الأوتوماتيكية' : 'Automatic Washer & Dryer Repair Services',
+      desc: isRTL
+        ? 'معالجة اهتزاز الحلة وتغيير رولمان البلي الأصلي، تصليح كروت التحكم الإلكترونية ومضخات الطرد.'
+        : 'Drum bearing & suspension shock replacement, PCB control board troubleshooting, and drain pump repair.',
+      link: '/services/washing-machine-repair',
+    },
+
     {
       id: 'ac',
       img: acImg,
@@ -65,7 +77,7 @@ export default function FeaturedShowcase() {
         <div className="showcase-4cards-grid">
           {cards.map(card => (
             <article className="showcase-4card-item" key={card.id}>
-              <div className="card-top-image-wrap">
+              <div className={`card-top-image-wrap ${card.id === 'motor' ? 'motor-comparison-image' : ''}`}>
                 <img
                   src={card.img}
                   alt={card.title}

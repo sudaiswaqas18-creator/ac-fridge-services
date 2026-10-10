@@ -5,18 +5,29 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp'], { eager: true, import: 'default' });
 const getMediaUrl = name => mediaGlob[`../assets/media/${name}.webp`];
 
 export function Reviews() {
   const { lang, isRTL } = useLanguage();
   const { reviews } = useData();
   const t = T[lang].reviewsSec;
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  const total = reviews.length;
-  const prevSlide = () => setActiveIdx(prev => (prev - 1 + total) % total);
-  const nextSlide = () => setActiveIdx(prev => (prev + 1) % total);
+  const seen = new Set();
+  const counts = new Map();
+  const visibleReviews = reviews.filter(review => {
+    const text = String(review.textEn || review.textAr || '').trim().toLowerCase();
+    if (!text || seen.has(text)) return false;
+    seen.add(text);
+    const service = String(review.serviceEn || review.serviceAr || '').toLowerCase();
+    const category = /washer|washing|dryer|غسال|نشاف/.test(service) ? 'washer'
+      : /contract|annual|عقد|عقود/.test(service) ? 'contract'
+      : /motor|pump|rewind|موتور|محرك|مضخ/.test(service) ? 'motor'
+      : /fridge|refriger|freezer|ثلاج|فريزر/.test(service) ? 'fridge' : 'ac';
+    const count = counts.get(category) || 0;
+    if (count >= 2) return false;
+    counts.set(category, count + 1);
+    return true;
+  });
 
   return (
     <section className="reviews-section" id="reviews">
@@ -33,14 +44,14 @@ export function Reviews() {
 
         <div className="reviews-carousel-container">
           <div className="reviews-cards-grid">
-            {reviews.map((review, i) => {
+            {visibleReviews.map((review, i) => {
               const name = isRTL ? review.nameAr : review.nameEn;
               const area = isRTL ? review.areaAr : review.areaEn;
               const service = isRTL ? review.serviceAr : review.serviceEn;
               const text = isRTL ? review.textAr : review.textEn;
 
               return (
-                <article className="review-card" key={review.id}>
+                <article className="review-card" key={`${review.id}-${i}`}>
                   <div className="review-card-top">
                     <div className="review-stars-row">
                       {Array.from({ length: 5 }).map((_, idx) => (

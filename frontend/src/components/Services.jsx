@@ -8,6 +8,7 @@ import { useCountUp } from '../hooks.js';
 import { I } from '../Icons.jsx';
 
 const ICONS_MAP = {
+  washer: I.washer,
   ac: I.ac,
   fridge: I.fridge,
   motor: I.motor,
@@ -25,6 +26,7 @@ const FEAT_ICONS_MAP = {
 };
 
 const SERVICE_SLUG_MAP = {
+  'washer-repair': 'washing-machine-repair',
   'ac-repair': 'ac-repair',
   'fridge-repair': 'refrigerator-repair',
   'motor-rewind': 'motor-rewinding',

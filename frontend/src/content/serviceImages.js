@@ -1,3 +1,6 @@
+import washerHome from '../assets/media/washer-home.jpg';
+import washerWorkshop from '../assets/media/washer-workshop.jpg';
+import washerComparison from '../assets/media/poster-before-after-washer.webp';
 // Dedicated high-definition photography for services, specialties, and detail pages
 import acRepair from '../assets/media/hero-banner-ac.webp';
 import acCleaning from '../assets/media/poster-ac-jet-cleaning.webp';
@@ -18,6 +21,7 @@ import contractVilla from '../assets/media/service-contract-villa.webp';
 import diagnosis from '../assets/media/poster-correct-diagnosis.webp';
 
 export const SPECIALTY_IMAGES = {
+  'washer-0': washerHome, 'washer-1': washerWorkshop, 'washer-2': washerComparison,
   // AC
   'ac-repair': acRepair,
   'ac-cleaning': acCleaning,
@@ -43,6 +47,7 @@ export const SPECIALTY_IMAGES = {
 };
 
 export const SERVICE_IMAGES = {
+  'washing-machine-repair': washerComparison, 'washing-machine-dryer': washerComparison,
   'ac-repair': acRepair,
   'ac-repair-riyadh': acRepair,
   'ac-cleaning': acCleaning,

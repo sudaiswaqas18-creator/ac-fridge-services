@@ -88,17 +88,35 @@
    RESET & BASE
    ========================================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+  background-color: var(--bg-primary, #06182b);
+}
 
 body {
   font-family: var(--font);
   color: var(--text-primary);
-  background: var(--bg-primary);
+  background: var(--bg-primary, #06182b);
   line-height: 1.7;
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root,
+.site-wrapper {
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
 }
 
 img, video { max-width: 100%; display: block; }
@@ -288,9 +306,10 @@ section { position: relative; padding: 90px 0; }
    MASTER HEADER & TOPBAR
    ========================================================================== */
 .site-header-master {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   width: 100%;
 }
 
@@ -946,7 +965,8 @@ section { position: relative; padding: 90px 0; }
 .mobile-drawer-overlay {
   position: fixed;
   inset: 0;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   height: 100dvh;
   background: rgba(3, 13, 23, 0.75);

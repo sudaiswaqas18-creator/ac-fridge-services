@@ -1,3 +1,5 @@
+import baWasherBefore from '../assets/media/washer-before.webp';
+import baWasherAfter from '../assets/media/washer-after.jpg';
 import React, { useState, useRef, useCallback } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { I } from '../Icons.jsx';
@@ -15,6 +17,29 @@ import baHvacBefore from '../assets/media/ba-hvac-before.webp';
 import baHvacAfter from '../assets/media/ba-hvac-after.webp';
 
 export const SERVICE_BA_CONFIGS = {
+  'washing-machine-dryer': {
+    beforeImg: baWasherBefore,
+    afterImg: baWasherAfter,
+    tagAr: 'صيانة الغسالات والنشافات',
+    tagEn: 'Washer & Dryer Mechanics',
+    titleAr: 'تجديد رمان البلي ومساعدات الحلة وبرمجة الكارتة',
+    titleEn: 'Tub Bearing Overhaul & Control Board Repair',
+    descAr: 'القضاء على الاهتزاز العنيف أثناء العصر وإصلاح مشاكل عدم تصريف الماء أو دوران الحلة.',
+    descEn: 'Eliminating excessive spin vibrations and repairing pump drains and inverter control boards.',
+    beforeSpecs: [
+      { labelAr: 'صوت العصر', labelEn: 'Spin Sound', valAr: 'ضجيج رمان بلي تالف واحتكاك', valEn: 'Loud Grinding Bearing Noise' },
+      { labelAr: 'حركة الغسالة', labelEn: 'Vibration', valAr: 'اهتزاز عنيف وتحرك من المكان', valEn: 'Violent Shaking & Moving' },
+      { labelAr: 'عصر الملابس', labelEn: 'Water Spin', valAr: 'ملابس تخرج مبللة بالكامل', valEn: 'Clothes Soaked & Undrained' },
+      { labelAr: 'رموز الأعطال', labelEn: 'Error Codes', valAr: 'أخطاء OE / UE / LE متكررة', valEn: 'Frequent OE / UE / LE Errors' },
+    ],
+    afterSpecs: [
+      { labelAr: 'صوت العصر', labelEn: 'Spin Sound', valAr: 'دوران فائق الهدوء والنعومة', valEn: 'Ultra-Smooth Silent Spin' },
+      { labelAr: 'حركة الغسالة', labelEn: 'Vibration', valAr: 'ثبات تام بمساعدات أصلية', valEn: 'Rock-Solid Stability' },
+      { labelAr: 'عصر الملابس', labelEn: 'Water Spin', valAr: 'تجفيف فعال وسحب كامل للماء', valEn: 'High-Efficiency Full Spin' },
+      { labelAr: 'رموز الأعطال', labelEn: 'Error Codes', valAr: 'برمجة دقيقة بدون أي أخطاء', valEn: 'Zero Errors & Calibrated' },
+    ],
+  },
+
   'ac-repair-riyadh': {
     beforeImg: baAcBefore,
     afterImg: baAcAfter,
@@ -150,6 +175,7 @@ export const SERVICE_BA_CONFIGS = {
 };
 
 const getConfig = (slug) => {
+  if (slug?.includes('washing') || slug?.includes('washer')) return SERVICE_BA_CONFIGS['washing-machine-dryer'];
   if (!slug) return SERVICE_BA_CONFIGS.default;
   if (slug.includes('ac-repair') || slug === 'ac-repair') return SERVICE_BA_CONFIGS['ac-repair-riyadh'];
   if (slug.includes('cleaning') || slug === 'ac-cleaning') return SERVICE_BA_CONFIGS['ac-cleaning-installation'];

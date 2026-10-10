@@ -6,7 +6,7 @@ import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 import CompanySectionNav from '../components/CompanySectionNav.jsx';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp'], { eager: true, import: 'default' });
 const getMediaUrl = name => mediaGlob[`../assets/media/${name}.webp`];
 
 export default function BlogPage() {

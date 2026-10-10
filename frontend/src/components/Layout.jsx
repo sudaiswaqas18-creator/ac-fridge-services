@@ -22,6 +22,7 @@ export function Footer() {
   ];
 
   const serviceLinks = [
+    { to: '/services/washing-machine-repair', label: isRTL ? 'صيانة الغسالات والنشافات' : 'Washing Machine & Dryer Repair' },
     { to: '/services/ac-repair', label: isRTL ? 'صيانة وإصلاح المكيفات' : 'AC & HVAC Services' },
     { to: '/services/ac-cleaning', label: isRTL ? 'غسيل وتنظيف المكيفات' : 'AC Jet Cleaning' },
     { to: '/services/central-hvac', label: isRTL ? 'التكييف المركزي والدكت' : 'Central & Ducted HVAC' },
@@ -159,8 +160,8 @@ export function Footer() {
         <div className="footer-seo-bar">
           <p>
             {isRTL
-              ? 'صيانة المكيفات والثلاجات والفريزرات ولف المحركات والمضخات في جميع أحياء الرياض. مواعيد واضحة وخدمة متقنة وضمان خطي.'
-              : 'AC and refrigeration care, motor and pump rewinding across Riyadh. Clear appointments, careful workmanship and written warranties.'}
+              ? 'صيانة المكيفات والثلاجات والغسالات ولف المحركات والمضخات في جميع أحياء الرياض. مواعيد واضحة وخدمة متقنة وضمان خطي.'
+              : 'AC, refrigeration and washing machine repairs, motor and pump rewinding across Riyadh. Clear appointments, careful workmanship and written warranties.'}
           </p>
         </div>
 
@@ -169,7 +170,9 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {isRTL ? BRAND.nameAr : BRAND.nameEn}. {isRTL ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}
           </p>
-          <a className="footer-credit" href="https://www.facebook.com/AfyraDigital" target="_blank" rel="noopener noreferrer">Developed by Afyra Digital</a>
+          <span className="footer-credit">
+            Developed by: <a href="https://afyradigital.com/" target="_blank" rel="noopener noreferrer" className="footer-agency-link"><strong>Afyra Digital</strong></a>
+          </span>
           <div className="footer-bottom-links">
             <Link to="/faq" onClick={scrollToTop}>{isRTL ? 'الأسئلة الشائعة' : 'FAQs'}</Link>
             <Link to="/privacy" onClick={scrollToTop}>{isRTL ? 'سياسة الخصوصية' : 'Privacy Policy'}</Link>

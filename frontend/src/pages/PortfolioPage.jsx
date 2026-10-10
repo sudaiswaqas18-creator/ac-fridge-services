@@ -6,7 +6,7 @@ import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 import { localizedValue } from '../localizedValue.js';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp'], { eager: true, import: 'default' });
 const getMediaUrl = name =>
   mediaGlob[`../assets/media/${name}.webp`] ||
   mediaGlob[`../assets/media/${name}`] ||
@@ -127,6 +127,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="gallery-filter-tabs">
+          <button className={`gallery-tab-btn ${filterCat === 'washer' ? 'active' : ''}`} onClick={() => setFilterCat('washer')}>{isRTL ? 'الغسالات والنشافات' : 'Washing Machines'}</button>
             <button
               className={`gallery-tab-btn ${filterCat === 'all' ? 'active' : ''}`}
               onClick={() => setFilterCat('all')}

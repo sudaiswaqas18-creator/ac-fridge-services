@@ -1,8 +1,8 @@
 export const BRAND = {
   nameAr: 'جوزاء للتبريد والتكييف',
   nameEn: 'Jawzaa Tabreed Taykeef',
-  subAr: 'صيانة مكيفات • ثلاجات • لف موتورات بالرياض',
-  subEn: 'AC • Refrigerator • Motor Repair in Riyadh',
+  subAr: 'صيانة مكيفات • ثلاجات • غسالات • لف موتورات بالرياض',
+  subEn: 'AC • Refrigerator • Washing Machine • Motor Repair in Riyadh',
   // Short specialism line that sits under the wordmark in the brand lockup
   taglineAr: 'متخصصون في التكييف والأجهزة المنزلية',
   taglineEn: 'HVAC & Appliance Specialists',
@@ -74,6 +74,7 @@ export const T = {
       { num: 99, suffix: '%', label: 'نسبة رضا العملاء' },
     ],
     marquee: [
+      'صيانة الغسالات والنشافات',
       'صيانة مكيفات سبليت وشباك',
       'غسيل وتنظيف مكيفات عميق',
       'كشف تسريب وشحن فريون أصلي',
@@ -90,6 +91,20 @@ export const T = {
       bookThis: 'حجز فني لهذه الخدمة',
     },
     servicesList: [
+      {
+        id: 'washer-repair',
+        icon: 'washer',
+        title: 'صيانة الغسالات والنشافات',
+        desc: 'إصلاح جميع أعطال الغسالات الأوتوماتيكية والعادية والنشافات الحرارية: عدم الدوران، مشاكل الطلمبة والتصريف، الاهتزاز، وأعطال الكرت الإلكتروني.',
+        features: [
+          'إصلاح وتبديل طلمبة التصريف وفلتر الشوائب',
+          'تغيير رولمان البلي والمساعدات لمنع الاهتزاز والصوت',
+          'تصليح كروت التحكم والموتور والكلتش والمفاتيح',
+          'دعم غسالات التعبئة الأمامية والعلوية والنشافات',
+        ],
+        badge: 'ضمان قطع الغيار',
+      },
+
       {
         id: 'ac-repair',
         icon: 'ac',
@@ -167,6 +182,16 @@ export const T = {
       bookBtn: 'حجز فحص وإصلاح لهذا العطل',
     },
     symptomsList: [
+      {"problem":"الغسالة تهتز بقوة أو تصدر صوت طحن أثناء العصر","category":"الغسالات","cause":"قد يكون السبب تلف البلي أو المساعدات أو عدم توازن الجهاز.","fix":"نفحص البلي والمساعدات ونضبط توازن الجهاز ونختبر دورة العصر بعد الإصلاح.","estTime":"60–120 دقيقة"},
+      {"problem":"الغسالة لا تبدأ أو يظهر رمز خطأ على الشاشة","category":"الغسالات","cause":"قد يكون العطل في قفل الباب أو التوصيلات أو لوحة التحكم.","fix":"نفحص رمز الخطأ وقفل الباب والدائرة الكهربائية ثم نحدد الجزء المطلوب إصلاحه.","estTime":"45–90 دقيقة"},
+      {
+        problem: 'الغسالة لا تقوم بتصريف المياه أو تتوقف قبل دورة العصر',
+        category: 'الغسالات',
+        cause: 'انسداد فلتر الطلمبة بالعملات المعدنية والألياف، أو احتراق محرك طلمبة التصريف، أو عطل في حساس مستوى الماء.',
+        fix: 'تنظيف الفلتر ومجاري الصرف، واختبار الطلمبة واستبدالها إذا لزم الأمر بقطعة أصلية مع ضمان التشغيل السليم.',
+        estTime: '30 - 60 دقيقة',
+      },
+
       {
         problem: 'المكيف يشتغل لكن الهواء غير بارد أو التبريد ضعيف جداً',
         category: 'المكيفات',
@@ -270,6 +295,7 @@ export const T = {
       title: 'صور وفيديوهات واقعية من ميدان عملنا',
       sub: 'نوثق أعمالنا بكل فخر — صور حقيقية من ورشتنا ومعارضنا ومواقع الصيانة في الرياض.',
       tabs: {
+        washer: 'الغسالات والنشافات',
         all: 'جميع الأعمال',
         ac: 'صيانة المكيفات',
         fridge: 'الثلاجات والفريزرات',
@@ -407,6 +433,7 @@ export const T = {
       { num: 99, suffix: '%', label: 'Customer Satisfaction' },
     ],
     marquee: [
+      'Washing Machine & Dryer Repair',
       'Split & Window AC Repair',
       'Deep AC Pressure Cleaning',
       'Leak Detection & Genuine Freon Charging',
@@ -423,6 +450,20 @@ export const T = {
       bookThis: 'Book This Service',
     },
     servicesList: [
+      {
+        id: 'washer-repair',
+        icon: 'washer',
+        title: 'Washing Machine & Dryer Repair',
+        desc: 'Fixing all automatic, semi-automatic, and dryer issues: drainage failure, spinning problems, excessive vibration, and control board faults.',
+        features: [
+          'Drain pump repair, replacement, and debris filter clearing',
+          'Bearing and shock absorber replacement to stop vibration',
+          'Electronic control board, motor, and clutch repair',
+          'Support for front-load, top-load washers, and tumble dryers',
+        ],
+        badge: 'Parts Warranty',
+      },
+
       {
         id: 'ac-repair',
         icon: 'ac',
@@ -500,6 +541,16 @@ export const T = {
       bookBtn: 'Book Technician for This Issue',
     },
     symptomsList: [
+      {"problem":"Washing machine shakes or grinds during the spin cycle","category":"Washing Machines","cause":"Worn bearings, damaged suspension or incorrect levelling can cause vibration.","fix":"We inspect bearings and suspension, level the machine and test the spin cycle after repairs.","estTime":"60–120 mins"},
+      {"problem":"Washing machine will not start or displays an error code","category":"Washing Machines","cause":"A faulty door lock, wiring connection or control board may interrupt startup.","fix":"We read the fault code, test the door lock and electrical circuit, and identify the required repair.","estTime":"45–90 mins"},
+      {
+        problem: 'Washing machine will not drain water or stops before spin cycle',
+        category: 'Washing Machines',
+        cause: 'Clogged coin/lint filter, jammed drain pump impeller, or burned-out drain motor.',
+        fix: 'We clear drain blockages, test pump voltage, and replace defective pump assemblies with genuine parts.',
+        estTime: '30 - 60 mins',
+      },
+
       {
         problem: 'AC runs but blows warm air or cooling is very weak',
         category: 'Air Conditioners',
@@ -603,6 +654,7 @@ export const T = {
       title: 'Real Photos & Videos from Our Daily Operations',
       sub: 'We document our craftsmanship with pride — authentic photos from our workshop, storefront, and repair sites across Riyadh.',
       tabs: {
+        washer: 'Washing Machines',
         all: 'All Works',
         ac: 'AC Services',
         fridge: 'Refrigerators & Freezers',

@@ -12,6 +12,18 @@ export default function BookingDispatchSection() {
 
   const SERVICE_CATEGORIES = [
     {
+      id: 'washer',
+      icon: I.washer,
+      nameAr: 'الغسالات والنشافات الأوتوماتيكية',
+      nameEn: 'Washing Machines & Dryers',
+      subServices: [
+        { ar: 'إصلاح عدم الدوران والعصر والتنشيف', en: 'Drum Not Spinning & Drain Pump Repair' },
+        { ar: 'تبديل مساعدات الحلة ومانع الاهتزاز', en: 'Suspension Shocks & Anti-Vibration Pads' },
+        { ar: 'صيانة وبرمجة كارتة التحكم الإلكترونية', en: 'Control Board & Inverter Diagnostics' },
+      ],
+    },
+
+    {
       id: 'ac',
       icon: I.ac,
       nameAr: 'صيانة وتكييف الهواء',

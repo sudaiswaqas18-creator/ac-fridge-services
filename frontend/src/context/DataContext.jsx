@@ -18,8 +18,8 @@ const DEFAULT_INDUSTRIES = [
     icon: 'home',
     titleAr: 'الفلل والقصور والمجمعات السكنية',
     titleEn: 'Residential Villas & Luxury Compounds',
-    descAr: 'خدمة صيانة منزلية فورية لجميع مكيفات وثلاجات وفريزرات المنزل مع المحافظة التامة على نظافة الأثاث والمفروشات.',
-    descEn: 'Same-day on-site maintenance for home ACs, refrigerators, and freezers with 100% floor and furniture protection.',
+    descAr: 'خدمة صيانة منزلية فورية لجميع مكيفات وثلاجات وغسالات المنزل مع المحافظة التامة على نظافة الأثاث والمفروشات.',
+    descEn: 'Same-day on-site maintenance for home ACs, refrigerators, freezers and washing machines with 100% floor and furniture protection.',
     featuresAr: ['استجابة سريعة في نفس اليوم في كافة أحياء الرياض', 'فنيون مؤهلون ومعتمدون بأعلى درجات الأمانة', 'عقود صيانة سنوية مخصصة للعائلات مع خصومات'],
     featuresEn: ['Same-day arrival across all Riyadh neighborhoods', 'Certified technicians with strict professionalism', 'Customized annual family maintenance plans with discounts'],
   },
@@ -57,7 +57,7 @@ const DEFAULT_INDUSTRIES = [
 
 export function DataProvider({ children }) {
   // One-time content refresh; preserve custom content and all booking inquiries.
-  const contentVersion = '2026-10-services-v3';
+  const contentVersion = '2026-10-washer-restored-v4';
   if (localStorage.getItem('jawzaa_content_version') !== contentVersion) {
     const defaults = { services: Object.values(DETAILED_SERVICES), reviews: TESTIMONIALS_DATA, cases: CASE_STUDIES, posts: BLOG_POSTS, industries: DEFAULT_INDUSTRIES, faqs: FAQS_DATA, gallery: GALLERY_ITEMS };
     for (const [key, fresh] of Object.entries(defaults)) {
@@ -68,7 +68,11 @@ export function DataProvider({ children }) {
           const merged = old.map(item => {
             const match = fresh.find(entry => item.slug ? entry.slug === item.slug : item.id != null ? entry.id === item.id : entry.qEn === item.qEn);
             return match ? { ...item, ...match } : item;
-          }).filter(item => !/washer|washing.machine|غسال/i.test(JSON.stringify(item)));
+          });
+          for (const entry of fresh) {
+            const exists = merged.some(item => entry.slug ? item.slug === entry.slug : entry.id != null ? item.id === entry.id : entry.qEn ? item.qEn === entry.qEn : false);
+            if (!exists) merged.push(entry);
+          }
           localStorage.setItem(storageKey, JSON.stringify(merged));
         }
       } catch { localStorage.removeItem(storageKey); }

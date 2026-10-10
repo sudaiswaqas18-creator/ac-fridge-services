@@ -10,13 +10,14 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp'], { eager: true, import: 'default' });
 const getMediaUrl = name => {
   if (!name) return '';
   return mediaGlob[`../assets/media/${name}.webp`] || mediaGlob[`../assets/media/${name}`] || '';
 };
 
 const ICONS_MAP = {
+  washer: I.washer,
   ac: I.ac,
   snow: I.snow,
   tools: I.tools,
@@ -48,6 +49,7 @@ const CATEGORIES_LIST = [
   { id: 'all', icon: I.sparkle, labelAr: 'جميع الخدمات المعتمدة', labelEn: 'All Services' },
   { id: 'ac', icon: I.ac, labelAr: 'صيانة التكييف والتهوية', labelEn: 'AC & HVAC' },
   { id: 'fridge', icon: I.fridge, labelAr: 'الثلاجات والفريزرات', labelEn: 'Refrigerators' },
+  { id: 'washer', icon: I.washer, labelAr: 'الغسالات والنشافات', labelEn: 'Washing Machines' },
   { id: 'motor', icon: I.motor, labelAr: 'لف المحركات واللحام', labelEn: 'Motor Rewinding' },
   { id: 'contract', icon: I.contract, labelAr: 'العقود والمنشآت', labelEn: 'Commercial Contracts' },
 ];
@@ -58,6 +60,7 @@ export default function ServicesPage() {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const categorySlugs = {
+    washer: ['washing-machine-repair'],
     ac: ['ac-repair', 'ac-cleaning', 'central-hvac'],
     fridge: ['refrigerator-repair'],
     motor: ['motor-rewinding'],
@@ -65,6 +68,11 @@ export default function ServicesPage() {
   };
 
   const specialties = {
+    washer: [
+      ['Washing Machine Diagnostics & Repair', 'فحص وإصلاح الغسالات', 'Control-board, door-lock and motor diagnostics for automatic washing machines.', 'فحص كروت التحكم وقفل الباب والمحرك للغسالات الأوتوماتيكية.'],
+      ['Drainage & Water Leak Repairs', 'إصلاح التصريف وتسريب المياه', 'Drain pump, hose and door-seal repairs to restore safe, leak-free operation.', 'إصلاح طلمبة التصريف والخراطيم وعازل الباب لمعالجة التسريب.'],
+      ['Drum, Bearings & Dryer Service', 'صيانة الحلة والبلي والنشافات', 'Bearing and suspension repairs, spin-cycle checks and dryer troubleshooting.', 'إصلاح البلي والمساعدات وفحص دورة العصر وتشخيص أعطال النشافات.'],
+    ],
     fridge: [
       ['Home Refrigerator Repair', 'صيانة الثلاجات المنزلية', 'Cooling faults, thermostats and door seals for household refrigerators.', 'إصلاح ضعف التبريد والثرموستات وعوازل أبواب الثلاجات المنزلية.'],
       ['Freezer & Defrost Repair', 'صيانة الفريزرات والديفروست', 'Restore freezer performance with defrost, fan and refrigerant diagnostics.', 'استعادة كفاءة التجميد بفحص الديفروست والمراوح ودورة التبريد.'],
