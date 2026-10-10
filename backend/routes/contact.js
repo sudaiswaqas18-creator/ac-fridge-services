@@ -18,7 +18,12 @@ router.get('/', async (req, res) => {
         'SELECT id, name, phone, area, service, notes, status, created_at FROM contact_inquiries ORDER BY created_at DESC'
       );
       if (rows && rows.length > 0) {
-        return res.json({ success: true, data: rows });
+        const formatted = rows.map(r => ({
+          ...r,
+          id: String(r.id),
+          date: r.created_at ? new Date(r.created_at).toLocaleString('ar-SA') : new Date().toLocaleString('ar-SA'),
+        }));
+        return res.json({ success: true, data: formatted });
       }
     }
     return res.json({ success: true, data: getStoredInquiries() });

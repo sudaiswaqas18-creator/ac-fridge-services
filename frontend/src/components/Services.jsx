@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { T, waLink } from '../translations.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import { useData } from '../context/DataContext.jsx';
 import { useCountUp } from '../hooks.js';
 import { I } from '../Icons.jsx';
 
@@ -79,8 +80,22 @@ export function Stats() {
 
 export function Services() {
   const { lang, isRTL } = useLanguage();
+  const { services: dynamicServices } = useData();
   const t = T[lang].servicesSec;
-  const services = T[lang].servicesList;
+
+  const services = (dynamicServices && dynamicServices.length > 0)
+    ? dynamicServices.map(s => {
+        const matchingStatic = T[lang].servicesList?.find(item => item.id === s.slug || SERVICE_SLUG_MAP[item.id] === s.slug);
+        return {
+          id: s.slug,
+          icon: s.icon || matchingStatic?.icon || 'ac',
+          badge: matchingStatic?.badge || (isRTL ? 'معتمد' : 'Certified'),
+          title: (isRTL ? s.titleAr : s.titleEn) || matchingStatic?.title || s.slug,
+          desc: (isRTL ? (s.subtitleAr || s.overviewAr) : (s.subtitleEn || s.overviewEn)) || matchingStatic?.desc || '',
+          features: (isRTL ? s.symptomsAddressedAr : s.symptomsAddressedEn) || matchingStatic?.features || [],
+        };
+      })
+    : T[lang].servicesList;
 
   return (
     <section className="services-section" id="services-overview">

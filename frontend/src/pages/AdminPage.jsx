@@ -205,46 +205,38 @@ export default function AdminPage() {
       return;
     }
 
-    const isLocalDevAdmin = cleanUsername.toLowerCase() === 'admin' && cleanPassword === 'admin123';
+    try {
+      const response = await fetch(`${API_BASE}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: cleanUsername, password: cleanPassword }),
+      });
 
-    if (isLocalDevAdmin) {
+      if (response.ok) {
+        const result = await response.json();
+        if (result.success && result.token) {
+          localStorage.setItem('jawzaa_admin_token', result.token);
+          setIsAuthenticated(true);
+          showToast(isAr ? 'تم تسجيل الدخول بنجاح!' : 'Logged in successfully!');
+          return;
+        }
+      }
+    } catch (error) {
+      // Backend offline fallback handled below
+    }
+
+    if (cleanUsername.toLowerCase() === 'admin' && cleanPassword === 'admin123') {
       localStorage.setItem('jawzaa_admin_token', DEV_ADMIN_TOKEN);
       setIsAuthenticated(true);
       showToast(isAr ? 'تم تسجيل الدخول بنجاح!' : 'Logged in successfully!');
       return;
     }
 
-    if (cleanPassword.length < 6) {
-      setLoginError(isAr ? 'كلمة المرور يجب أن تكون 6 أحرف على الأقل.' : 'Password must be at least 6 characters long.');
-      return;
-    }
-
-    try {
-      const response = await fetch(`${API_BASE}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
-
-      const result = await response.json();
-      if (!result.success || !result.token) {
-        throw new Error(result.message || 'Login failed');
-      }
-
-      localStorage.setItem('jawzaa_admin_token', result.token);
-      setIsAuthenticated(true);
-      showToast(isAr ? 'تم تسجيل الدخول بنجاح!' : 'Logged in successfully!');
-    } catch (error) {
-      setLoginError(
-        isAr
-          ? 'تعذر تسجيل الدخول. تحقق من البيانات وأن الخادم يعمل.'
-          : 'Unable to log in. Check your details and ensure the server is running.'
-      );
-    }
+    setLoginError(
+      isAr
+        ? 'اسم المستخدم أو كلمة المرور غير صحيحة.'
+        : 'Invalid username or password.'
+    );
   };
 
   const handleLogout = () => {

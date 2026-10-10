@@ -1834,7 +1834,7 @@
    ========================================================================== */
 .service-hero-banner {
   background: linear-gradient(135deg, rgba(8, 23, 44, 0.48) 0%, rgba(13, 37, 69, 0.52) 50%, rgba(5, 16, 32, 0.65) 100%),
-              url('../assets/media/services-hero-bg.jpg') center/cover no-repeat;
+              url('../assets/media/services-hero-bg.webp') center/cover no-repeat;
   padding: 120px 0 95px;
   min-height: 380px;
   position: relative;

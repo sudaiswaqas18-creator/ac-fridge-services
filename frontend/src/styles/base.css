@@ -1352,7 +1352,7 @@ section { position: relative; padding: 90px 0; }
 
 .subpage-hero-banner.services-hero-banner {
   background: linear-gradient(180deg, rgba(6, 21, 42, 0.46) 0%, rgba(8, 26, 52, 0.52) 50%, rgba(6, 18, 36, 0.65) 100%),
-              url('../assets/media/services-hero-bg.jpg') center/cover no-repeat;
+              url('../assets/media/services-hero-bg.webp') center/cover no-repeat;
   padding: 140px 0 110px;
   min-height: 400px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1361,7 +1361,7 @@ section { position: relative; padding: 90px 0; }
 .subpage-hero-banner.portfolio-hero-banner,
 .subpage-hero-banner.work-detail-hero {
   background: linear-gradient(180deg, rgba(6, 21, 42, 0.46) 0%, rgba(8, 26, 52, 0.52) 50%, rgba(6, 18, 36, 0.65) 100%),
-              url('../assets/media/work-hero-bg.jpg') center/cover no-repeat;
+              url('../assets/media/work-hero-bg.webp') center/cover no-repeat;
   padding: 140px 0 110px;
   min-height: 400px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1370,7 +1370,7 @@ section { position: relative; padding: 90px 0; }
 .subpage-hero-banner.gallery-hero-banner,
 .subpage-hero-banner.about-hero-banner {
   background: linear-gradient(180deg, rgba(6, 21, 42, 0.46) 0%, rgba(8, 26, 52, 0.52) 50%, rgba(6, 18, 36, 0.65) 100%),
-              url('../assets/media/jawzaa-storefront-real.jpg') center 35%/cover no-repeat;
+              url('../assets/media/jawzaa-storefront-real.webp') center 35%/cover no-repeat;
   padding: 140px 0 110px;
   min-height: 400px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1378,7 +1378,7 @@ section { position: relative; padding: 90px 0; }
 
 .subpage-hero-banner.contact-hero-banner {
   background: linear-gradient(180deg, rgba(6, 21, 42, 0.46) 0%, rgba(8, 26, 52, 0.52) 50%, rgba(6, 18, 36, 0.65) 100%),
-              url('../assets/media/gal-customer-reception.jpg') center 40%/cover no-repeat;
+              url('../assets/media/gal-customer-reception.webp') center 40%/cover no-repeat;
   padding: 140px 0 110px;
   min-height: 400px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1386,7 +1386,7 @@ section { position: relative; padding: 90px 0; }
 
 .subpage-hero-banner.reviews-hero-banner {
   background: linear-gradient(180deg, rgba(6, 21, 42, 0.46) 0%, rgba(8, 26, 52, 0.52) 50%, rgba(6, 18, 36, 0.65) 100%),
-              url('../assets/media/gal-main-facility.jpg') center 40%/cover no-repeat;
+              url('../assets/media/gal-main-facility.webp') center 40%/cover no-repeat;
   padding: 140px 0 110px;
   min-height: 400px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1394,7 +1394,7 @@ section { position: relative; padding: 90px 0; }
 
 .subpage-hero-banner.blog-hero-banner {
   background: linear-gradient(180deg, rgba(6, 21, 42, 0.46) 0%, rgba(8, 26, 52, 0.52) 50%, rgba(6, 18, 36, 0.65) 100%),
-              url('../assets/media/gal-spare-parts-hvac.jpg') center 45%/cover no-repeat;
+              url('../assets/media/gal-spare-parts-hvac.webp') center 45%/cover no-repeat;
   padding: 140px 0 110px;
   min-height: 400px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1402,7 +1402,7 @@ section { position: relative; padding: 90px 0; }
 
 .subpage-hero-banner.faq-hero-banner {
   background: linear-gradient(180deg, rgba(6, 21, 42, 0.46) 0%, rgba(8, 26, 52, 0.52) 50%, rgba(6, 18, 36, 0.65) 100%),
-              url('../assets/media/gal-ac-display-bay.jpg') center 35%/cover no-repeat;
+              url('../assets/media/gal-ac-display-bay.webp') center 35%/cover no-repeat;
   padding: 140px 0 110px;
   min-height: 400px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);

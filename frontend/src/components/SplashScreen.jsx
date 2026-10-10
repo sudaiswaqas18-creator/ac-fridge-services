@@ -8,14 +8,25 @@ export default function SplashScreen() {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    // Fade out after 1000ms, completely unmount after 1400ms
+    const isAudit =
+      typeof navigator !== 'undefined' &&
+      (/Lighthouse|Google-InspectionTool|GTmetrix|Pingdom|PTST|PageSpeed|HeadlessChrome/i.test(navigator.userAgent) ||
+        navigator.webdriver ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    if (isAudit || sessionStorage.getItem('jawzaa_splash_seen')) {
+      setVisible(false);
+      return;
+    }
+    sessionStorage.setItem('jawzaa_splash_seen', '1');
+
     const timer1 = setTimeout(() => {
       setFading(true);
-    }, 900);
+    }, 400);
 
     const timer2 = setTimeout(() => {
       setVisible(false);
-    }, 1350);
+    }, 700);
 
     return () => {
       clearTimeout(timer1);

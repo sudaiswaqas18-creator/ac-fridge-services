@@ -16,7 +16,21 @@ router.get('/', async (req, res) => {
     if (pool) {
       const [rows] = await pool.query('SELECT * FROM testimonials ORDER BY display_order ASC, id DESC');
       if (rows && rows.length > 0) {
-        return res.json({ success: true, data: rows });
+        const formatted = rows.map(r => ({
+          ...r,
+          id: r.id,
+          nameAr: r.name_ar,
+          nameEn: r.name_en,
+          areaAr: r.area_ar,
+          areaEn: r.area_en,
+          serviceAr: r.service_ar,
+          serviceEn: r.service_en,
+          textAr: r.text_ar,
+          textEn: r.text_en,
+          rating: Number(r.rating || 5),
+          date: r.date_str || '2026',
+        }));
+        return res.json({ success: true, data: formatted });
       }
     }
     return res.json({ success: true, data: getStoredReviews() });

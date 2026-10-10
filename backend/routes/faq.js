@@ -14,7 +14,17 @@ router.get('/', async (req, res) => {
     const pool = await getDbPool();
     if (pool) {
       const [rows] = await pool.query('SELECT * FROM faqs ORDER BY display_order ASC, id ASC');
-      if (rows && rows.length > 0) return res.json({ success: true, data: rows });
+      if (rows && rows.length > 0) {
+        const formatted = rows.map(r => ({
+          ...r,
+          id: r.id,
+          qAr: r.q_ar,
+          qEn: r.q_en,
+          aAr: r.a_ar,
+          aEn: r.a_en,
+        }));
+        return res.json({ success: true, data: formatted });
+      }
     }
     return res.json({ success: true, data: getStoredFaqs() });
   } catch (error) {

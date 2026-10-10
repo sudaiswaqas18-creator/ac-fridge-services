@@ -14,7 +14,24 @@ router.get('/', async (req, res) => {
     const pool = await getDbPool();
     if (pool) {
       const [rows] = await pool.query('SELECT * FROM blog_posts WHERE is_published = TRUE ORDER BY published_at DESC');
-      if (rows && rows.length > 0) return res.json({ success: true, data: rows });
+      if (rows && rows.length > 0) {
+        const formatted = rows.map(r => ({
+          ...r,
+          id: r.id,
+          slug: r.slug,
+          titleAr: r.title_ar,
+          titleEn: r.title_en,
+          categoryAr: r.category_ar,
+          categoryEn: r.category_en,
+          excerptAr: r.excerpt_ar,
+          excerptEn: r.excerpt_en,
+          readTimeAr: r.read_time_ar,
+          readTimeEn: r.read_time_en,
+          image: r.image,
+          date: r.published_at || '2026',
+        }));
+        return res.json({ success: true, data: formatted });
+      }
     }
     return res.json({ success: true, data: getStoredPosts() });
   } catch (error) {

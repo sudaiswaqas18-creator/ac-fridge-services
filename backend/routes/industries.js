@@ -14,7 +14,20 @@ router.get('/', async (req, res) => {
     const pool = await getDbPool();
     if (pool) {
       const [rows] = await pool.query('SELECT * FROM industries ORDER BY display_order ASC');
-      if (rows && rows.length > 0) return res.json({ success: true, data: rows });
+      if (rows && rows.length > 0) {
+        const formatted = rows.map(r => ({
+          ...r,
+          id: r.industry_key || String(r.id),
+          icon: r.icon || 'bolt',
+          titleAr: r.title_ar,
+          titleEn: r.title_en,
+          descAr: r.desc_ar,
+          descEn: r.desc_en,
+          featuresAr: typeof r.features_ar === 'string' ? JSON.parse(r.features_ar) : (r.features_ar || []),
+          featuresEn: typeof r.features_en === 'string' ? JSON.parse(r.features_en) : (r.features_en || []),
+        }));
+        return res.json({ success: true, data: formatted });
+      }
     }
     return res.json({ success: true, data: getStoredIndustries() });
   } catch (error) {

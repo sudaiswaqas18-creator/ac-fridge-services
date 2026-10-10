@@ -18,13 +18,20 @@ router.get('/', async (req, res) => {
       const [rows] = await pool.query('SELECT * FROM services WHERE is_active = TRUE ORDER BY display_order ASC');
       const formatted = rows.map(r => ({
         ...r,
-        symptoms_ar: typeof r.symptoms_ar === 'string' ? JSON.parse(r.symptoms_ar) : r.symptoms_ar,
-        symptoms_en: typeof r.symptoms_en === 'string' ? JSON.parse(r.symptoms_en) : r.symptoms_en,
-        process_steps_ar: typeof r.process_steps_ar === 'string' ? JSON.parse(r.process_steps_ar) : r.process_steps_ar,
-        process_steps_en: typeof r.process_steps_en === 'string' ? JSON.parse(r.process_steps_en) : r.process_steps_en,
-        pricing_tiers: typeof r.pricing_tiers === 'string' ? JSON.parse(r.pricing_tiers) : r.pricing_tiers,
-        stats: typeof r.stats === 'string' ? JSON.parse(r.stats) : r.stats,
-        faqs: typeof r.faqs === 'string' ? JSON.parse(r.faqs) : r.faqs,
+        titleAr: r.title_ar,
+        titleEn: r.title_en,
+        subtitleAr: r.subtitle_ar,
+        subtitleEn: r.subtitle_en,
+        overviewAr: r.overview_ar,
+        overviewEn: r.overview_en,
+        heroImage: r.hero_image,
+        symptomsAddressedAr: typeof r.symptoms_ar === 'string' ? JSON.parse(r.symptoms_ar) : (r.symptoms_ar || []),
+        symptomsAddressedEn: typeof r.symptoms_en === 'string' ? JSON.parse(r.symptoms_en) : (r.symptoms_en || []),
+        processStepsAr: typeof r.process_steps_ar === 'string' ? JSON.parse(r.process_steps_ar) : (r.process_steps_ar || []),
+        processStepsEn: typeof r.process_steps_en === 'string' ? JSON.parse(r.process_steps_en) : (r.process_steps_en || []),
+        pricingTiers: typeof r.pricing_tiers === 'string' ? JSON.parse(r.pricing_tiers) : (r.pricing_tiers || []),
+        stats: typeof r.stats === 'string' ? JSON.parse(r.stats) : (r.stats || []),
+        faqs: typeof r.faqs === 'string' ? JSON.parse(r.faqs) : (r.faqs || []),
       }));
       return res.json({ success: true, data: formatted });
     }
@@ -45,13 +52,20 @@ router.get('/:slug', async (req, res) => {
         const r = rows[0];
         const formatted = {
           ...r,
-          symptoms_ar: typeof r.symptoms_ar === 'string' ? JSON.parse(r.symptoms_ar) : r.symptoms_ar,
-          symptoms_en: typeof r.symptoms_en === 'string' ? JSON.parse(r.symptoms_en) : r.symptoms_en,
-          process_steps_ar: typeof r.process_steps_ar === 'string' ? JSON.parse(r.process_steps_ar) : r.process_steps_ar,
-          process_steps_en: typeof r.process_steps_en === 'string' ? JSON.parse(r.process_steps_en) : r.process_steps_en,
-          pricing_tiers: typeof r.pricing_tiers === 'string' ? JSON.parse(r.pricing_tiers) : r.pricing_tiers,
-          stats: typeof r.stats === 'string' ? JSON.parse(r.stats) : r.stats,
-          faqs: typeof r.faqs === 'string' ? JSON.parse(r.faqs) : r.faqs,
+          titleAr: r.title_ar,
+          titleEn: r.title_en,
+          subtitleAr: r.subtitle_ar,
+          subtitleEn: r.subtitle_en,
+          overviewAr: r.overview_ar,
+          overviewEn: r.overview_en,
+          heroImage: r.hero_image,
+          symptomsAddressedAr: typeof r.symptoms_ar === 'string' ? JSON.parse(r.symptoms_ar) : (r.symptoms_ar || []),
+          symptomsAddressedEn: typeof r.symptoms_en === 'string' ? JSON.parse(r.symptoms_en) : (r.symptoms_en || []),
+          processStepsAr: typeof r.process_steps_ar === 'string' ? JSON.parse(r.process_steps_ar) : (r.process_steps_ar || []),
+          processStepsEn: typeof r.process_steps_en === 'string' ? JSON.parse(r.process_steps_en) : (r.process_steps_en || []),
+          pricingTiers: typeof r.pricing_tiers === 'string' ? JSON.parse(r.pricing_tiers) : (r.pricing_tiers || []),
+          stats: typeof r.stats === 'string' ? JSON.parse(r.stats) : (r.stats || []),
+          faqs: typeof r.faqs === 'string' ? JSON.parse(r.faqs) : (r.faqs || []),
         };
         return res.json({ success: true, data: formatted });
       }

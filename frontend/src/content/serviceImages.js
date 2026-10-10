@@ -1,19 +1,19 @@
 // Dedicated high-definition photography for services, specialties, and detail pages
-import acRepair from '../assets/media/hero-banner-ac.jpg';
-import acCleaning from '../assets/media/poster-ac-jet-cleaning.jpg';
-import centralHvac from '../assets/media/case-villa-ducted-ac.jpg';
+import acRepair from '../assets/media/hero-banner-ac.webp';
+import acCleaning from '../assets/media/poster-ac-jet-cleaning.webp';
+import centralHvac from '../assets/media/case-villa-ducted-ac.webp';
 
-import fridgeHome from '../assets/media/hero-banner-fridge.jpg';
-import fridgeFreezer from '../assets/media/service-fridge-freezer.jpg';
-import fridgeColdroom from '../assets/media/case-restaurant-coldroom.jpg';
+import fridgeHome from '../assets/media/hero-banner-fridge.webp';
+import fridgeFreezer from '../assets/media/service-fridge-freezer.webp';
+import fridgeColdroom from '../assets/media/case-restaurant-coldroom.webp';
 
-import motorRewind from '../assets/media/case-industrial-motor.jpg';
-import pumpRepair from '../assets/media/service-pump-repair.jpg';
-import bearingBrazing from '../assets/media/service-bearing-brazing.jpg';
+import motorRewind from '../assets/media/case-industrial-motor.webp';
+import pumpRepair from '../assets/media/service-pump-repair.webp';
+import bearingBrazing from '../assets/media/service-bearing-brazing.webp';
 
-import contractCorporate from '../assets/media/poster-commercial-hvac-maintenance.jpg';
-import contractRestaurant from '../assets/media/service-contract-restaurant.jpg';
-import contractVilla from '../assets/media/service-contract-villa.jpg';
+import contractCorporate from '../assets/media/poster-commercial-hvac-maintenance.webp';
+import contractRestaurant from '../assets/media/service-contract-restaurant.webp';
+import contractVilla from '../assets/media/service-contract-villa.webp';
 
 import diagnosis from '../assets/media/poster-correct-diagnosis.webp';
 

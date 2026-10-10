@@ -10,16 +10,10 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.{webp,jpg,jpeg,png}', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name => {
   if (!name) return '';
-  return (
-    mediaGlob[`../assets/media/${name}.webp`] ||
-    mediaGlob[`../assets/media/${name}.jpg`] ||
-    mediaGlob[`../assets/media/${name}.png`] ||
-    mediaGlob[`../assets/media/${name}`] ||
-    ''
-  );
+  return mediaGlob[`../assets/media/${name}.webp`] || mediaGlob[`../assets/media/${name}`] || '';
 };
 
 const ICONS_MAP = {

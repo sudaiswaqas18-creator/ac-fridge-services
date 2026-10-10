@@ -206,21 +206,65 @@ export function DataProvider({ children }) {
     localStorage.setItem('jawzaa_db_inquiries', JSON.stringify(inquiries));
   }, [inquiries]);
 
+  const getAuthHeaders = () => {
+    const token = localStorage.getItem('jawzaa_admin_token') || 'dev-admin-token';
+    return {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    };
+  };
+
   // Sync with Backend API on load
   useEffect(() => {
-    fetch(`${API_BASE}/services`)
-      .then(res => res.json())
-      .then(json => {
-        if (json.success && json.data && json.data.length > 0) {
-          // Sync live API data
+    let isMounted = true;
+    const syncBackendData = async () => {
+      try {
+        const [servicesRes, reviewsRes, casesRes, postsRes, industriesRes, faqsRes, inquiriesRes] =
+          await Promise.allSettled([
+            fetch(`${API_BASE}/services`).then(r => r.json()),
+            fetch(`${API_BASE}/reviews`).then(r => r.json()),
+            fetch(`${API_BASE}/portfolio`).then(r => r.json()),
+            fetch(`${API_BASE}/blog`).then(r => r.json()),
+            fetch(`${API_BASE}/industries`).then(r => r.json()),
+            fetch(`${API_BASE}/faqs`).then(r => r.json()),
+            fetch(`${API_BASE}/contact`).then(r => r.json()),
+          ]);
+
+        if (!isMounted) return;
+
+        if (servicesRes.status === 'fulfilled' && servicesRes.value?.success && servicesRes.value?.data?.length) {
+          setServices(servicesRes.value.data);
         }
-      })
-      .catch(() => {
-        // Offline / fallback mode
-      });
+        if (reviewsRes.status === 'fulfilled' && reviewsRes.value?.success && reviewsRes.value?.data?.length) {
+          setReviews(reviewsRes.value.data);
+        }
+        if (casesRes.status === 'fulfilled' && casesRes.value?.success && casesRes.value?.data?.length) {
+          setCases(casesRes.value.data);
+        }
+        if (postsRes.status === 'fulfilled' && postsRes.value?.success && postsRes.value?.data?.length) {
+          setPosts(postsRes.value.data);
+        }
+        if (industriesRes.status === 'fulfilled' && industriesRes.value?.success && industriesRes.value?.data?.length) {
+          setIndustries(industriesRes.value.data);
+        }
+        if (faqsRes.status === 'fulfilled' && faqsRes.value?.success && faqsRes.value?.data?.length) {
+          setFaqs(faqsRes.value.data);
+        }
+        if (inquiriesRes.status === 'fulfilled' && inquiriesRes.value?.success && inquiriesRes.value?.data?.length) {
+          setInquiries(inquiriesRes.value.data);
+        }
+      } catch (err) {
+        console.warn('[DataContext] Backend API offline or fallback mode:', err.message);
+      }
+    };
+
+    syncBackendData();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  // --- CRUD ACTIONS ---
+  // --- CRUD ACTIONS WITH REAL BACKEND SYNC ---
 
   // Services CRUD
   const saveService = svc => {
@@ -233,84 +277,143 @@ export function DataProvider({ children }) {
       }
       return [...prev, svc];
     });
+
+    fetch(`${API_BASE}/services`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(svc),
+    }).catch(err => console.warn('Could not sync service to backend:', err));
   };
 
   const deleteService = slug => {
     setServices(prev => prev.filter(s => s.slug !== slug));
+
+    fetch(`${API_BASE}/services/${slug}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders(),
+    }).catch(err => console.warn('Could not delete service from backend:', err));
   };
 
   // Reviews CRUD
   const saveReview = rev => {
+    const itemWithId = { ...rev, id: rev.id || Date.now() };
     setReviews(prev => {
-      const idx = prev.findIndex(r => r.id === rev.id);
+      const idx = prev.findIndex(r => String(r.id) === String(itemWithId.id));
       if (idx >= 0) {
         const copy = [...prev];
-        copy[idx] = { ...copy[idx], ...rev };
+        copy[idx] = { ...copy[idx], ...itemWithId };
         return copy;
       }
-      return [{ ...rev, id: rev.id || Date.now() }, ...prev];
+      return [itemWithId, ...prev];
     });
+
+    fetch(`${API_BASE}/reviews`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(itemWithId),
+    }).catch(err => console.warn('Could not sync review to backend:', err));
   };
 
   const deleteReview = id => {
-    setReviews(prev => prev.filter(r => r.id !== id));
+    setReviews(prev => prev.filter(r => String(r.id) !== String(id)));
+
+    fetch(`${API_BASE}/reviews/${id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders(),
+    }).catch(err => console.warn('Could not delete review from backend:', err));
   };
 
   // Cases CRUD
   const saveCase = caseItem => {
+    const itemWithId = { ...caseItem, id: caseItem.id || `case-${Date.now()}` };
     setCases(prev => {
-      const idx = prev.findIndex(c => c.id === caseItem.id);
+      const idx = prev.findIndex(c => String(c.id) === String(itemWithId.id));
       if (idx >= 0) {
         const copy = [...prev];
-        copy[idx] = { ...copy[idx], ...caseItem };
+        copy[idx] = { ...copy[idx], ...itemWithId };
         return copy;
       }
-      return [...prev, { ...caseItem, id: caseItem.id || `case-${Date.now()}` }];
+      return [...prev, itemWithId];
     });
+
+    fetch(`${API_BASE}/portfolio`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(itemWithId),
+    }).catch(err => console.warn('Could not sync case study to backend:', err));
   };
 
   const deleteCase = id => {
-    setCases(prev => prev.filter(c => c.id !== id));
+    setCases(prev => prev.filter(c => String(c.id) !== String(id)));
+
+    fetch(`${API_BASE}/portfolio/${id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders(),
+    }).catch(err => console.warn('Could not delete case study from backend:', err));
   };
 
   // Posts CRUD
   const savePost = post => {
+    const itemWithId = { ...post, id: post.id || `post-${Date.now()}` };
     setPosts(prev => {
-      const idx = prev.findIndex(p => p.id === post.id);
+      const idx = prev.findIndex(p => String(p.id) === String(itemWithId.id) || p.slug === itemWithId.slug);
       if (idx >= 0) {
         const copy = [...prev];
-        copy[idx] = { ...copy[idx], ...post };
+        copy[idx] = { ...copy[idx], ...itemWithId };
         return copy;
       }
-      return [{ ...post, id: post.id || `post-${Date.now()}` }, ...prev];
+      return [itemWithId, ...prev];
     });
+
+    fetch(`${API_BASE}/blog`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(itemWithId),
+    }).catch(err => console.warn('Could not sync blog post to backend:', err));
   };
 
   const deletePost = id => {
-    setPosts(prev => prev.filter(p => p.id !== id));
+    setPosts(prev => prev.filter(p => String(p.id) !== String(id) && p.slug !== id));
+
+    fetch(`${API_BASE}/blog/${id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders(),
+    }).catch(err => console.warn('Could not delete blog post from backend:', err));
   };
 
   // Industries CRUD
   const saveIndustry = ind => {
+    const itemWithId = { ...ind, id: ind.id || `ind-${Date.now()}` };
     setIndustries(prev => {
-      const idx = prev.findIndex(i => i.id === ind.id);
+      const idx = prev.findIndex(i => String(i.id) === String(itemWithId.id));
       if (idx >= 0) {
         const copy = [...prev];
-        copy[idx] = { ...copy[idx], ...ind };
+        copy[idx] = { ...copy[idx], ...itemWithId };
         return copy;
       }
-      return [...prev, { ...ind, id: ind.id || `ind-${Date.now()}` }];
+      return [...prev, itemWithId];
     });
+
+    fetch(`${API_BASE}/industries`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(itemWithId),
+    }).catch(err => console.warn('Could not sync industry to backend:', err));
   };
 
   const deleteIndustry = id => {
-    setIndustries(prev => prev.filter(i => i.id !== id));
+    setIndustries(prev => prev.filter(i => String(i.id) !== String(id)));
+
+    fetch(`${API_BASE}/industries/${id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders(),
+    }).catch(err => console.warn('Could not delete industry from backend:', err));
   };
 
   // FAQs CRUD
   const saveFaq = faq => {
     setFaqs(prev => {
-      const idx = prev.findIndex((_, index) => index === faq.index);
+      const idx = prev.findIndex((item, index) => index === faq.index || (faq.id && item.id === faq.id));
       if (idx >= 0) {
         const copy = [...prev];
         copy[idx] = faq;
@@ -318,23 +421,60 @@ export function DataProvider({ children }) {
       }
       return [...prev, faq];
     });
+
+    fetch(`${API_BASE}/faqs`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(faq),
+    }).catch(err => console.warn('Could not sync FAQ to backend:', err));
   };
 
   const deleteFaq = index => {
+    const target = faqs[index];
     setFaqs(prev => prev.filter((_, idx) => idx !== index));
+
+    if (target?.id) {
+      fetch(`${API_BASE}/faqs/${target.id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders(),
+      }).catch(err => console.warn('Could not delete FAQ from backend:', err));
+    }
   };
 
   // Inquiries & Bookings CRUD
   const saveInquiry = inq => {
-    setInquiries(prev => [{ ...inq, id: inq.id || `inq-${Date.now()}`, date: inq.date || new Date().toLocaleString(), status: inq.status || 'new' }, ...prev]);
+    const newInq = {
+      ...inq,
+      id: inq.id || `inq-${Date.now()}`,
+      date: inq.date || new Date().toLocaleString('ar-SA'),
+      status: inq.status || 'new',
+    };
+    setInquiries(prev => [newInq, ...prev]);
+
+    fetch(`${API_BASE}/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newInq),
+    }).catch(err => console.warn('Could not sync inquiry to backend:', err));
   };
 
   const updateInquiryStatus = (id, status) => {
-    setInquiries(prev => prev.map(inq => inq.id === id ? { ...inq, status } : inq));
+    setInquiries(prev => prev.map(inq => (String(inq.id) === String(id) ? { ...inq, status } : inq)));
+
+    fetch(`${API_BASE}/contact/${id}/status`, {
+      method: 'PATCH',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ status }),
+    }).catch(err => console.warn('Could not update inquiry status on backend:', err));
   };
 
   const deleteInquiry = id => {
-    setInquiries(prev => prev.filter(inq => inq.id !== id));
+    setInquiries(prev => prev.filter(inq => String(inq.id) !== String(id)));
+
+    fetch(`${API_BASE}/contact/${id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders(),
+    }).catch(err => console.warn('Could not delete inquiry from backend:', err));
   };
 
   // Reset to default factory data

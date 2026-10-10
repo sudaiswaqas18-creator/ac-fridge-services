@@ -14,7 +14,23 @@ router.get('/', async (req, res) => {
     const pool = await getDbPool();
     if (pool) {
       const [rows] = await pool.query('SELECT * FROM case_studies ORDER BY display_order ASC');
-      if (rows && rows.length > 0) return res.json({ success: true, data: rows });
+      if (rows && rows.length > 0) {
+        const formatted = rows.map(r => ({
+          ...r,
+          id: r.case_key || String(r.id),
+          titleAr: r.title_ar,
+          titleEn: r.title_en,
+          categoryAr: r.category_ar,
+          categoryEn: r.category_en,
+          challengeAr: r.challenge_ar,
+          challengeEn: r.challenge_en,
+          solutionAr: r.solution_ar,
+          solutionEn: r.solution_en,
+          image: r.image,
+          date: r.date_str,
+        }));
+        return res.json({ success: true, data: formatted });
+      }
     }
     return res.json({ success: true, data: getStoredCases() });
   } catch (error) {

@@ -6,12 +6,9 @@ import { useData } from '../context/DataContext.jsx';
 import { I } from '../Icons.jsx';
 import { localizedValue } from '../localizedValue.js';
 
-const mediaGlob = import.meta.glob(['../assets/media/*.{webp,jpg,jpeg,png}', '!../assets/media/*washer*'], { eager: true, import: 'default' });
+const mediaGlob = import.meta.glob(['../assets/media/*.webp', '!../assets/media/*washer*'], { eager: true, import: 'default' });
 const getMediaUrl = name =>
   mediaGlob[`../assets/media/${name}.webp`] ||
-  mediaGlob[`../assets/media/${name}.jpg`] ||
-  mediaGlob[`../assets/media/${name}.jpeg`] ||
-  mediaGlob[`../assets/media/${name}.png`] ||
   mediaGlob[`../assets/media/${name}`] ||
   name;
 

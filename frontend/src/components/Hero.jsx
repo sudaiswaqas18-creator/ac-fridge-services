@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import heroBannerAc from '../assets/media/hero-banner-ac.jpg';
-import heroBannerFridge from '../assets/media/hero-banner-fridge.jpg';
-import heroBannerMotor from '../assets/media/hero-banner-motor.jpg';
+import heroBannerAc from '../assets/media/hero-banner-ac.webp';
+import heroBannerFridge from '../assets/media/hero-banner-fridge.webp';
+import heroBannerMotor from '../assets/media/hero-banner-motor.webp';
 
 const HERO_SLIDES = [
   {

@@ -1113,16 +1113,16 @@
     },
     {
       "id": 6,
-      "nameAr": "فيصل الشمري",
-      "nameEn": "Faisal Al-Shammari",
-      "areaAr": "حي الملقا — الرياض",
-      "areaEn": "Al-Malqa District — Riyadh",
+      "nameAr": "عبدالله المطيري",
+      "nameEn": "Abdullah Al-Mutairi",
+      "areaAr": "حي الياسمين — الرياض",
+      "areaEn": "Al-Yasmin District — Riyadh",
       "rating": 5,
       "date": "2026",
-      "serviceAr": "صيانة طارئة لمكيف مخفي (كونسيلد)",
-      "serviceEn": "Concealed Ducted AC Emergency Repair",
-      "textAr": "خدمة سريعة جداً. المكيف توقف في عطلة نهاية الأسبوع وفي حر شديد، تواصلت عبر واتساب وردوا خلال دقيقتين ووصل الفني خلال ساعة وحل مشكلة لوحة التحكم والكابستور. شكراً لاهتمامكم ومصداقيتكم.",
-      "textEn": "Remarkably fast response. Our ducted AC shut down during the weekend in intense heat. I texted on WhatsApp, got a reply in 2 minutes, and the technician arrived within an hour to fix the control board and capacitor. Highly recommended!"
+      "serviceAr": "صيانة وشحن فريون مكيف سبليت",
+      "serviceEn": "Split AC Service & Freon Recharge",
+      "textAr": "المكيف كان يشتغل بدون تبريد في عز الظهر، تواصلت معهم وجاني الفني بنفس اليوم مع أجهزة قياس حديثة. طلع الفريون ناقص وفيه تنسيم خفيف في الصامولة، صلحوه وشحنوا فريون أصلي ورجع التبريد ثلج. تعامل راقي وأسعار واضحة بدون لف ودوران.",
+      "textEn": "My AC was running without cooling during midday heat. I contacted Jawzaa and the technician arrived the same day with digital gauges. He found a minor flare nut leak, fixed it, and recharged genuine freon. The cooling is icy cold now. Extremely professional and upfront pricing."
     }
   ],
   "cases": [
@@ -1383,6 +1383,16 @@
     }
   ],
   "inquiries": [
+    {
+      "id": "inq-1791630948097",
+      "name": "تجربة فحص الربط",
+      "phone": "0599999999",
+      "area": "حي الملقا",
+      "service": "فحص التكييف والتبريد",
+      "notes": "تجربة حية للتأكد من الربط بين الفرونت إند والباك إند وقاعدة البيانات",
+      "date": "١٠‏/١٠‏/٢٠٢٦، ٤:١٥:٤٨ م",
+      "status": "new"
+    },
     {
       "id": "inq-1",
       "name": "عبدالله المطيري",

@@ -47,9 +47,46 @@ const corsOptions = {
 };
 
 // Middleware
+app.disable('x-powered-by');
+
+// Security Headers Middleware
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  next();
+});
+
+// Simple Rate Limiting for sensitive routes (Auth & Contact)
+const rateLimitMap = new Map();
+const rateLimiter = (maxRequests = 30, windowMs = 60000) => (req, res, next) => {
+  const ip = req.ip || req.connection.remoteAddress || 'unknown';
+  const now = Date.now();
+  const clientData = rateLimitMap.get(ip) || { count: 0, resetTime: now + windowMs };
+
+  if (now > clientData.resetTime) {
+    clientData.count = 1;
+    clientData.resetTime = now + windowMs;
+  } else {
+    clientData.count += 1;
+    if (clientData.count > maxRequests) {
+      return res.status(429).json({
+        success: false,
+        message: 'Too many requests from this IP, please try again later.',
+      });
+    }
+  }
+  rateLimitMap.set(ip, clientData);
+  next();
+};
+
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+app.use('/api/auth/login', rateLimiter(15, 60000));
+app.use('/api/contact', rateLimiter(20, 60000));
 
 // Static directories (uploads & public images)
 const publicDir = path.resolve('public');
@@ -113,10 +150,11 @@ async function initServer() {
       const schemaPath = path.resolve('models/schema.sql');
       if (fs.existsSync(schemaPath)) {
         const schemaSql = fs.readFileSync(schemaPath, 'utf8');
-        const statements = schemaSql
+        const cleanSql = schemaSql.replace(/--.*$/gm, '');
+        const statements = cleanSql
           .split(';')
           .map(s => s.trim())
-          .filter(s => s.length > 0 && !s.startsWith('--') && !s.startsWith('USE'));
+          .filter(s => s.length > 0 && !s.toLowerCase().startsWith('use ') && !s.toLowerCase().startsWith('create database '));
 
         for (const statement of statements) {
           try {

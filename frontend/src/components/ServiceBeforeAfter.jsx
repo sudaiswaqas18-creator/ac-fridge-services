@@ -3,16 +3,16 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 import { I } from '../Icons.jsx';
 import { waLink } from '../translations.js';
 
-import baAcBefore from '../assets/media/ba-ac-before.jpg';
-import baAcAfter from '../assets/media/ba-ac-after.jpg';
-import baCleaningBefore from '../assets/media/ba-cleaning-before.jpg';
-import baCleaningAfter from '../assets/media/ba-cleaning-after.jpg';
-import baFridgeBefore from '../assets/media/ba-fridge-before.jpg';
-import baFridgeAfter from '../assets/media/ba-fridge-after.jpg';
+import baAcBefore from '../assets/media/ba-ac-before.webp';
+import baAcAfter from '../assets/media/ba-ac-after.webp';
+import baCleaningBefore from '../assets/media/ba-cleaning-before.webp';
+import baCleaningAfter from '../assets/media/ba-cleaning-after.webp';
+import baFridgeBefore from '../assets/media/ba-fridge-before.webp';
+import baFridgeAfter from '../assets/media/ba-fridge-after.webp';
 import baMotorBefore from '../assets/media/ba-before.webp';
 import baMotorAfter from '../assets/media/ba-after.webp';
-import baHvacBefore from '../assets/media/ba-hvac-before.jpg';
-import baHvacAfter from '../assets/media/ba-hvac-after.jpg';
+import baHvacBefore from '../assets/media/ba-hvac-before.webp';
+import baHvacAfter from '../assets/media/ba-hvac-after.webp';
 
 export const SERVICE_BA_CONFIGS = {
   'ac-repair-riyadh': {

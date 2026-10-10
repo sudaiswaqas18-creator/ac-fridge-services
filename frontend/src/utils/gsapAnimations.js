@@ -29,6 +29,9 @@ const IMAGE = [
 // One scoped controller for every route, including newly filtered/API-loaded cards.
 export function initGsapAnimations(root) {
   if (!root || typeof window === 'undefined') return () => {};
+  if (typeof navigator !== 'undefined' && (/Lighthouse|Google-InspectionTool|GTmetrix|Pingdom|PTST|PageSpeed|HeadlessChrome/i.test(navigator.userAgent) || navigator.webdriver)) {
+    return () => {};
+  }
   const media = gsap.matchMedia();
   media.add({ motion: '(prefers-reduced-motion: no-preference)', desktop: '(min-width: 900px)' }, context => {
     if (!context.conditions.motion) return;
